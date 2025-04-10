@@ -193,6 +193,28 @@ button:hover {
   background-color: var(--primary-hover);
 }
 
+/* Notification erreur or succes connection*/
+.alert {
+  padding: 15px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.alert.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.alert.success {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+
 /* Section avec iconographie et card */
 .card {
   background: var(--white);
