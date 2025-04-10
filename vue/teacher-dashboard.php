@@ -1,4 +1,4 @@
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
 
 <div class="container">
     <h1>Mon Espace Professeur</h1>
@@ -6,4 +6,4 @@
     <a href="create_course.php">Créer un Cours</a> | <a href="student_progress.php">Suivi Élèves</a>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

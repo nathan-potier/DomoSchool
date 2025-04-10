@@ -1,14 +1,14 @@
 <?php
 // Inclure les fichiers nécessaires
-require_once __DIR__ . '/includes/functions.php';
-require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/db.php';
 
 // Démarrer la session
 startSession();
 
 // Vérifier si l'utilisateur est connecté
 if (empty($_SESSION['user_id'])) {
-    redirect('/login.php');
+    redirect('login.php');
 }
 
 // Connexion à la base de données
@@ -22,7 +22,7 @@ try {
     $user = $stmt->fetch();
 
     if (!$user) {
-        redirect('/login.php');
+        redirect('login.php');
     }
 
     // Si le formulaire a été soumis, mettre à jour les informations de l'utilisateur
@@ -43,12 +43,12 @@ try {
 }
 ?>
 
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
 
 <div class="container">
     <h1>Modifier votre profil</h1>
 
-    <?php include('includes/notif.php'); ?>
+    <?php include('../includes/notif.php'); ?>
     <form method="post">
         <label for="first_name">Prénom :</label>
         <input type="text" id="first_name" name="first_name" value="<?= htmlspecialchars($user['first_name']) ?>" required>
@@ -63,4 +63,4 @@ try {
     </form>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

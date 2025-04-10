@@ -44,21 +44,38 @@ domoschool/
 ├── assets/
 │   ├── css/
 │   │   └── style.css
+│   ├── images/
+│   │   └── logo.png
 │   └── js/
-│       └── app.js
+│       ├── main.js
+│       └── menuBurger.js
 ├── config/
 │   └── config.php
 ├── includes/
 │   ├── db.php
+│   ├── footer.php
 │   ├── functions.php
 │   ├── header.php
-│   └── footer.php
+│   └── notif.php
 ├── logs/
+│   ├── activity.log
+│   └── errors.log
+├── models/
+│   ├── authenticate.php
+│   ├── logout.php
+│   └── register_user.php
 ├── uploads/
-├── dashboard.php
-├── login.php
-├── register.php
-└── register_user.php
+├── vue/
+│   ├── dashboard.php
+│   ├── edit-profile.php
+│   ├── index.php
+│   ├── login.php
+│   ├── parent-dashboard.php
+│   ├── register.php
+│   ├── student-dashboard.php
+│   └── teacher-dashboard.php
+├── README.md
+└── table.sql
 
 ```
 

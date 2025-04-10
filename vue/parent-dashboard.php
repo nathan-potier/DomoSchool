@@ -1,4 +1,4 @@
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
 
 <div class="container">
     <h1>Tableau de bord Parent</h1>
@@ -6,4 +6,4 @@
     <a href="child_progress.php">Progrès de mon enfant</a> | <a href="session_history.php">Historique des cours</a>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

@@ -1,4 +1,4 @@
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
 
 <div class="container" style="max-width: 500px; margin-top: 60px; margin-bottom: 80px;">
     <h1 style="text-align: center; margin-bottom: 20px;">📝 Créer un compte</h1>
@@ -6,8 +6,8 @@
         Rejoignez <strong>DomoSchool</strong> et accédez à des cours personnalisés, des exercices interactifs et bien plus encore.
     </p>
     
-    <?php include('includes/notif.php'); ?>
-    <form method="post" action="register_user.php" style="background-color: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <?php include('../includes/notif.php'); ?>
+    <form method="post" action="../models/register_user.php" style="background-color: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
         <label for="first_name" style="font-weight: 600;">👤 Prénom :</label>
         <input type="text" id="first_name" name="first_name" required placeholder="Jean">
         
@@ -32,4 +32,4 @@
     </p>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/../includes/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    redirect('register.php');
+    redirect('../vue/register.php');
 }
 
 // Récupération et validation
@@ -16,19 +16,19 @@ $data = [
 
 // Validation
 if (empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password']) || empty($data['password_confirm'])) {
-    redirect('register.php?error=Tous les champs sont obligatoires');
+    redirect('../vue/register.php?error=Tous les champs sont obligatoires');
 }
 
 if (!validateEmail($data['email'])) {
-    redirect('register.php?error=Email invalide');
+    redirect('../vue/register.php?error=Email invalide');
 }
 
 if ($data['password'] !== $data['password_confirm']) {
-    redirect('register.php?error=Les mots de passe ne correspondent pas');
+    redirect('../vue/register.php?error=Les mots de passe ne correspondent pas');
 }
 
 if (strlen($data['password']) < 8) {
-    redirect('register.php?error=Le mot de passe doit faire au moins 8 caractères');
+    redirect('../vue/register.php?error=Le mot de passe doit faire au moins 8 caractères');
 }
 
 try {
@@ -39,7 +39,7 @@ try {
     $stmt->execute([$data['email']]);
     
     if ($stmt->fetch()) {
-        redirect('register.php?error=Cet email est déjà utilisé');
+        redirect('../vue/register.php?error=Cet email est déjà utilisé');
     }
     
     // Insertion
@@ -56,11 +56,11 @@ try {
     ]);
     
     logActivity('user_register', $connex->lastInsertId());
-    redirect('login.php?success=Votre compte a été créé');
+    redirect('../vue/login.php?success=Votre compte a été créé');
     
 } catch (PDOException $e) {
     error_log('Registration Error: '.$e->getMessage());
-    redirect('register.php?error=Erreur système. Veuillez réessayer');
+    redirect('../vue/register.php?error=Erreur système. Veuillez réessayer');
 }
 
 ?>

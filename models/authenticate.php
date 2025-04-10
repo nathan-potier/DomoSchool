@@ -1,14 +1,14 @@
 <?php
-require_once __DIR__ . '/config/config.php';
-require_once __DIR__ . '/includes/db.php'; // Inclure les fonctions de gestion de la base de données
-require_once __DIR__ . '/includes/functions.php'; // Inclure les fonctions génériques
+require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../includes/db.php'; // Inclure les fonctions de gestion de la base de données
+require_once __DIR__ . '/../includes/functions.php'; // Inclure les fonctions génériques
 
 // Démarrer la session si ce n'est pas déjà fait
 startSession();
 
 // Si l'utilisateur est déjà authentifié, rediriger vers la page d'accueil ou le tableau de bord
 if (isset($_SESSION['user_id'])) {
-    redirect('dashboard.php'); // Remplacer par la page vers laquelle rediriger après authentification
+    redirect('../vue/dashboard.php'); // Remplacer par la page vers laquelle rediriger après authentification
 }
 
 // Vérification des informations de connexion
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validation des données
     if (empty($email) || empty($password)) {
-        redirect('login.php?error=Tous les champs sont obligatoires');
+        redirect('../vue/login.php?error=Tous les champs sont obligatoires');
     }
 
     // Connexion à la base de données
@@ -43,15 +43,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             logActivity('user_login', $user['id']); // Loguer l'activité de connexion
 
             // Rediriger vers le tableau de bord ou une page protégée
-            redirect('dashboard.php');
+            redirect('../vue/dashboard.php');
         } else {
             // Authentification échouée
-            redirect('login.php?error=Identifiants incorrects');
+            redirect('../vue/login.php?error=Identifiants incorrects');
         }
 
     } catch (PDOException $e) {
         error_log('Authentication Error: '.$e->getMessage());
-        redirect('login.php?error=Erreur système. Veuillez réessayer');
+        redirect('../vue/login.php?error=Erreur système. Veuillez réessayer');
     }
 }
 

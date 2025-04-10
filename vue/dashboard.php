@@ -1,6 +1,6 @@
 <?php
 // Inclure les fichiers nécessaires
-require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/../includes/functions.php';
 
 // Démarrer la session
 startSession();
@@ -22,7 +22,7 @@ $role = $user['role'];
 $lastLogin = $user['last_login'] ? date('d/m/Y H:i', strtotime($user['last_login'])) : 'Jamais';
 ?>
 
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
 
 <div class="container" style="max-width: 900px; margin-top: 40px;">
     <h1 style="text-align: center; margin-bottom: 30px;">Bienvenue, <?= htmlspecialchars($fullName) ?> !</h1>
@@ -65,8 +65,8 @@ $lastLogin = $user['last_login'] ? date('d/m/Y H:i', strtotime($user['last_login
     <!-- Section : Liens pour modifier les informations ou se déconnecter -->
     <div class="dashboard-actions" style="display: flex; justify-content: space-between; margin-top: 40px;">
         <a href="edit-profile.php" class="btn" style="padding: 10px 20px; background-color: #FFC107; color: white; text-decoration: none; border-radius: 6px;">Modifier le profil</a>
-        <a href="logout.php" class="btn" style="padding: 10px 20px; background-color: #F44336; color: white; text-decoration: none; border-radius: 6px;">Se déconnecter</a>
+        <a href="../models/logout.php" class="btn" style="padding: 10px 20px; background-color: #F44336; color: white; text-decoration: none; border-radius: 6px;">Se déconnecter</a>
     </div>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

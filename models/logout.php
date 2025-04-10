@@ -1,6 +1,6 @@
 <?php
 // Inclure les fichiers nécessaires
-require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/../includes/functions.php';
 
 // Démarrer la session
 startSession();
@@ -10,5 +10,5 @@ session_unset();
 session_destroy();
 
 // Rediriger vers la page de connexion avec un message de succès
-redirect('login.php?success=Vous êtes déconnecté avec succès');
+redirect('../vue/login.php?success=Vous êtes déconnecté avec succès');
 ?>
