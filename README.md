@@ -1,3 +1,4 @@
+
 # DomiSchool
 
 DomiSchool est une plateforme d'éducation en ligne qui combine des **cours particuliers en visioconférence**, des **exercices interactifs en autonomie** et un **suivi en temps réel pour les parents**. Le but est d'offrir une solution complète, personnalisée et accessible pour la réussite scolaire des élèves.
@@ -39,19 +40,23 @@ DomiSchool est une plateforme d'éducation en ligne qui combine des **cours part
 ## 🗂 Structure du projet
 
 ```
-project/
-├── index.html               // Page d'accueil
-├── login.html               // Connexion
-├── dashboard.html           // Tableau de bord
-├── student.html             // Espace élève
-├── parent.html              // Espace parent
-├── teacher.html             // Espace professeur
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
-└── php/
-    └── login.php
+DomiSchool.fr/
+├── index.php                // Page d'accueil
+├── login.php                // Connexion utilisateur
+├── register.php             // Inscription utilisateur
+├── dashboard.php            // Tableau de bord principal
+├── student-dashboard.php    // Tableau de bord élève
+├── parent-dashboard.php     // Tableau de bord parent
+├── teacher-dashboard.php    // Tableau de bord professeur
+├── assets/
+│   ├── css/
+│   │   └── style.css        // Fichier CSS principal
+│   └── js/
+│       └── main.js          // Fichier JS principal
+├── includes/
+│   ├── header.php           // En-tête commun à toutes les pages
+│   └── footer.php           // Pied de page commun à toutes les pages
+└── README.md                // Documentation du projet
 ```
 
 ## 🚀 Roadmap
@@ -83,3 +88,4 @@ Développé par [Nathan Potier](https://github.com/nathan-potier)
 ---
 
 **DomiSchool** — Le soutien scolaire nouvelle génération 🇫🇷
+
