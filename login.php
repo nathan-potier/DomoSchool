@@ -2,6 +2,7 @@
 
 <div class="container">
     <h1>Connexion</h1>
+    <?php include('includes/notif.php'); ?>
     <form method="post" action="authenticate.php">
         <label for="email">Email :</label>
         <input type="email" id="email" name="email" required>

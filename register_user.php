@@ -1,111 +1,66 @@
 <?php
-// Inclure le fichier de connexion MySQLi
+require_once __DIR__ . '/includes/functions.php';
 
-require_once 'includes/db.php';
-
-// Sécurité : Vérifie que la requête est bien un POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(403);
-    exit('Accès non autorisé');
+    redirect('register.php');
 }
 
-// Nettoyage et validation des données
-$name = trim($_POST['name'] ?? '');
-$email = trim($_POST['email'] ?? '');
-$password = $_POST['password'] ?? '';
+// Récupération et validation
+$data = [
+    'first_name' => sanitizeInput($_POST['first_name'] ?? ''),
+    'last_name' => sanitizeInput($_POST['last_name'] ?? ''),
+    'email' => sanitizeInput($_POST['email'] ?? ''),
+    'password' => $_POST['password'] ?? '',
+    'password_confirm' => $_POST['password_confirm'] ?? ''
+];
 
-if (empty($name) || empty($email) || empty($password)) {
-    exit('Tous les champs sont requis.');
+// Validation
+if (empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password']) || empty($data['password_confirm'])) {
+    redirect('register.php?error=Tous les champs sont obligatoires');
 }
 
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    exit('Adresse email invalide.');
+if (!validateEmail($data['email'])) {
+    redirect('register.php?error=Email invalide');
 }
 
-if (strlen($password) < 8) {
-    exit('Le mot de passe doit contenir au moins 8 caractères.');
+if ($data['password'] !== $data['password_confirm']) {
+    redirect('register.php?error=Les mots de passe ne correspondent pas');
+}
+
+if (strlen($data['password']) < 8) {
+    redirect('register.php?error=Le mot de passe doit faire au moins 8 caractères');
 }
 
 try {
-    // Vérifie si l'email existe déjà
-    $stmt = $conn->prepare("SELECT id FROM users WHERE email = ? LIMIT 1");
-    $stmt->bind_param('s', $email);  // 's' signifie string
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->fetch_assoc()) {
-        exit('Un compte avec cet email existe déjà.');
+    $connex = Database::getInstance()->getConnection();
+    
+    // Vérification email existant
+    $stmt = $connex->prepare("SELECT id FROM users WHERE email = ?");
+    $stmt->execute([$data['email']]);
+    
+    if ($stmt->fetch()) {
+        redirect('register.php?error=Cet email est déjà utilisé');
     }
-
-    // Hachage du mot de passe
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    // Insertion de l'utilisateur
-    $stmt = $conn->prepare("INSERT INTO users (name, email, password, created_at) VALUES (?, ?, ?, NOW())");
-    $stmt->bind_param('sss', $name, $email, $hashedPassword);  // 'sss' signifie 3 strings
-    $stmt->execute();
-
-    // Redirection ou message de succès
-    header("Location: login.php?register=success");
-    exit;
-
-} catch (mysqli_sql_exception $e) {
-    error_log("Erreur MySQLi : " . $e->getMessage());
-    exit("Une erreur est survenue. Veuillez réessayer plus tard.");
-}
-?>
-<?php
-// Inclure le fichier de connexion MySQLi
-require_once 'includes/db.php';
-
-// Sécurité : Vérifie que la requête est bien un POST
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(403);
-    exit('Accès non autorisé');
+    
+    // Insertion
+    $stmt = $connex->prepare("
+    INSERT INTO users (first_name, last_name, email, password, role, last_login) 
+    VALUES (?, ?, ?, ?, 'student', NULL)
+    ");
+    
+    $stmt->execute([
+        $data['first_name'],
+        $data['last_name'],
+        $data['email'],
+        hashPassword($data['password'])
+    ]);
+    
+    logActivity('user_register', $connex->lastInsertId());
+    redirect('login.php?success=Votre compte a été créé');
+    
+} catch (PDOException $e) {
+    error_log('Registration Error: '.$e->getMessage());
+    redirect('register.php?error=Erreur système. Veuillez réessayer');
 }
 
-// Nettoyage et validation des données
-$name = trim($_POST['name'] ?? '');
-$email = trim($_POST['email'] ?? '');
-$password = $_POST['password'] ?? '';
-
-if (empty($name) || empty($email) || empty($password)) {
-    exit('Tous les champs sont requis.');
-}
-
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    exit('Adresse email invalide.');
-}
-
-if (strlen($password) < 8) {
-    exit('Le mot de passe doit contenir au moins 8 caractères.');
-}
-
-try {
-    // Vérifie si l'email existe déjà
-    $stmt = $conn->prepare("SELECT id FROM users WHERE email = ? LIMIT 1");
-    $stmt->bind_param('s', $email);  // 's' signifie string
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->fetch_assoc()) {
-        exit('Un compte avec cet email existe déjà.');
-    }
-
-    // Hachage du mot de passe
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    // Insertion de l'utilisateur
-    $stmt = $conn->prepare("INSERT INTO users (name, email, password, created_at) VALUES (?, ?, ?, NOW())");
-    $stmt->bind_param('sss', $name, $email, $hashedPassword);  // 'sss' signifie 3 strings
-    $stmt->execute();
-
-    // Redirection ou message de succès
-    header("Location: login.php?register=success");
-    exit;
-
-} catch (mysqli_sql_exception $e) {
-    error_log("Erreur MySQLi : " . $e->getMessage());
-    exit("Une erreur est survenue. Veuillez réessayer plus tard.");
-}
 ?>

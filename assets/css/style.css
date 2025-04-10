@@ -24,14 +24,21 @@ html, body {
   color: var(--text);
   line-height: 1.6;
   scroll-behavior: smooth;
+  min-height: 100%; /* Force le body à avoir une hauteur minimum de 100% de la fenêtre */
+  display: flex;
+  flex-direction: column;
 }
 
+body {
+  flex: 1; /* Permet au body de prendre l'espace restant */
+}
 /* Container principal */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  flex: 1; /* Permet au container de prendre tout l'espace restant */
 }
 
 /* Header / Navbar */
@@ -277,6 +284,7 @@ button:hover {
   }
 }
 
+
 /* Footer */
 footer {
   background-color: var(--primary);
@@ -285,6 +293,9 @@ footer {
   text-align: center;
   margin-top: 40px;
   font-size: 1em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 footer a {

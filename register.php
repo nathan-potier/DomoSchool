@@ -6,27 +6,26 @@
         Rejoignez <strong>DomoSchool</strong> et accédez à des cours personnalisés, des exercices interactifs et bien plus encore.
     </p>
     
-    <?php if (isset($_GET['error'])): ?>
-    <div class="alert error">
-        <?= htmlspecialchars($_GET['error']) ?>
-    </div>
-    <?php elseif (isset($_GET['success'])): ?>
-        <div class="alert success">
-            <?= htmlspecialchars($_GET['success']) ?>
-        </div>
-    <?php endif; ?>
+    <?php include('includes/notif.php'); ?>
     <form method="post" action="register_user.php" style="background-color: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-        <label for="name" style="font-weight: 600;">👤 Nom complet :</label>
-        <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+        <label for="first_name" style="font-weight: 600;">👤 Prénom :</label>
+        <input type="text" id="first_name" name="first_name" required placeholder="Jean">
+        
+        <label for="last_name" style="font-weight: 600;">👤 Nom :</label>
+        <input type="text" id="last_name" name="last_name" required placeholder="Dupont">
         
         <label for="email" style="font-weight: 600;">📧 Adresse email :</label>
         <input type="email" id="email" name="email" required placeholder="exemple@email.com">
         
         <label for="password" style="font-weight: 600;">🔒 Mot de passe :</label>
         <input type="password" id="password" name="password" required placeholder="********">
-
+        
+        <label for="password_confirm" style="font-weight: 600;">🔒 Confirmer le mot de passe :</label>
+        <input type="password" id="password_confirm" name="password_confirm" required placeholder="********">
+        
         <button type="submit" style="margin-top: 20px;">S'inscrire</button>
     </form>
+
 
     <p style="text-align: center; margin-top: 20px;">
         Déjà un compte ? <a href="login.php" style="color: var(--primary); font-weight: 500;">Se connecter</a>

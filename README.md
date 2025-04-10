@@ -40,30 +40,25 @@ DomoSchool est une plateforme d'éducation en ligne qui combine des **cours part
 ## 🗂 Structure du projet
 
 ```
-DomoSchool/
-├── index.php                // Page d'accueil
-├── login.php                // Connexion utilisateur
-├── register.php             // Inscription utilisateur
-├── register_user.php        // Traitement de l'inscription (enregistrement en base de données)
-├── dashboard.php            // Tableau de bord principal
-├── student-dashboard.php    // Tableau de bord élève
-├── parent-dashboard.php     // Tableau de bord parent
-├── teacher-dashboard.php    // Tableau de bord professeur
+domoschool/
 ├── assets/
 │   ├── css/
-│   │   └── style.css        // Fichier CSS principal
+│   │   └── style.css
 │   └── js/
-│       └── main.js          // Fichier JS principal
-├── includes/
-│   ├── header.php           // En-tête commun à toutes les pages
-│   ├── footer.php           // Pied de page commun à toutes les pages
-│   └── db.php               // Fichier de connexion à la base de données (PDO ou MySQLi)
+│       └── app.js
 ├── config/
-│   └── config.php           // Fichier de configuration global (ex: paramètres de base de données, sécurité)
-├── uploads/                 // Dossier pour les fichiers téléchargés par les utilisateurs (par exemple, avatars, documents)
-├── logs/                    // Dossier pour les fichiers de logs du serveur
-├── .htaccess                // Fichier de configuration Apache pour la gestion des routes et la sécurité
-└── README.md                // Documentation du projet
+│   └── config.php
+├── includes/
+│   ├── db.php
+│   ├── functions.php
+│   ├── header.php
+│   └── footer.php
+├── logs/
+├── uploads/
+├── dashboard.php
+├── login.php
+├── register.php
+└── register_user.php
 
 ```
 
