@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DomiSchool</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="assets/js/menuBurger.js" defer></script>
+    <script src="../assets/js/menuBurger.js" defer></script>
 </head>
 <body>
     <header>

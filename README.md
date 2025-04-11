@@ -52,31 +52,54 @@ domoschool/
 ├── config/
 │   └── config.php
 ├── includes/
-│   ├── db.php
-│   ├── footer.php
-│   ├── functions.php
-│   ├── header.php
-│   └── notif.php
+│   ├── db.php                → Connexion à la base de données
+│   ├── footer.php            → Pied de page
+│   ├── functions.php         → Fonctions générales (validation, gestion erreurs)
+│   ├── header.php            → En-tête global (menu, etc.)
+│   └── notif.php             → Gestion des notifications
 ├── logs/
 │   ├── activity.log
 │   └── errors.log
 ├── models/
-│   ├── authenticate.php
-│   ├── logout.php
-│   └── register_user.php
+│   ├── authenticate.php      → Vérification de connexion et inscription
+│   ├── logout.php            → Déconnexion utilisateur
+│   ├── register_user.php     → Inscription des utilisateurs
+│   ├── get_user_data.php     → Récupération des informations utilisateurs
+│   ├── get_courses.php       → Récupération des cours
+│   ├── get_exercises.php     → Récupération des exercices
+│   └── update_profile.php    → Mise à jour du profil utilisateur
 ├── uploads/
+│   └── [fichiers uploadés]
 ├── vue/
-│   ├── dashboard.php
-│   ├── edit-profile.php
-│   ├── index.php
-│   ├── login.php
-│   ├── parent-dashboard.php
-│   ├── register.php
-│   ├── student-dashboard.php
-│   └── teacher-dashboard.php
+│   ├── eleve/
+│   │   ├── dashboard.php     → Tableau de bord de l’élève
+│   │   ├── courses.php       → Liste des cours de l’élève
+│   │   ├── profile.php       → Modification du profil de l’élève
+│   │   ├── exercises.php     → Liste des exercices interactifs
+│   │   └── schedule.php      → Planification des cours
+│   ├── parent/
+│   │   ├── dashboard.php     → Tableau de bord du parent
+│   │   ├── child.php         → Suivi d’un enfant spécifique
+│   │   ├── profile.php       → Modification du profil du parent
+│   │   └── messages.php      → Messagerie avec les professeurs
+│   ├── professeur/
+│   │   ├── dashboard.php     → Tableau de bord du professeur
+│   │   ├── create-course.php → Création de nouveaux cours
+│   │   ├── create-exercise.php → Création d’exercices
+│   │   ├── students.php      → Liste des élèves suivis
+│   │   ├── messages.php      → Messagerie interne
+│   │   └── profile.php       → Modification du profil du professeur
+│   ├── admin/
+│   │   ├── dashboard.php     → Vue d’ensemble de l’administration
+│   │   ├── users.php         → Gestion des utilisateurs
+│   │   ├── courses.php       → Validation des cours créés
+│   │   ├── logs.php          → Logs d’activité
+│   │   └── settings.php      → Paramètres généraux du site
+│   ├── login.php             → Page de connexion
+│   ├── register.php          → Page d'inscription
+│   └── index.php             → Page d'accueil publique
 ├── README.md
-└── table.sql
-
+└── table.sql                 → Commandes pour creer les tables 
 ```
 
 ## 🚀 Roadmap

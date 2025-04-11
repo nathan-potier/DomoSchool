@@ -31,6 +31,7 @@ html, body {
 
 body {
   flex: 1; /* Permet au body de prendre l'espace restant */
+  
 }
 /* Container principal */
 .container {
@@ -85,12 +86,13 @@ nav a:hover {
 .boutonBurger {
   position: fixed;
   top: 20px;
-  right: 20px;
+  right: 30px;
   width: 40px;
   height: 40px;
   cursor: pointer;
   z-index: 25;
   display: none;
+  
 }
 
 .boutonBurger span {
@@ -122,7 +124,7 @@ nav a:hover {
 .menuBurger {
   position: fixed;
   top: 0;
-  left: -100vw;
+  right: -100vw;
   width: 100vw;
   height: 100vh;
   background-color: var(--primary);
@@ -134,9 +136,16 @@ nav a:hover {
   align-items: center;
 }
 
+
 .menuBurgerOpen {
-  left: 0;
+  right: 0;
 }
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh; /* Empêche aussi le scroll sur mobile pendant le menue burger*/
+}
+
 
 .menuBurger a {
   color: var(--white);
