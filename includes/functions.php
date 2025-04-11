@@ -62,4 +62,61 @@ function getUserData($userId) {
     $stmt->execute([$userId]);
     return $stmt->fetch();
 }
+
+function getChildByParent($parentId) {
+    global $pdo;
+    $sql = "SELECT * FROM users WHERE parent_id = :parent_id AND role = 'student'";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':parent_id', $parentId, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function getStudentSchedule($studentId) {
+    global $pdo;
+    $sql = "
+        SELECT courses.title AS course_name, schedule.date, teachers.first_name AS teacher_name
+        FROM schedule
+        JOIN courses ON schedule.course_id = courses.id
+        JOIN users AS teachers ON courses.teacher_id = teachers.id
+        WHERE schedule.student_id = :student_id
+        ORDER BY schedule.date";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':student_id', $studentId, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function updateUserProfile($userId, $firstName, $lastName, $email) {
+    global $pdo;
+    $sql = "UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':first_name', $firstName, PDO::PARAM_STR);
+    $stmt->bindParam(':last_name', $lastName, PDO::PARAM_STR);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+    return $stmt->execute();
+}
+
+function getExercisesByStudent($studentId) {
+    global $pdo;
+    $sql = "
+        SELECT exercises.title, exercises.description
+        FROM exercises
+        JOIN student_exercises ON exercises.id = student_exercises.exercise_id
+        WHERE student_exercises.student_id = :student_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':student_id', $studentId, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function isAdmin($user) {
+    return $user['role'] === 'admin';
+}
+
+
+
+
+
 ?>
