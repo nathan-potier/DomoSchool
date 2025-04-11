@@ -74,13 +74,13 @@ $userRole = $userSessionData['userRole'];
                 <!-- Redirection vers le bon tableau de bord selon le rôle de l'utilisateur -->
                 <a href="<?php
                     if ($userRole === 'student') {
-                        echo 'eleve/dashboard.php';
+                        echo BASE_URL . '/vue/eleve/dashboard.php';
                     } elseif ($userRole === 'teacher') {
-                        echo 'professeur/dashboard.php';
+                        echo BASE_URL . '/vue/professeur/dashboard.php';
                     } elseif ($userRole === 'parent') {
-                        echo 'parent/dashboard.php';
+                        echo BASE_URL . '/vue/parent/dashboard.php';
                     } elseif ($userRole === 'admin') {
-                        echo 'admin/dashboard.php';
+                        echo BASE_URL . '/vue/admin/dashboard.php';
                     }
                 ?>">Tableau de bord</a>
             <?php endif; ?>

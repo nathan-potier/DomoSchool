@@ -28,18 +28,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $chapterId = intval($_POST['chapter_id']);
     $filePath = ''; // Par défaut, pas de fichier de cours
 
-    // Si un fichier a été téléchargé
+        // Si un fichier a été téléchargé
     if (isset($_FILES['file_course']) && $_FILES['file_course']['error'] === UPLOAD_ERR_OK) {
         $fileName = $_FILES['file_course']['name'];
         $fileTmpName = $_FILES['file_course']['tmp_name'];
         $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
         $allowedExts = ['pdf', 'docx', 'txt', 'html']; // Extensions autorisées
-        $uploadDir = 'DomoSchool/uploads/courses/';
+        $uploadDir = '../../uploads/courses/'; // Répertoire d'upload sur le serveur
 
         // Vérifier si l'extension du fichier est autorisée
         if (in_array($fileExt, $allowedExts)) {
             $newFileName = uniqid('course_') . '.' . $fileExt;
-            $filePath = $uploadDir . $newFileName;
+            $filePath = '/uploads/courses/' . $newFileName; // Chemin relatif à la racine publique
 
             // Créer le répertoire s'il n'existe pas
             if (!is_dir($uploadDir)) {
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             // Déplacer le fichier téléchargé
-            if (move_uploaded_file($fileTmpName, $filePath)) {
+            if (move_uploaded_file($fileTmpName, $uploadDir . $newFileName)) {
                 // Fichier téléchargé avec succès
             } else {
                 echo "Erreur lors du téléchargement du fichier.";
@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
     }
+
 
     // Insérer le cours dans la base de données
     $teacherId = $_SESSION['user_id']; // Assigner l'ID du professeur
