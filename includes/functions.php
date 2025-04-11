@@ -31,19 +31,32 @@ function verifyPassword($password, $hash) {
 
 function checkAuth() {
     startSession();
+
+    // Vérifie si l'utilisateur est connecté
     if (empty($_SESSION['user_id'])) {
-        redirect('/login.php');
+        redirect(BASE_URL . '/vue/login.php');
     }
-    
-    // Vérification du timeout
+
+    // Initialiser 'last_activity' si elle n'existe pas encore
+    if (!isset($_SESSION['last_activity'])) {
+        $_SESSION['last_activity'] = time(); // Premier enregistrement de l'activité
+    }
+
+    // Vérification du timeout (si la session a expiré)
     if (time() - $_SESSION['last_activity'] > SESSION_TIMEOUT) {
-        session_unset();
-        session_destroy();
-        redirect('/login.php?timeout=1');
+        // Log du timeout
+        error_log("Session expirée pour l'utilisateur ID: {$_SESSION['user_id']}");
+
+        session_unset();  // Détruire les variables de session
+        session_destroy(); // Détruire la session
+        redirect(BASE_URL . '/vue/login.php'); // Redirection vers la page de login
     }
-    
+
+    // Met à jour 'last_activity' à chaque nouvelle activité
     $_SESSION['last_activity'] = time();
 }
+
+
 
 function logActivity($action, $userId = null) {
     $log = sprintf(
@@ -62,6 +75,32 @@ function getUserData($userId) {
     $stmt->execute([$userId]);
     return $stmt->fetch();
 }
+function getUserSessionData() {
+    // Vérifie si l'utilisateur est connecté et récupère ses données
+    if (isset($_SESSION['user_id'])) {
+        // Si l'utilisateur est connecté, on récupère ses données depuis la base
+        $userData = getUserData($_SESSION['user_id']);
+        if ($userData) {
+            return [
+                'isLoggedIn' => true,
+                'userRole' => $userData['role'],
+                'userName' => $userData['first_name'] . ' ' . $userData['last_name'],
+                'userEmail' => $userData['email'],
+                'lastLogin' => $userData['last_login']
+            ];
+        }
+    }
+    
+    // Si l'utilisateur n'est pas connecté ou que les données sont manquantes
+    return [
+        'isLoggedIn' => false,
+        'userRole' => null,
+        'userName' => null,
+        'userEmail' => null,
+        'lastLogin' => null
+    ];
+}
+
 
 function getChildByParent($parentId) {
     global $pdo;

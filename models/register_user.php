@@ -56,7 +56,7 @@ try {
     ]);
     
     logActivity('user_register', $connex->lastInsertId());
-    redirect('../vue/login.php?success=Votre compte a été créé');
+    redirect('../vue/index.php?success=Votre compte a été créé');
     
 } catch (PDOException $e) {
     error_log('Registration Error: '.$e->getMessage());

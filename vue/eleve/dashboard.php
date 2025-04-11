@@ -1,27 +1,28 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../../includes/functions.php';
 startSession();
+checkAuth();  // Cette fonction vérifie si l'utilisateur est connecté
 
-if (empty($_SESSION['user_id'])) {
-    redirect('login.php');
+// Récupérer les informations de l'utilisateur connecté
+$user = getUserSessionData();
+
+if ($user === null) {
+    // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
+    header('Location: ' . BASE_URL . '/vue/login.php');
+    exit();
 }
 
-$user = getUserData($_SESSION['user_id']);
-if (!$user) {
-    redirect('login.php');
-}
-
-$fullName = $user['first_name'] . ' ' . $user['last_name'];
+$fullName = $user['userName'];
 ?>
 
-<?php include('../includes/header.php'); ?>
+<?php include('../../includes/header.php'); ?>
 
 <div class="container">
     <h1>Bienvenue, <?= htmlspecialchars($fullName) ?> !</h1>
 
     <div class="dashboard-info">
-        <p><strong>Email :</strong> <?= htmlspecialchars($user['email']) ?></p>
-        <p><strong>Dernière connexion :</strong> <?= date('d/m/Y H:i', strtotime($user['last_login'])) ?></p>
+        <p><strong>Email :</strong> <?= htmlspecialchars($user['userEmail']) ?></p>
+        <p><strong>Dernière connexion :</strong> <?= date('d/m/Y H:i', strtotime($user['lastLogin'])) ?></p>
     </div>
 
     <div class="dashboard-links">
@@ -30,6 +31,11 @@ $fullName = $user['first_name'] . ' ' . $user['last_name'];
         <a href="schedule.php" class="btn">Planification des Cours</a>
         <a href="profile.php" class="btn">Modifier le Profil</a>
     </div>
+
+    <!-- Bouton de déconnexion -->
+    <div class="logout-btn">
+        <a href="<?= BASE_URL . '/models/logout.php' ?>" class="btn">Déconnexion</a>
+    </div>
 </div>
 
-<?php include('../includes/footer.php'); ?>
+<?php include('../../includes/footer.php'); ?>

@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
-require_once __DIR__ . '/../includes/db.php'; // Inclure les fonctions de gestion de la base de données
 require_once __DIR__ . '/../includes/functions.php'; // Inclure les fonctions génériques
 
 // Démarrer la session si ce n'est pas déjà fait
@@ -8,7 +7,7 @@ startSession();
 
 // Si l'utilisateur est déjà authentifié, rediriger vers la page d'accueil ou le tableau de bord
 if (isset($_SESSION['user_id'])) {
-    redirect('../vue/dashboard.php'); // Remplacer par la page vers laquelle rediriger après authentification
+    redirect('../vue/index.php'); // Rediriger vers la page d'accueil si l'utilisateur est déjà connecté
 }
 
 // Vérification des informations de connexion
@@ -19,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validation des données
     if (empty($email) || empty($password)) {
+        // Si un des champs est vide, redirige l'utilisateur avec un message d'erreur
         redirect('../vue/login.php?error=Tous les champs sont obligatoires');
     }
 
@@ -34,16 +34,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($user && verifyPassword($password, $user['password'])) {
             // Mot de passe valide, connecter l'utilisateur
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_id'] = $user['id']; // Enregistrer l'ID de l'utilisateur dans la session
             $_SESSION['user_role'] = $user['role']; // Rôle de l'utilisateur (optionnel)
 
-                // Mise à jour de la colonne last_login avec la date et l'heure actuelles
+            // Mise à jour de la colonne last_login avec la date et l'heure actuelles
             $stmt = $connex->prepare("UPDATE users SET last_login = NOW() WHERE id = ?");
             $stmt->execute([$user['id']]);
+
             logActivity('user_login', $user['id']); // Loguer l'activité de connexion
 
-            // Rediriger vers le tableau de bord ou une page protégée
-            redirect('../vue/dashboard.php');
+            // Rediriger l'utilisateur vers la page appropriée en fonction de son rôle
+            switch ($user['role']) {
+                case 'admin':
+                    redirect('../vue/admin/dashboard.php');
+                    break;
+                case 'teacher':
+                    redirect('../vue/professeur/dashboard.php');
+                    break;
+                case 'parent':
+                    redirect('../vue/parent/dashboard.php');
+                    break;
+                default:
+                    redirect('../vue/eleve/dashboard.php');
+            }
         } else {
             // Authentification échouée
             redirect('../vue/login.php?error=Identifiants incorrects');
