@@ -1,5 +1,7 @@
 <?php include('../includes/header.php'); ?>
 
+
+
 <div class="container">
 
     <!-- Section d’intro -->
@@ -9,12 +11,15 @@
             DomoSchool est votre plateforme d'éducation moderne. Cours particuliers en ligne, exercices interactifs, 
             suivi en temps réel... tout pour garantir la réussite scolaire de vos enfants.
         </p>
-        <a href="login.php">
-            <button style="margin: 10px;">Se connecter</button>
-        </a>
-        <a href="register.php">
-            <button style="margin: 10px; background-color: #10b981;">Créer un compte</button>
-        </a>
+        <?php if (!$isLoggedIn): ?>
+            <a href="login.php">
+                <button style="margin: 10px;">Se connecter</button>
+            </a>
+            <a href="register.php">
+                <button style="margin: 10px; background-color: #10b981;">Créer un compte</button>
+            </a>
+        <?php endif; ?>
+
     </section>
 
     <!-- Avantages -->

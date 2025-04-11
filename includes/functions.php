@@ -101,6 +101,33 @@ function getUserSessionData() {
     ];
 }
 
+function getCourses() {
+    global $connex;
+    $stmt = $connex->prepare("SELECT c.id, c.title, c.description, c.file_path, ch.name AS chapter_name, u.first_name AS teacher_first_name, u.last_name AS teacher_last_name
+                              FROM courses c
+                              JOIN users u ON c.teacher_id = u.id
+                              LEFT JOIN chapters ch ON c.chapter_id = ch.id
+                              WHERE c.id IS NOT NULL");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getCourseById($courseId) {
+    global $connex;
+    $stmt = $connex->prepare("SELECT id, title, description, file_path FROM courses WHERE id = ?");
+    $stmt->execute([$courseId]);
+    return $stmt->fetch();
+}
+
+
+function getChapters() {
+    global $connex;
+    $stmt = $connex->prepare("SELECT * FROM chapters ORDER BY name ASC");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 
 function getChildByParent($parentId) {
     global $pdo;

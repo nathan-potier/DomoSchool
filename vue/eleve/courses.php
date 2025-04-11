@@ -1,32 +1,51 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../../includes/functions.php';
 startSession();
 
-if (empty($_SESSION['user_id'])) {
-    redirect('login.php');
+// Vérifie si l'utilisateur est connecté
+checkAuth();
+$userSessionData = getUserSessionData();
+if (!$userSessionData['isLoggedIn']) {
+    header('Location: login.php');
+    exit;
 }
 
-$user = getUserData($_SESSION['user_id']);
-if (!$user) {
-    redirect('login.php');
-}
 
-// Exemple de récupération des cours
-//$courses = getCoursesByStudent($_SESSION['user_id']);
+// Récupère les cours disponibles
+$courses = getCourses();
+
+
+
+
 ?>
 
-<?php include('../includes/header.php'); ?>
+<?php include(__DIR__ . '/../../includes/header.php'); ?>
 
 <div class="container">
-    <h1>Mes Cours</h1>
+    <h1>Liste des Cours</h1>
 
-    <?php foreach ($courses as $course): ?>
-        <div class="course">
-            <h3><?= htmlspecialchars($course['title']) ?></h3>
-            <p><?= htmlspecialchars($course['description']) ?></p>
-            <a href="course-details.php?id=<?= $course['id'] ?>" class="btn">Voir Détails</a>
-        </div>
-    <?php endforeach; ?>
+    <!-- Liste des cours -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre du Cours</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($courses as $course) {
+                echo '<tr>';
+                echo '<td>' . htmlspecialchars($course['title']) . '</td>';
+                echo '<td>' . htmlspecialchars($course['description']) . '</td>';
+                echo '<td>' . htmlspecialchars($course['chapter_name']) . '</td>';
+                echo '<td>' . htmlspecialchars($course['teacher_first_name']) . ' ' . htmlspecialchars($course['teacher_last_name']) . '</td>';
+                echo '<td><a href="../view_course.php?course_id=' . $course['id'] . '" class="btn btn-primary">Voir le cours</a></td>';
+                echo '</tr>';
+            }?>
+        </tbody>
+    </table>
 </div>
 
-<?php include('../includes/footer.php'); ?>
+<?php include(__DIR__ . '/../../includes/footer.php'); ?>

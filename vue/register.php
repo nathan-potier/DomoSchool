@@ -1,34 +1,42 @@
 <?php include('../includes/header.php'); ?>
 
-<div class="container" style="max-width: 500px; margin-top: 60px; margin-bottom: 80px;">
-    <h1 style="text-align: center; margin-bottom: 20px;">📝 Créer un compte</h1>
-    <p style="text-align: center; font-size: 1rem; color: #555; margin-bottom: 30px;">
+<div class="container signup-container">
+    <h1 class="signup-title">📝 Créer un compte</h1>
+    <p class="signup-description">
         Rejoignez <strong>DomoSchool</strong> et accédez à des cours personnalisés, des exercices interactifs et bien plus encore.
     </p>
     
     <?php include('../includes/notif.php'); ?>
-    <form method="post" action="../models/register_user.php" style="background-color: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-        <label for="first_name" style="font-weight: 600;">👤 Prénom :</label>
-        <input type="text" id="first_name" name="first_name" required placeholder="Jean">
+    
+    <form method="post" action="../models/register_user.php" class="signup-form">
+        <label for="first_name" class="signup-label">👤 Prénom :</label>
+        <input type="text" id="first_name" name="first_name" required placeholder="Jean" class="signup-input">
         
-        <label for="last_name" style="font-weight: 600;">👤 Nom :</label>
-        <input type="text" id="last_name" name="last_name" required placeholder="Dupont">
+        <label for="last_name" class="signup-label">👤 Nom :</label>
+        <input type="text" id="last_name" name="last_name" required placeholder="Dupont" class="signup-input">
         
-        <label for="email" style="font-weight: 600;">📧 Adresse email :</label>
-        <input type="email" id="email" name="email" required placeholder="exemple@email.com">
+        <label for="email" class="signup-label">📧 Adresse email :</label>
+        <input type="email" id="email" name="email" required placeholder="exemple@email.com" class="signup-input">
         
-        <label for="password" style="font-weight: 600;">🔒 Mot de passe :</label>
-        <input type="password" id="password" name="password" required placeholder="********">
+        <label for="password" class="signup-label">🔒 Mot de passe :</label>
+        <input type="password" id="password" name="password" required placeholder="********" class="signup-input">
         
-        <label for="password_confirm" style="font-weight: 600;">🔒 Confirmer le mot de passe :</label>
-        <input type="password" id="password_confirm" name="password_confirm" required placeholder="********">
+        <label for="password_confirm" class="signup-label">🔒 Confirmer le mot de passe :</label>
+        <input type="password" id="password_confirm" name="password_confirm" required placeholder="********" class="signup-input">
         
-        <button type="submit" style="margin-top: 20px;">S'inscrire</button>
+        <label for="role" class="signup-label">🎓 Choisissez votre rôle :</label>
+        <select id="role" name="role" class="signup-input" required>
+            <option value="student">Étudiant</option>
+            <option value="teacher">Professeur</option>
+            <option value="parent">Parent</option>
+            <option value="admin">Administrateur</option>
+        </select>
+        
+        <button type="submit" class="signup-btn">S'inscrire</button>
     </form>
 
-
-    <p style="text-align: center; margin-top: 20px;">
-        Déjà un compte ? <a href="login.php" style="color: var(--primary); font-weight: 500;">Se connecter</a>
+    <p class="signup-login-link">
+        Déjà un compte ? <a href="login.php" class="signup-login-link-text">Se connecter</a>
     </p>
 </div>
 

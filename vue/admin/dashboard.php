@@ -1,28 +1,40 @@
 <?php
-require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../../includes/functions.php';
 startSession();
+checkAuth();
 
-if (empty($_SESSION['user_id'])) {
-    redirect('login.php');
+// Récupérer les informations de l'utilisateur connecté
+$user = getUserSessionData();
+
+if ($user === null || $user['userRole'] !== 'admin') {
+    header('Location: ' . BASE_URL . '/vue/login.php');
+    exit();
 }
 
-$user = getUserData($_SESSION['user_id']);
-if (!$user || !isAdmin($user)) {
-    redirect('login.php');
-}
+$fullName = $user['userName'];
 ?>
 
-<?php include('../includes/header.php'); ?>
+<?php include('../../includes/header.php'); ?>
 
 <div class="container">
-    <h1>Administration</h1>
+    <h1>Bienvenue, <?= htmlspecialchars($fullName) ?> (Admin) !</h1>
 
-    <div class="admin-links">
-        <a href="users.php" class="btn">Gestion des Utilisateurs</a>
-        <a href="courses.php" class="btn">Validation des Cours</a>
-        <a href="logs.php" class="btn">Logs d’Activité</a>
-        <a href="settings.php" class="btn">Paramètres</a>
+    <div class="dashboard-info">
+        <p><strong>Email :</strong> <?= htmlspecialchars($user['userEmail']) ?></p>
+        <p><strong>Dernière connexion :</strong> <?= date('d/m/Y H:i', strtotime($user['lastLogin'])) ?></p>
+    </div>
+
+    <div class="dashboard-links">
+        <a href="users.php" class="btn">Gérer les utilisateurs</a>
+        <a href="courses.php" class="btn">Valider les cours</a>
+        <a href="logs.php" class="btn">Consulter les logs</a>
+        <a href="settings.php" class="btn">Paramètres généraux</a>
+    </div>
+
+    <!-- Bouton de déconnexion -->
+    <div class="logout-btn">
+        <a href="<?= BASE_URL . '/models/logout.php' ?>" class="btn">Déconnexion</a>
     </div>
 </div>
 
-<?php include('../includes/footer.php'); ?>
+<?php include('../../includes/footer.php'); ?>

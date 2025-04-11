@@ -11,11 +11,12 @@ $data = [
     'last_name' => sanitizeInput($_POST['last_name'] ?? ''),
     'email' => sanitizeInput($_POST['email'] ?? ''),
     'password' => $_POST['password'] ?? '',
-    'password_confirm' => $_POST['password_confirm'] ?? ''
+    'password_confirm' => $_POST['password_confirm'] ?? '',
+    'role' => $_POST['role'] ?? 'student' // Récupérer le rôle choisi
 ];
 
 // Validation
-if (empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password']) || empty($data['password_confirm'])) {
+if (empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) || empty($data['password']) || empty($data['password_confirm']) || empty($data['role'])) {
     redirect('../vue/register.php?error=Tous les champs sont obligatoires');
 }
 
@@ -31,6 +32,11 @@ if (strlen($data['password']) < 8) {
     redirect('../vue/register.php?error=Le mot de passe doit faire au moins 8 caractères');
 }
 
+$validRoles = ['student', 'teacher', 'admin', 'parent']; // Liste des rôles autorisés
+if (!in_array($data['role'], $validRoles)) {
+    redirect('../vue/register.php?error=Rôle invalide');
+}
+
 try {
     $connex = Database::getInstance()->getConnection();
     
@@ -42,17 +48,18 @@ try {
         redirect('../vue/register.php?error=Cet email est déjà utilisé');
     }
     
-    // Insertion
+    // Insertion avec le rôle choisi
     $stmt = $connex->prepare("
     INSERT INTO users (first_name, last_name, email, password, role, last_login) 
-    VALUES (?, ?, ?, ?, 'student', NULL)
+    VALUES (?, ?, ?, ?, ?, NULL)
     ");
     
     $stmt->execute([
         $data['first_name'],
         $data['last_name'],
         $data['email'],
-        hashPassword($data['password'])
+        hashPassword($data['password']),
+        $data['role'] // Enregistrer le rôle
     ]);
     
     logActivity('user_register', $connex->lastInsertId());
@@ -62,5 +69,4 @@ try {
     error_log('Registration Error: '.$e->getMessage());
     redirect('../vue/register.php?error=Erreur système. Veuillez réessayer');
 }
-
 ?>

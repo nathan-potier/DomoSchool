@@ -69,7 +69,8 @@ domoschool/
 │   ├── get_exercises.php     → Récupération des exercices
 │   └── update_profile.php    → Mise à jour du profil utilisateur
 ├── uploads/
-│   └── [fichiers uploadés]
+│   └── courses/
+│       └── [fichiers uploadés ici]
 ├── vue/
 │   ├── eleve/
 │   │   ├── dashboard.php     → Tableau de bord de l’élève
@@ -97,7 +98,8 @@ domoschool/
 │   │   └── settings.php      → Paramètres généraux du site
 │   ├── login.php             → Page de connexion
 │   ├── register.php          → Page d'inscription
-│   └── index.php             → Page d'accueil publique
+│   ├── index.php             → Page d'accueil publique
+│   └── view_course.php
 ├── README.md
 └── table.sql                 → Commandes pour creer les tables 
 ```

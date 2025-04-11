@@ -305,6 +305,86 @@ button:hover {
 }
 
 /* ============================
+   Container d'inscription 
+   ============================ */
+
+   .signup-container {
+    max-width: 500px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+    padding: 0 15px;
+    background-color: var(--background); /* Ajout du fond neutre */
+  }
+  
+  .signup-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary); /* Utilisation de la couleur principale */
+  }
+  
+  .signup-description {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text); /* Couleur du texte plus foncée */
+    margin-bottom: 30px;
+  }
+  
+  .signup-form {
+    background-color: var(--white); /* Fond blanc */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow); /* Ombre légère */
+  }
+  
+  .signup-label {
+    font-weight: 600;
+    margin-top: 10px;
+    display: block;
+    color: var(--text); /* Texte du label en couleur foncée */
+  }
+  
+  .signup-input {
+    width: 100%;
+    padding: 15px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .signup-input:focus {
+    border-color: var(--primary); /* Bordure lors du focus avec couleur principale */
+  }
+  
+  .signup-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: var(--primary); /* Bouton avec couleur principale */
+    color: var(--white);
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-btn:hover {
+    background-color: var(--primary-hover); /* Effet hover avec couleur plus foncée */
+  }
+  
+  .signup-login-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .signup-login-link-text {
+    color: var(--primary); /* Lien avec couleur principale */
+    font-weight: 500;
+  }
+
+/* ============================
    Responsive 
    ============================ */
 
@@ -412,7 +492,7 @@ footer a:hover {
 }
 
 .logout-btn a {
-  background-color: var(--accent);
+  background-color: #a3574e;
   color: var(--white);
   padding: 12px 25px;
   border-radius: 8px;
@@ -422,8 +502,10 @@ footer a:hover {
 }
 
 .logout-btn a:hover {
-  background-color: #6c7c7b;
+  background-color: #C0392B;
 }
+
+
 
 
 /* ============================
@@ -590,3 +672,10 @@ html:not(.no-js) {
 }
 
 
+
+iframe {
+  width: 100%;
+  height: 100vh; /* La hauteur de la fenêtre pour que l'iframe prenne toute la hauteur */
+  border: none;
+  overflow: hidden; /* Désactive les barres de défilement */
+}

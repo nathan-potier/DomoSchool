@@ -1,0 +1,698 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Balise html </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="144165be-9e24-80e0-8131-ca0f2ca43425" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🌴</span></div><h1 class="page-title">Balise html </h1><p class="page-description"></p></header><div class="page-body"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6edda5fb-644d-4725-947f-d13dfd6204a7" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Titre de la page&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+    &lt;script src=&quot;script.js&quot; defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Contenu de la page --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><div id="9afc68e9-aa2f-4d0a-b85c-b88db37ae748" class="column-list"><div id="84cc0198-01c2-458e-9e75-d0e287eda687" style="width:50%" class="column"><ul id="9ecbae44-fb0e-405b-880a-821bcd97ebfb" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;!DOCTYPE html&gt;</strong></code> : Indique la version HTML utilisée (HTML5 dans cet exemple).</li></ul><ul id="6feb15e7-905c-42d8-8b7a-0a6fb1e521b9" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;html&gt;</strong></code> : Élément racine de la page.</li></ul><ul id="b0615fec-f853-4225-97be-3f039e702918" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;head&gt;</strong></code> : Contient des métadonnées, liens vers des fichiers CSS, scripts, etc.</li></ul><ul id="a9fb9996-75f8-4366-b665-5aaabb4e029b" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;meta charset=&quot;UTF-8&quot;&gt;</strong></code> : Spécifie l&#x27;encodage des caractères de la page.</li></ul><ul id="a34abad3-f404-4dc1-bf67-a3dc2a0d1206" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</strong></code> : Optimise l&#x27;affichage sur les appareils mobiles.</li></ul><ul id="cbdb0eed-2299-4a3f-a757-0ce7ec77eabc" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;title&gt;</strong></code> : Définit le titre de la page.</li></ul><ul id="17cee093-ebdf-439e-9661-80532875c956" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&amp;emsp;</strong></code><strong>  : tabulation (Em Space)</strong></li></ul><ul id="8d95674f-5c2f-468d-b557-0c5796c62fe8" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&amp;nbsp;</strong></code><strong>  : espace (Non-Breaking Space)</strong></li></ul><h3 id="98f0529b-c858-44fa-b3e7-6b1bd69c9cc0" class=""><strong>2. Balises de texte :</strong></h3><ul id="9e8a1202-3504-4174-a9d8-b5639171e861" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;h1&gt;</strong></code> à <code><strong>&lt;h6&gt;</strong></code> : Titres de différentes tailles.</li></ul><ul id="b156d060-3968-4dd3-839a-ea007a99824b" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;p&gt;</strong></code> : Paragraphe.</li></ul><ul id="5e4ec692-5006-4ddb-bf35-037d55cfc1b7" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;strong&gt;</strong></code> : Texte en gras.</li></ul><ul id="d25ad49d-bce2-439a-a577-3002d489132e" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;em&gt;</strong></code> : Texte en italique.</li></ul><ul id="2cfd21c8-3059-4f13-bcad-ab5ff8ff4223" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;u&gt;</strong></code> : Texte souligné.</li></ul><ul id="bd5476f8-6f4b-4119-8895-2bcf310b869c" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;br&gt;</strong></code> : Saut de ligne.</li></ul><ul id="b4517b6d-9ac5-4a04-9be5-097e82ce468e" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;hr&gt;</strong></code> : Ligne horizontale.</li></ul><h3 id="eefa0b97-a646-408a-b51f-fd00815bfad7" class=""><strong>3. Liens et images :</strong></h3><ul id="57c45717-44fa-4d09-9f10-51e19ef460c6" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;a href=&quot;url&quot;&gt;texte du lien&lt;/a&gt;</strong></code> : Crée un lien hypertexte.</li></ul><ul id="26ed792b-b5d6-4d63-9ec7-92b1c0c98c24" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;img src=&quot;url&quot; alt=&quot;description&quot;&gt;</strong></code> : Insère une image.</li></ul><h3 id="a7223dc5-0c42-4540-8ff6-980d12959fb2" class=""><strong>4. Listes :</strong></h3><ul id="4a05d975-1f39-401c-9f77-2e39b2527eed" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;ul&gt;</strong></code> : Liste non ordonnée.</li></ul><ul id="c9f11b10-ae99-4301-9023-6a0a12f12587" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;ol&gt;</strong></code> : Liste ordonnée.</li></ul><ul id="e835253d-28ac-452e-916e-91008f0f2a9c" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;li&gt;</strong></code> : Élément de liste.</li></ul><h3 id="d8fecd99-296e-4b99-9110-8e219160bb39" class=""><strong>5. Tableaux :</strong></h3><ul id="5f468213-4355-473b-bf5f-a86421b45533" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;table&gt;</strong></code> : Définit un tableau.</li></ul><ul id="cb7bd107-8e2a-4e6d-930e-7411b0ed0a15" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;tr&gt;</strong></code> : Ligne d&#x27;un tableau.</li></ul><ul id="e85a585c-978a-4d91-870b-01e5491f696c" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;td&gt;</strong></code> : Cellule de données d&#x27;un tableau.</li></ul><ul id="4fb58c17-a58d-4d0a-8c62-f77183c0da7d" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;th&gt;</strong></code> : En-tête de tableau.</li></ul><ul id="bacf6498-384c-459b-9186-30554f350c87" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;form&gt;</strong></code> : Définit un formulaire.</li></ul><ul id="1b1165be-9e24-80f4-9d06-f76542e56662" class="bulleted-list"><li style="list-style-type:disc">&lt;thead&gt;</li></ul><ul id="1b1165be-9e24-80c0-b072-c235038251ae" class="bulleted-list"><li style="list-style-type:disc">&lt;tbody&gt;</li></ul><h3 id="6c0bd367-0a01-431b-9356-f6187f4eb1f9" class=""><strong>6. Formulaires :</strong></h3><ul id="d3d55963-a985-4447-9148-991500b9fc9e" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;input&gt;</strong></code> : Champ de saisie.</li></ul><ul id="3a1350d7-6ff7-4c10-a8b8-014ff0b259e6" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;textarea&gt;</strong></code> : Zone de texte multiligne.</li></ul><ul id="52ed64ff-cf46-43b3-b72c-a2b1b5cccdc8" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;select&gt;</strong></code> : Liste déroulante.</li></ul><ul id="5dd88f26-4bfa-4ca9-b45b-7d2bbf2303b9" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;button&gt;</strong></code> : Bouton du formulaire.</li></ul><h3 id="55daf206-a9f4-4fb0-a1d6-7f5577075519" class=""><strong>7. Divisions et regroupements :</strong></h3><ul id="2c1b37d0-ec96-455b-a1ff-24a21d1ca511" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;div&gt;</strong></code> : Groupe de contenu générique.</li></ul><ul id="ebfb2478-8219-4fe3-b63c-def2fc30bf1b" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;span&gt;</strong></code> : Groupe de texte en ligne.</li></ul><p id="aeca695a-f79e-44c7-8ebb-7015143c7ea6" class="">
+</p></div><div id="53c94111-4a42-4e81-80aa-4f6e525aabfb" style="width:50%" class="column"><h3 id="ce8f4a88-078f-432f-abe1-b9756e2a9936" class=""><strong>8. Balises sémantiques :</strong></h3><ul id="ab65dc50-2eea-4772-8287-709d76cdcd99" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;header&gt;</strong></code> : En-tête de la page ou de section.</li></ul><ul id="1584f750-6591-468f-8891-4e1afbbb238c" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;footer&gt;</strong></code> : Pied de page de la page ou de section.</li></ul><ul id="94aa5ab9-2347-4770-9d8e-ef60dce2359d" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;nav&gt;</strong></code> : Liens de navigation.</li></ul><ul id="9a19ac30-4ef7-4450-a0a2-7b67e3ba765d" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;main&gt;</strong></code> : Contenu principal de la page.</li></ul><ul id="2a3e9654-eea4-43f0-a027-25bb0ecc0dd1" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;article&gt;</strong></code> : Contenu autonome, comme un article de blog.</li></ul><ul id="11d2e7aa-d2e5-48ad-af69-da738228b788" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;section&gt;</strong></code> : Section générique d&#x27;une page.</li></ul><ul id="604c1035-fa53-4988-b276-bceee53cc72d" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;aside&gt;</strong></code> : Contenu à part, comme une barre latérale.</li></ul><h3 id="60401714-82c9-4706-8a54-e7a61ae83413" class=""><strong>9. Balises pour le multimédia :</strong></h3><ul id="8f7ebd58-e8a7-4c6a-8104-f8f80993a7d0" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;audio&gt;</strong></code> : Intégration de fichiers audio.</li></ul><ul id="fd763cf7-e47f-442e-b93d-7a260f3827a8" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;video&gt;</strong></code> : Intégration de fichiers vidéo.</li></ul><ul id="a2bec05c-d77d-4d0f-a7c5-13403cadf65d" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;source&gt;</strong></code> : Fournit des sources alternatives pour les éléments <code><strong>&lt;audio&gt;</strong></code> et <code><strong>&lt;video&gt;</strong></code>.</li></ul><ul id="ad99a188-8ce9-4de8-b31d-62478ddd29a6" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;iframe&gt;</strong></code> : Intègre une page web dans une autre.</li></ul><ul id="1b47f255-a952-4e88-8530-b78a412b6566" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;embed&gt;</strong></code> : Intègre des contenus multimédias externes.</li></ul><h3 id="7426865d-eaea-4676-88e7-21e8c847154e" class=""><strong>10. Balises pour les éléments de texte spécifiques :</strong></h3><ul id="aa9d4d75-7638-4b63-b913-a72dbd4097ae" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;abbr&gt;</strong></code> : Abréviation ou acronyme.</li></ul><ul id="3ff96ef0-95fc-4289-9c58-06e7f8e0203e" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;cite&gt;</strong></code> : Titre d&#x27;une œuvre citée.</li></ul><ul id="284219ee-bebb-456a-8b04-73f5ca3dfdb7" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;code&gt;</strong></code> : Texte formaté en code.</li></ul><ul id="fc7a26f2-ce61-4279-adc0-bdf4ca21630b" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;mark&gt;</strong></code> : Texte marqué.</li></ul><ul id="53f54ba8-f102-4e4c-9ef5-f1e892e1efaf" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;sub&gt;</strong></code> : Texte en exposant.</li></ul><ul id="9c418a2a-a3a4-4786-87dc-4f1b0de42279" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;sup&gt;</strong></code> : Texte en indice.</li></ul><h3 id="ff94d94a-718a-45da-ab6b-6d0e81a33951" class=""><strong>11. Balises pour la structure de navigation :</strong></h3><ul id="075d1e15-7a50-4ee6-a619-973a84b0632c" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;menu&gt;</strong></code> : Menu de commandes.</li></ul><ul id="8010baae-5b98-4df0-bc43-e7a2bb816588" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;details&gt;</strong></code> : Conteneur pour des informations supplémentaires pouvant être masquées ou affichées.</li></ul><ul id="0493f87a-5a91-4120-b7ee-d3f3a5f0e7d6" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;summary&gt;</strong></code> : Titre ou légende pour un élément <code><strong>&lt;details&gt;</strong></code>.</li></ul><ul id="64f034af-4388-43a4-963c-1b32f53aabb8" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;nav&gt;</strong></code> : Section de navigation.</li></ul><h3 id="5b7030df-dd72-45f7-bd24-a6bddbde699a" class=""><strong>12. Balises pour les éléments interactifs :</strong></h3><ul id="3ed7c6c1-438a-4510-9f11-fa6982c5e00c" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;button&gt;</strong></code> : Bouton interactif.</li></ul><ul id="2dcac950-3765-45c6-8f79-46b61863ffe5" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;input type=&quot;checkbox&quot;&gt;</strong></code> : Case à cocher.</li></ul><ul id="de0f8736-6da9-4f6e-8703-59fafa5e2e10" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;input type=&quot;radio&quot;&gt;</strong></code> : Bouton radio.</li></ul><ul id="e9f722a0-debb-4b28-98eb-31ae196221b4" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;input type=&quot;submit&quot;&gt;</strong></code> : Bouton de soumission de formulaire.</li></ul><ul id="3e42453a-4b15-41cd-84c0-c7cab638898f" class="bulleted-list"><li style="list-style-type:disc"><code><strong>&lt;input type=&quot;reset&quot;&gt;</strong></code> : Bouton de réinitialisation de formulaire.</li></ul></div></div><p id="722db317-b448-465e-afb7-5d73557ef326" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
