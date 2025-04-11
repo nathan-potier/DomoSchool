@@ -1,11 +1,22 @@
-/* Reset de base */
+/* ============================
+   Reset de base 
+   ============================ */
+
+/* Réinitialisation des marges, des paddings et du modèle de boîte */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Couleurs principales */
+
+
+/* ============================
+   Couleurs principales 
+   ============================ */
+
+/* Définition des couleurs principales utilisées tout au long du site */
 :root {
   --primary: #4A90E2; /* Bleu légèrement plus doux */
   --primary-hover: #357ABD; /* Bleu un peu plus foncé pour l'effet hover */
@@ -17,7 +28,11 @@
   --highlight: #F39C12; /* Jaune-orangé pour les accents */
 }
 
-/* Global */
+/* ============================
+   Global 
+   ============================ */
+
+/* Style global appliqué à toute la page */
 html, body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--background);
@@ -31,9 +46,13 @@ html, body {
 
 body {
   flex: 1; /* Permet au body de prendre l'espace restant */
-  
 }
-/* Container principal */
+
+/* ============================
+   Container principal
+   ============================ */
+
+/* Conteneur principal pour la mise en page du site */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -42,7 +61,11 @@ body {
   flex: 1; /* Permet au container de prendre tout l'espace restant */
 }
 
-/* Header / Navbar */
+/* ============================
+   Header / Navbar 
+   ============================ */
+
+/* Style du header et de la barre de navigation */
 header {
   background-color: var(--white);
   box-shadow: 0 4px 8px var(--shadow);
@@ -82,7 +105,11 @@ nav a:hover {
   color: var(--white);
 }
 
-/* Burger Menu */
+/* ============================
+   Burger Menu 
+   ============================ */
+
+/* Style du bouton burger pour les écrans plus petits */
 .boutonBurger {
   position: fixed;
   top: 20px;
@@ -92,7 +119,6 @@ nav a:hover {
   cursor: pointer;
   z-index: 25;
   display: none;
-  
 }
 
 .boutonBurger span {
@@ -121,6 +147,7 @@ nav a:hover {
   top: 16px;
 }
 
+/* Menu déroulant du bouton burger */
 .menuBurger {
   position: fixed;
   top: 0;
@@ -136,17 +163,17 @@ nav a:hover {
   align-items: center;
 }
 
-
 .menuBurgerOpen {
   right: 0;
 }
 
+/* Désactive le scroll quand le menu burger est ouvert */
 .no-scroll {
   overflow: hidden;
-  height: 100vh; /* Empêche aussi le scroll sur mobile pendant le menue burger*/
+  height: 100vh;
 }
 
-
+/* Style des liens dans le menu burger */
 .menuBurger a {
   color: var(--white);
   margin: 20px;
@@ -155,7 +182,11 @@ nav a:hover {
   font-weight: 600;
 }
 
-/* Titres */
+/* ============================
+   Titres 
+   ============================ */
+
+/* Style des titres h1, h2, h3 */
 h1, h2, h3 {
   font-weight: 700;
   margin-bottom: 20px;
@@ -163,7 +194,11 @@ h1, h2, h3 {
   text-align: center;
 }
 
-/* Formulaires */
+/* ============================
+   Formulaires
+   ============================ */
+
+/* Style du formulaire */
 form {
   background: var(--white);
   padding: 30px;
@@ -194,6 +229,7 @@ textarea:focus {
   border-color: var(--primary);
 }
 
+/* Style des boutons */
 button {
   background-color: var(--primary);
   color: var(--white);
@@ -209,7 +245,11 @@ button:hover {
   background-color: var(--primary-hover);
 }
 
-/* Notification erreur or succes connection*/
+/* ============================
+   Notification erreur ou succès 
+   ============================ */
+
+/* Style des notifications */
 .alert {
   padding: 15px 20px;
   border-radius: 6px;
@@ -230,8 +270,11 @@ button:hover {
   border: 1px solid #6ee7b7;
 }
 
+/* ============================
+   Section avec iconographie et card 
+   ============================ */
 
-/* Section avec iconographie et card */
+/* Style des cards */
 .card {
   background: var(--white);
   padding: 20px;
@@ -261,7 +304,11 @@ button:hover {
   color: var(--accent);
 }
 
-/* Responsive */
+/* ============================
+   Responsive 
+   ============================ */
+
+/* Media query pour les écrans plus petits (tablettes et téléphones) */
 @media screen and (max-width: 768px) {
   nav {
     display: none;
@@ -293,8 +340,11 @@ button:hover {
   }
 }
 
+/* ============================
+   Footer 
+   ============================ */
 
-/* Footer */
+/* Style du footer */
 footer {
   background-color: var(--primary);
   color: var(--white);
@@ -316,3 +366,227 @@ footer a {
 footer a:hover {
   color: var(--highlight);
 }
+
+/* ============================
+   Contenu Dashboard 
+   ============================ */
+
+/* Style de la section de contenu principale du tableau de bord */
+.dashboard-info {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--shadow);
+  margin-bottom: 20px;
+}
+
+/* Style des liens dans le tableau de bord */
+.dashboard-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Liens dans le tableau de bord */
+.dashboard-links a {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-links a:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Bouton de déconnexion */
+.logout-btn {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.logout-btn a {
+  background-color: var(--accent);
+  color: var(--white);
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn a:hover {
+  background-color: #6c7c7b;
+}
+
+
+/* ============================
+   Dark Mode Toggle - Version Minimaliste
+   ============================ */
+
+/* Conteneur principal */
+.theme-toggle {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  z-index: 10;
+  padding: 0;
+}
+
+/* Version mobile */
+@media screen and (max-width: 768px) {
+  .theme-toggle {
+    top: 25px;
+    left: 25px;
+  }
+}
+
+/* Structure du toggle */
+.btToggle .btn {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.btToggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Piste du slider */
+.btToggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--accent);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+/* Émojis */
+.btToggle .moon,
+.btToggle .sun {
+  font-size: 14px;
+  position: relative;
+}
+
+/* Positionnement initial */
+.btToggle .moon {
+  opacity: 1;
+}
+
+.btToggle .sun {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+/* Styles pour le mode sombre */
+.btToggle input:checked + .slider {
+  background-color: var(--primary);
+}
+
+/* Animation UNIQUEMENT sur interaction */
+.btToggle input:checked + .slider .moon {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.btToggle input:checked + .slider .sun {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Désactive les transitions par défaut */
+.btToggle .slider,
+.btToggle .slider .moon,
+.btToggle .slider .sun {
+  transition: none;
+}
+
+/* Active les transitions seulement quand la classe 'animated' est présente */
+.btToggle.animated .slider,
+.btToggle.animated .slider .moon,
+.btToggle.animated .slider .sun {
+  transition: all 0.4s ease;
+}
+
+/* ============================
+   Styles Dark Mode
+   ============================ */
+html.mode-dark {
+  --background: #121212;
+  --text: #ffffff;
+  --white: #1e1e1e;
+  --shadow: rgba(255, 255, 255, 0.1);
+  --accent: #7F8C8D;
+}
+
+/* Prévention du Flash Blanc */
+html:not(.no-js) {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.no-js body {
+  opacity: 0;
+}
+
+.no-js body.loaded {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Cache le toggle tant que le thème n’est pas encore initialisé */
+html:not(.theme-loaded) .theme-toggle {
+  opacity: 0;
+}
+html.theme-loaded .theme-toggle {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+
+/* ============================
+   Prévention du Flash Blanc 
+   ============================ */
+   html.mode-dark {
+    --background: #121212;
+    --text: #ffffff;
+    --white: #1e1e1e;
+    --shadow: rgba(255, 255, 255, 0.1);
+    --accent: #7F8C8D;
+}
+
+/* Appliquez ces styles immédiatement */
+html:not(.no-js) {
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* Cache le contenu pendant le chargement initial */
+.no-js body {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.no-js body.loaded {
+    opacity: 1;
+}
+
+

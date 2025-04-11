@@ -1,17 +1,47 @@
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DomiSchool est prêt !");
+document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.querySelector('input[name="theme-mode"]');
+    const btToggle = document.querySelector('.btToggle');
     
-    // Example of form validation
-    const loginForm = document.querySelector('form');
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(event) {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            if (!email || !password) {
-                alert("Tous les champs doivent être remplis !");
-                event.preventDefault();
-            }
-        });
+    // Applique le mode sans animation
+    function applyMode(isDark) {
+        // D'abord, supprimer toutes les classes de mode
+        document.documentElement.classList.remove('mode-dark', 'mode-white');
+        
+        // Ensuite, ajouter la classe appropriée
+        document.documentElement.classList.add(isDark ? 'mode-dark' : 'mode-white');
+        
+        // Mettre à jour le stockage local
+        localStorage.setItem('mode', isDark ? 'mode-dark' : 'mode-white');
+        
+        // Mettre à jour l'état du toggle
+        toggle.checked = isDark;
     }
+
+    // Initialisation
+    function initTheme() {
+        const savedMode = localStorage.getItem('mode');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialMode = savedMode === 'mode-dark' || (!savedMode && systemPrefersDark);
+        
+        // Appliquer le mode avant tout rendu
+        applyMode(initialMode);
+        
+        
+
+    }
+
+    // Gestion du clic avec animation
+    toggle.addEventListener('change', function(e) {
+        // Activer les animations
+        btToggle.classList.add('animated');
+        
+        applyMode(e.target.checked);
+        
+        // Désactiver les animations après la transition
+        setTimeout(() => {
+            btToggle.classList.remove('animated');
+        }, 400);
+    });
+
+    initTheme();
 });
