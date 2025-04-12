@@ -182,7 +182,21 @@ function isAdmin($user) {
 }
 
 
-
-
+// Fonction pour exécuter le code Python (en PHP)
+function executePythonCode($code) {
+    $filename = tempnam(sys_get_temp_dir(), 'python_code_');
+    file_put_contents($filename, $code);
+    
+    $output = shell_exec("python3 $filename 2>&1");
+    unlink($filename);  // Supprimer le fichier temporaire
+    
+    return $output;
+}
+/* ERREUR
+function saveStudentExercise($student_id, $exercise_id, $code) {
+    $db = getDB();
+    $stmt = $db->prepare("INSERT INTO student_exercises (student_id, exercise_id, code) VALUES (?, ?, ?)");
+    $stmt->execute([$student_id, $exercise_id, $code]);
+}*/
 
 ?>

@@ -18,7 +18,14 @@
             <a href="register.php">
                 <button style="margin: 10px; background-color: #10b981;">Créer un compte</button>
             </a>
+        <?php else: ?>
+            <a href="eleve/courses.php">
+                <button style="margin: 10px; background-color: var(--primary); color: white;">
+                    📘 Voir les cours
+                </button>
+            </a>
         <?php endif; ?>
+
 
     </section>
 

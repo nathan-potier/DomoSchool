@@ -78,8 +78,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php include(__DIR__ . '/../../includes/header.php'); ?>
 
 <div class="container">
+    
     <h1>Créer un nouveau cours</h1>
-
+    <?php include('../../includes/notif.php'); ?>
     <!-- Formulaire pour créer un cours -->
     <form method="POST" enctype="multipart/form-data">
         <div class="form-group">

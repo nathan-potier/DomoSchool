@@ -39,7 +39,7 @@ include(__DIR__ . '/../includes/header.php');
         // Si le cours est un fichier .html, l'inclure dans un iframe
         if (!empty($course['file_path']) && pathinfo($course['file_path'], PATHINFO_EXTENSION) == 'html') {
             // Inclure le fichier HTML dans un iframe avec un événement onload pour ajuster la hauteur
-            echo "<iframe src='$filePath' id='course-iframe' width='100%' frameborder='0' scrolling='no' onload='resizeIframe(this)'></iframe>";
+            echo "<iframe src='$filePath' id='course-iframe' width='100%' frameborder='0' scrolling='no' onload='resizeIframe(this) '></iframe>";
         } elseif (!empty($course['file_path'])) {
             // Si le cours a un fichier autre que .html, fournir un lien de téléchargement
             echo '<a href="'. BASE_URL . htmlspecialchars($course['file_path']) . '" target="_blank">Télécharger le cours</a>';

@@ -1,51 +1,76 @@
 <?php
 require_once __DIR__ . '/../../includes/functions.php';
 startSession();
-
-// Vérifie si l'utilisateur est connecté
 checkAuth();
+
 $userSessionData = getUserSessionData();
 if (!$userSessionData['isLoggedIn']) {
     header('Location: login.php');
     exit;
 }
 
-
-// Récupère les cours disponibles
 $courses = getCourses();
 
-
-
-
+// Regrouper les cours par chapitre
+$chapters = [];
+foreach ($courses as $course) {
+    $chapterName = $course['chapter_name'];
+    if (!isset($chapters[$chapterName])) {
+        $chapters[$chapterName] = [];
+    }
+    $chapters[$chapterName][] = $course;
+}
 ?>
 
 <?php include(__DIR__ . '/../../includes/header.php'); ?>
 
 <div class="container">
-    <h1>Liste des Cours</h1>
+    <h1>📚 Cours par Chapitre</h1>
+    <div class="content-with-sidebar">
+        <div class="main-content">
+            <?php foreach ($chapters as $chapter => $courses): ?>
+                <div class="chapter-card">
+                    <div class="chapter-header">
+                        <h3><?= htmlspecialchars($chapter) ?></h3>
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="courses-list">
+                        <?php foreach ($courses as $course): ?>
+                            <a href="../view_course.php?course_id=<?= $course['id'] ?>">
+                                <div class="course-item">
+                                    
+                                        <?= htmlspecialchars($course['title']) ?>
+                                    
+                                    
+                                    <p class="teacher">👨‍🏫 <?= htmlspecialchars($course['teacher_first_name'] . ' ' . $course['teacher_last_name']) ?></p>
+                                </div>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
 
-    <!-- Liste des cours -->
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Titre du Cours</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            foreach ($courses as $course) {
-                echo '<tr>';
-                echo '<td>' . htmlspecialchars($course['title']) . '</td>';
-                echo '<td>' . htmlspecialchars($course['description']) . '</td>';
-                echo '<td>' . htmlspecialchars($course['chapter_name']) . '</td>';
-                echo '<td>' . htmlspecialchars($course['teacher_first_name']) . ' ' . htmlspecialchars($course['teacher_last_name']) . '</td>';
-                echo '<td><a href="../view_course.php?course_id=' . $course['id'] . '" class="btn btn-primary">Voir le cours</a></td>';
-                echo '</tr>';
-            }?>
-        </tbody>
-    </table>
+        <aside class="sidebar">
+            <h2>📝 Sommaire</h2>
+            <ul>
+                <?php foreach ($chapters as $chapter => $_): ?>
+                    <li><?= htmlspecialchars($chapter) ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </aside>
+    </div>
 </div>
 
+
 <?php include(__DIR__ . '/../../includes/footer.php'); ?>
+
+<script>
+document.querySelectorAll('.chapter-card').forEach(card => {
+  const header = card.querySelector('.chapter-header');
+  header.addEventListener('click', () => {
+    card.classList.toggle('open');
+  });
+});
+</script>
+
