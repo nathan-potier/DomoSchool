@@ -29,7 +29,7 @@ foreach ($courses as $course) {
     <div class="content-with-sidebar">
         <div class="main-content">
             <?php foreach ($chapters as $chapter => $courses): ?>
-                <div class="chapter-card">
+                <div class="chapter-card" id="<?= htmlspecialchars(str_replace(' ', '-', strtolower($chapter))) ?>">
                     <div class="chapter-header">
                         <h3><?= htmlspecialchars($chapter) ?></h3>
                         <span class="arrow">&#9660;</span>
@@ -55,9 +55,14 @@ foreach ($courses as $course) {
             <h2>📝 Sommaire</h2>
             <ul>
                 <?php foreach ($chapters as $chapter => $_): ?>
-                    <li><?= htmlspecialchars($chapter) ?></li>
+                    <li>
+                        <a class="" href="#<?= htmlspecialchars(str_replace(' ', '-', strtolower($chapter))) ?>">
+                            <?= htmlspecialchars($chapter) ?>
+                        </a>
+                    </li>
                 <?php endforeach; ?>
             </ul>
+
         </aside>
     </div>
 </div>
@@ -73,4 +78,19 @@ document.querySelectorAll('.chapter-card').forEach(card => {
   });
 });
 </script>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+</script>
+
 

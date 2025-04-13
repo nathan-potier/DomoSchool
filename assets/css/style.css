@@ -451,58 +451,118 @@ footer a:hover {
    Contenu Dashboard 
    ============================ */
 
-/* Style de la section de contenu principale du tableau de bord */
-.dashboard-info {
-  background-color: var(--white);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px var(--shadow);
+  .dashboard-info h2 {
+  font-size: 1.5rem;
   margin-bottom: 20px;
+  color: var(--text-dark);
 }
 
-/* Style des liens dans le tableau de bord */
-.dashboard-links {
-  display: flex;
-  justify-content: center;
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
-  flex-wrap: wrap;
+  justify-items: center;
 }
 
-/* Liens dans le tableau de bord */
+.stat-box {
+  background-color: var(--light-gray);
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+.stat-value {
+  font-size: 2rem;
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+/* Progression */
+.progress-bar {
+  margin-top: 10px;
+  width: 100%;
+  height: 12px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--primary); /* Assure-toi que cette variable est bien définie */
+  width: 0;
+  transition: width 0.4s ease-in-out;
+  border-radius: 10px;
+}
+  
+
+/* Liens de navigation */
+.dashboard-links {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
 .dashboard-links a {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--primary);
   color: var(--white);
-  padding: 12px 20px;
-  border-radius: 8px;
+  padding: 18px;
+  border-radius: 12px;
   font-size: 1.1rem;
+  font-weight: 600;
   text-decoration: none;
-  margin: 5px;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px var(--shadow);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .dashboard-links a:hover {
   background-color: var(--primary-hover);
+  transform: translateY(-2px);
 }
+
+.dashboard-links a::before {
+  content: '📘';
+  margin-right: 10px;
+  font-size: 1.4rem;
+}
+
+.dashboard-links a:nth-child(2)::before { content: '✏️'; }
+.dashboard-links a:nth-child(3)::before { content: '🗓️'; }
+.dashboard-links a:nth-child(4)::before { content: '👤'; }
 
 /* Bouton de déconnexion */
 .logout-btn {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 80px;
 }
 
 .logout-btn a {
-  background-color: #a3574e;
+  background-color: #C0392B;
   color: var(--white);
-  padding: 12px 25px;
-  border-radius: 8px;
+  padding: 14px 30px;
+  border-radius: 12px;
   font-size: 1.1rem;
+  font-weight: bold;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .logout-btn a:hover {
-  background-color: #C0392B;
+  background-color: #a3574e;
+  transform: scale(1.05);
 }
 
 
@@ -693,13 +753,21 @@ iframe {
 
 
 
+/* ============================
+   Contenu Pages Courses
+   ============================ */
 
-
-
+/* Code pour le side bar ( sommaire ) */
 .content-with-sidebar {
   display: flex;
   gap: 40px;
   margin-top: 30px;
+  
+}
+.content-with-sidebar a{
+  text-decoration: underline;
+  color: var(--text);
+  
 }
 
 .main-content {
@@ -709,10 +777,10 @@ iframe {
 .sidebar {
   min-width: 200px;
   max-width: 250px;
-  background: #fafafa;
+  background: var(--background);
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 8px var(--shadow);
   height: fit-content;
 }
 
@@ -749,7 +817,7 @@ iframe {
   border-radius: 12px;
   padding: 15px 20px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 6px var(--shadow);
+  box-shadow: 0 4px 8px var(--shadow);
   cursor: pointer;
   transition: background 0.3s ease;
 }

@@ -18,24 +18,45 @@ $fullName = $user['userName'];
 <?php include('../../includes/header.php'); ?>
 
 <div class="container">
-    <h1>Bienvenue, <?= htmlspecialchars($fullName) ?> !</h1>
+    <h1>🎓 Bienvenue, <?= htmlspecialchars($fullName) ?> !</h1>
 
     <div class="dashboard-info">
-        <p><strong>Email :</strong> <?= htmlspecialchars($user['userEmail']) ?></p>
-        <p><strong>Dernière connexion :</strong> <?= date('d/m/Y H:i', strtotime($user['lastLogin'])) ?></p>
+        <h2>📊 Mon activité : </h2>
+        <div class="stats">
+            <div class="stat-box">
+                <p class="stat-value"><?= $nbCoursesRead ?? 8 ?></p>
+                <p class="stat-label">Cours lus</p>
+            </div>
+            <div class="stat-box">
+                <p class="stat-value"><?= $nbExercisesDone ?? 21 ?></p>
+                <p class="stat-label">Exercices faits</p>
+            </div>
+            <div class="stat-box">
+                <p class="stat-value"><?= $totalTimeSpent ?? 134 ?> min</p>
+                <p class="stat-label">Temps passé</p>
+            </div>
+            <div class="stat-box">
+                <p class="stat-value"><?= $progressPercent ?? 20 ?>%</p>
+                <p class="stat-label">Progression</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: <?= $progressPercent ?? 20 ?>%;"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     <div class="dashboard-links">
-        <a href="courses.php" class="btn">Voir les Cours</a>
-        <a href="exercises.php" class="btn">Voir les Exercices</a>
-        <a href="schedule.php" class="btn">Planification des Cours</a>
-        <a href="profile.php" class="btn">Modifier le Profil</a>
+        <a href="courses.php">Voir les Cours</a>
+        <a href="exercises.php">Voir les Exercices</a>
+        <a href="schedule.php">Planification des Cours</a>
+        <a href="profile.php">Modifier le Profil</a>
     </div>
 
-    <!-- Bouton de déconnexion -->
     <div class="logout-btn">
-        <a href="<?= BASE_URL . '/models/logout.php' ?>" class="btn">Déconnexion</a>
+        <a href="<?= BASE_URL . '/models/logout.php' ?>">Déconnexion</a>
     </div>
 </div>
+
 
 <?php include('../../includes/footer.php'); ?>

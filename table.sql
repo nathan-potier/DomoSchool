@@ -51,18 +51,26 @@ CREATE TABLE schedule (
     FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
 );
 
+-- Table des exercices génériques créés par les profs
 CREATE TABLE exercises (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT,
+    language VARCHAR(50) DEFAULT 'python',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Table des exercices réalisés par les élèves
 CREATE TABLE student_exercises (
     id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT NOT NULL,
     exercise_id INT NOT NULL,
+    filename VARCHAR(255),
+    code TEXT, -- le contenu du fichier ici
+    language VARCHAR(50) DEFAULT 'python', -- redondance utile si l'élève choisit un autre langage
     completed BOOLEAN DEFAULT FALSE,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
     FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (exercise_id) REFERENCES exercises(id) ON DELETE CASCADE
 );
