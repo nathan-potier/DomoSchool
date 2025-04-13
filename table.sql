@@ -42,14 +42,6 @@ INSERT INTO chapters (name, description) VALUES
 
 
 
-CREATE TABLE schedule (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    student_id INT NOT NULL,
-    course_id INT NOT NULL,
-    date DATETIME NOT NULL,
-    FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
-);
 
 -- Table des exercices génériques créés par les profs
 CREATE TABLE exercises (
@@ -73,6 +65,16 @@ CREATE TABLE student_exercises (
     
     FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (exercise_id) REFERENCES exercises(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE schedule (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    course_id INT NOT NULL,
+    date DATETIME NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
 );
 
 CREATE TABLE messages (
