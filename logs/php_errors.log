@@ -1,0 +1,3 @@
+[23-Apr-2025 17:56:50 Europe/Berlin] Registration Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'domoschool.student_stats' doesn't exist
+[23-Apr-2025 18:04:00 Europe/Berlin] Registration Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'domoschool.student_stats' doesn't exist
+[23-Apr-2025 18:04:57 Europe/Berlin] Registration Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'domoschool.student_stats' doesn't exist

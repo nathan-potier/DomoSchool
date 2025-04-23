@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } else {
             // Authentification échouée
-            redirect('../vue/login.php?error=Identifiants incorrects');
+            redirect('../vue/auth/login.php?error=Identifiants incorrects');
         }
 
     } catch (PDOException $e) {

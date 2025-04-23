@@ -1,9 +1,9 @@
-<?php include('../includes/header.php'); ?>
+<?php include('../../includes/header.php'); ?>
 
 <div class="container signup-container">
     <h1 class="signup-title">Connexion</h1>
-    <?php include('../includes/notif.php'); ?>
-    <form method="post" action="../models/authenticate.php" class="signup-form">
+    <?php include('../../includes/notif.php'); ?>
+    <form method="post" action="../../models/authenticate.php" class="signup-form">
         <label for="email" class="signup-label">Email :</label>
         <input type="email" id="email" name="email" required class="signup-input">
         
@@ -18,4 +18,4 @@
     </p>
 </div>
 
-<?php include('../includes/footer.php'); ?>
+<?php include('../../includes/footer.php'); ?>

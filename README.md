@@ -61,9 +61,11 @@ domoschool/
 │   ├── activity.log
 │   └── errors.log
 ├── models/
-│   ├── authenticate.php      → Vérification de connexion et inscription
+│   ├── authenticate.php      → Vérification de connexion
+│   ├── checkout.php          → Traitement du paiement et génération de code
+│   ├── check_code.php        → Vérification de la validité d'un code
 │   ├── logout.php            → Déconnexion utilisateur
-│   ├── register_user.php     → Inscription des utilisateurs
+│   ├── register_user.php     → Inscription avec code d'accès
 │   ├── get_user_data.php     → Récupération des informations utilisateurs
 │   ├── get_courses.php       → Récupération des cours
 │   ├── get_exercises.php     → Récupération des exercices
@@ -73,35 +75,42 @@ domoschool/
 │       └── [fichiers uploadés ici]
 ├── vue/
 │   ├── eleve/
-│   │   ├── dashboard.php     → Tableau de bord de l’élève
-│   │   ├── courses.php       → Liste des cours de l’élève
-│   │   ├── profile.php       → Modification du profil de l’élève
+│   │   ├── dashboard.php     → Tableau de bord de l'élève
+│   │   ├── courses.php       → Liste des cours de l'élève
+│   │   ├── profile.php       → Modification du profil de l'élève
 │   │   ├── exercises.php     → Liste des exercices interactifs
 │   │   └── schedule.php      → Planification des cours
 │   ├── parent/
 │   │   ├── dashboard.php     → Tableau de bord du parent
-│   │   ├── child.php         → Suivi d’un enfant spécifique
+│   │   ├── child.php         → Suivi d'un enfant spécifique
 │   │   ├── profile.php       → Modification du profil du parent
 │   │   └── messages.php      → Messagerie avec les professeurs
 │   ├── professeur/
 │   │   ├── dashboard.php     → Tableau de bord du professeur
 │   │   ├── create-course.php → Création de nouveaux cours
-│   │   ├── create-exercise.php → Création d’exercices
+│   │   ├── create-exercise.php → Création d'exercices
 │   │   ├── students.php      → Liste des élèves suivis
 │   │   ├── messages.php      → Messagerie interne
 │   │   └── profile.php       → Modification du profil du professeur
 │   ├── admin/
-│   │   ├── dashboard.php     → Vue d’ensemble de l’administration
+│   │   ├── dashboard.php     → Vue d'ensemble de l'administration
 │   │   ├── users.php         → Gestion des utilisateurs
 │   │   ├── courses.php       → Validation des cours créés
-│   │   ├── logs.php          → Logs d’activité
-│   │   └── settings.php      → Paramètres généraux du site
-│   ├── login.php             → Page de connexion
-│   ├── register.php          → Page d'inscription
+│   │   ├── logs.php          → Logs d'activité
+│   │   ├── settings.php      → Paramètres généraux du site
+│   │   └── access_codes.php  → Gestion des codes d'accès (nouveau)
+│   ├── auth/
+│   │   ├── login.php         → Page de connexion
+│   │   ├── register.php      → Page d'inscription (avec code)
+│   │   └── reset_password.php→ Réinitialisation de mot de passe
+│   ├── purchase/
+│   │   ├── purchase_code.php → Page de choix du type de code
+│   │   ├── checkout.php      → Processus de paiement
+│   │   └── purchase_success.php → Confirmation d'achat
 │   ├── index.php             → Page d'accueil publique
 │   └── view_course.php
 ├── README.md
-└── table.sql                 → Commandes pour creer les tables 
+└── table.sql                 → Commandes pour créer les tables (inclut maintenant access_codes)
 ```
 
 ## 🚀 Roadmap

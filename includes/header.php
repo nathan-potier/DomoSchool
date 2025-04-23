@@ -68,8 +68,8 @@ $userRole = $userSessionData['userRole'];
         <nav class="menuBurger">
             <a href="<?php echo BASE_URL; ?>/vue/index.php">Accueil</a>
             <?php if (!$isLoggedIn): ?>
-                <a href="<?php echo BASE_URL; ?>/vue/login.php">Se connecter</a>
-                <a href="<?php echo BASE_URL; ?>/vue/register.php">S'inscrire</a>
+                <a href="<?php echo BASE_URL; ?>/vue/auth/login.php">Se connecter</a>
+                <a href="<?php echo BASE_URL; ?>/vue/auth/register.php">S'inscrire</a>
             <?php else: ?>
                 <!-- Redirection vers le bon tableau de bord selon le rôle de l'utilisateur -->
                 <a href="<?php
@@ -89,8 +89,8 @@ $userRole = $userSessionData['userRole'];
         <nav class="desktop-nav">
             <a href="<?php echo BASE_URL; ?>/vue/index.php">Accueil</a>
             <?php if (!$isLoggedIn): ?>
-                <a href="<?php echo BASE_URL; ?>/vue/login.php">Se connecter</a>
-                <a href="<?php echo BASE_URL; ?>/vue/register.php">S'inscrire</a>
+                <a href="<?php echo BASE_URL; ?>/vue/auth/login.php">Se connecter</a>
+                <a href="<?php echo BASE_URL; ?>/vue/auth/register.php">S'inscrire</a>
             <?php else: ?>
                 <!-- Redirection vers le bon tableau de bord selon le rôle de l'utilisateur -->
                 <a href="<?php

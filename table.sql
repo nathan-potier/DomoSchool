@@ -67,6 +67,41 @@ CREATE TABLE student_exercises (
     FOREIGN KEY (exercise_id) REFERENCES exercises(id) ON DELETE CASCADE
 );
 
+CREATE TABLE student_stats (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    total_courses_read INT DEFAULT 0,
+    total_exercises_completed INT DEFAULT 0,
+    progress_percent TINYINT DEFAULT 0, -- Progression globale en pourcentage
+    last_activity TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE KEY (student_id) -- Un seul enregistrement par élève
+);
+
+
+
+CREATE TABLE access_codes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    code VARCHAR(32) NOT NULL UNIQUE,
+    role ENUM('student', 'teacher', 'admin', 'parent') NOT NULL,
+    used BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    used_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 CREATE TABLE schedule (
     id INT AUTO_INCREMENT PRIMARY KEY,

@@ -3,12 +3,18 @@
 define('APP_ENV', 'development'); // 'production' en live
 define('APP_DEBUG', true);
 
-// Chemins absolus
-define('ROOT_DIR', __DIR__ . '/..');
+// Chemins absolus (optimisés)
+define('ROOT_DIR', dirname(__DIR__)); // Pointe directement vers /DomoSchool
+define('INCLUDE_DIR', ROOT_DIR . '/includes');
+define('MODEL_DIR', ROOT_DIR . '/models');
+define('VIEW_DIR', ROOT_DIR . '/vue');
+define('ASSET_DIR', ROOT_DIR . '/assets');
 define('LOG_DIR', ROOT_DIR . '/logs');
 define('UPLOAD_DIR', ROOT_DIR . '/uploads');
-define('BASE_URL', '/DomoSchool');  // Utilise le chemin relatif à partir de la racine du serveur
 
+// URL (optimisée pour flexibilité)
+define('BASE_URL', '/DomoSchool');
+define('ASSET_URL', BASE_URL . '/assets');
 
 // Base de données
 define('DB_HOST', 'localhost');
@@ -21,27 +27,46 @@ define('DB_CHARSET', 'utf8mb4');
 define('PASSWORD_COST', 12);
 define('SESSION_TIMEOUT', 3600); // 1 heure
 
-// Initialisation
+// Initialisation des dossiers
 if (!file_exists(LOG_DIR)) mkdir(LOG_DIR, 0755, true);
 if (!file_exists(UPLOAD_DIR)) mkdir(UPLOAD_DIR, 0755, true);
 
-// Définir les paramètres du cookie de session avant session_start()
-if (session_status() === PHP_SESSION_NONE) { // Vérifie si la session n'est pas déjà démarrée
+// Configuration des sessions
+if (session_status() === PHP_SESSION_NONE) {
     session_set_cookie_params([
-        'lifetime' => SESSION_TIMEOUT,  // Durée de vie du cookie (en secondes)
-        'path' => '/',                  // Le chemin où le cookie est disponible
-        'secure' => APP_ENV === 'production', // Sécurisé si l'environnement est 'production'
-        'httponly' => true,             // Empêche l'accès via JavaScript
-        'samesite' => 'Strict'          // Restriction des cookies de session
+        'lifetime' => SESSION_TIMEOUT,
+        'path' => BASE_URL ?: '/',
+        'domain' => $_SERVER['HTTP_HOST'] ?? 'localhost',
+        'secure' => APP_ENV === 'production',
+        'httponly' => true,
+        'samesite' => 'Strict'
     ]);
-    session_start(); // Démarre la session après avoir défini les paramètres
+    session_start();
 }
 
+// Gestion des erreurs
 if (APP_DEBUG) {
     error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+    ini_set('display_errors', '1');
+    ini_set('log_errors', '1');
+    ini_set('error_log', LOG_DIR . '/php_errors.log');
 } else {
     error_reporting(0);
-    ini_set('display_errors', 0);
+    ini_set('display_errors', '0');
 }
+
+// Autoloader personnalisé (optionnel mais recommandé)
+spl_autoload_register(function ($class) {
+    $paths = [
+        MODEL_DIR . "/$class.php",
+        INCLUDE_DIR . "/$class.php"
+    ];
+    
+    foreach ($paths as $path) {
+        if (file_exists($path)) {
+            require_once $path;
+            return;
+        }
+    }
+});
 ?>
