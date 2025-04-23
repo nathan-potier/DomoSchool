@@ -7,3 +7,8 @@ Stack trace:
 #1 {main}
   thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 210
 [23-Apr-2025 22:23:25 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\DomoSchool\models\register_user.php on line 97
+[23-Apr-2025 22:47:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:174
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\eleve\exercises.php(14): getExercisesByStudent(6)
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 174

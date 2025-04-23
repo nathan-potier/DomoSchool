@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Redirige /dashboard vers /vue/eleve/dashboard.php
+RewriteRule ^dashboard$ /DomoSchool/vue/eleve/dashboard.php [L]
+
+# Exemple pour d'autres pages
+# Redirige /profile vers /vue/eleve/profile.php
+RewriteRule ^profile$ /DomoSchool/vue/eleve/profile.php [L]
+
+# Optionnel : Gérer la page d'accueil (par exemple /index redirige vers vue/index.php)
+RewriteRule ^index$ /DomoSchool/vue/index.php [L]
