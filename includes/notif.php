@@ -6,4 +6,4 @@
     <div class="alert success">
         <?= htmlspecialchars($_GET['success']) ?>
     </div>
-    <?php endif; ?>
+<?php endif; ?>

@@ -34,7 +34,7 @@ function checkAuth() {
 
     // Vérifie si l'utilisateur est connecté
     if (empty($_SESSION['user_id'])) {
-        redirect(BASE_URL . '/vue/login.php');
+        redirect(BASE_URL . '/vue/auth/login.php');
     }
 
     // Initialiser 'last_activity' si elle n'existe pas encore
@@ -49,7 +49,7 @@ function checkAuth() {
 
         session_unset();  // Détruire les variables de session
         session_destroy(); // Détruire la session
-        redirect(BASE_URL . '/vue/login.php'); // Redirection vers la page de login
+        redirect(BASE_URL . '/vue/auth/login.php'); // Redirection vers la page de login
     }
 
     // Met à jour 'last_activity' à chaque nouvelle activité
@@ -198,5 +198,48 @@ function saveStudentExercise($student_id, $exercise_id, $code) {
     $stmt = $db->prepare("INSERT INTO student_exercises (student_id, exercise_id, code) VALUES (?, ?, ?)");
     $stmt->execute([$student_id, $exercise_id, $code]);
 }*/
+
+
+
+
+function check_access_code($code) {
+    try {
+        // Récupérer la connexion à la base de données via ta classe Database
+        $connex = Database::getInstance()->getConnection();
+
+        // Étape 1 : Vérifier si le code existe et n’est pas encore utilisé
+        $stmt = $connex->prepare("SELECT * FROM access_codes WHERE code = :code AND used = 0 LIMIT 1");
+        $stmt->execute([':code' => $code]);
+        $accessCode = $stmt->fetch();
+
+        if ($accessCode) {
+            // Étape 2 : Marquer le code comme utilisé
+            $update = $connex->prepare("UPDATE access_codes SET used = 1, used_at = NOW() WHERE id = :id");
+            $update->execute([':id' => $accessCode['id']]);
+
+            return [
+                'valid' => true,
+                'role' => $accessCode['role']
+            ];
+        } else {
+            return [
+                'valid' => false,
+                'message' => 'Code invalide ou déjà utilisé.'
+            ];
+        }
+    } catch (PDOException $e) {
+        // Log de l'erreur
+        error_log('[' . date('Y-m-d H:i:s') . '] DB Error (check_access_code): ' . $e->getMessage() . PHP_EOL, 3, LOG_DIR . '/database.log');
+
+        return [
+            'valid' => false,
+            'message' => 'Erreur système. Veuillez réessayer plus tard.'
+        ];
+    }
+}
+
+
+
+
 
 ?>

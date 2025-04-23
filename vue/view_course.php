@@ -2,20 +2,26 @@
 require_once __DIR__ . '/../includes/functions.php';
 startSession();
 
-// Vérifie si l'utilisateur est connecté
-checkAuth();
-$userSessionData = getUserSessionData();
-if (!$userSessionData['isLoggedIn']) {
-    header('Location: login.php');
-    exit;
-}
-
 // Vérifie si un ID de cours a été passé dans l'URL
 if (isset($_GET['course_id'])) {
     $courseId = (int) $_GET['course_id'];
 
     // Récupère les informations du cours à partir de la base de données
     $course = getCourseById($courseId);  // Assurez-vous que cette fonction existe pour récupérer les détails du cours
+
+    // Récupère la liste complète des cours
+    $courses = getCourses();  
+    
+    // On suppose que les cours sont récupérés dans un ordre spécifique (par exemple, par ID croissant ou autre critère logique)
+    // Vérifie si l'ID du premier cours dans la liste correspond à l'ID du premier cours dans la base de données
+    $firstCourse = $courses[0];  // Le premier cours dans le tableau
+
+    // Vérifie si le cours actuel n'est pas le premier cours
+    if ($course['id'] !== $firstCourse['id']) {
+        // Si ce n'est pas le premier cours, vérifie si l'utilisateur est connecté
+        checkAuth();
+    }
+
 } else {
     $course = null; // Si l'ID du cours n'est pas passé, aucun cours à afficher
 }
@@ -39,7 +45,7 @@ include(__DIR__ . '/../includes/header.php');
         // Si le cours est un fichier .html, l'inclure dans un iframe
         if (!empty($course['file_path']) && pathinfo($course['file_path'], PATHINFO_EXTENSION) == 'html') {
             // Inclure le fichier HTML dans un iframe avec un événement onload pour ajuster la hauteur
-            echo "<iframe src='$filePath' id='course-iframe' width='100%' frameborder='0' scrolling='no' onload='resizeIframe(this) '></iframe>";
+            echo "<iframe src='$filePath' id='course-iframe' width='100%' frameborder='0' scrolling='no' onload='resizeIframe(this)'></iframe>";
         } elseif (!empty($course['file_path'])) {
             // Si le cours a un fichier autre que .html, fournir un lien de téléchargement
             echo '<a href="'. BASE_URL . htmlspecialchars($course['file_path']) . '" target="_blank">Télécharger le cours</a>';

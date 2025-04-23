@@ -12,10 +12,10 @@
             suivi en temps réel... tout pour garantir la réussite scolaire de vos enfants.
         </p>
         <?php if (!$isLoggedIn): ?>
-            <a href="login.php">
+            <a href="auth/login.php">
                 <button style="margin: 10px;">Se connecter</button>
             </a>
-            <a href="register.php">
+            <a href="auth/register.php">
                 <button style="margin: 10px; background-color: #10b981;">Créer un compte</button>
             </a>
         <?php else: ?>
@@ -33,10 +33,12 @@
     <section>
         <h2 style="text-align: center;">Nos avantages</h2>
         <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 30px; margin-top: 30px;">
-            <div class="card">
-                <h3>📚 Cours personnalisés</h3>
-                <p>Des parcours adaptés au niveau et au rythme de chaque élève.</p>
-            </div>
+            <a href="eleve/courses.php">
+                <div class="card">
+                    <h3>📚 Cours personnalisés</h3>
+                    <p>Des parcours adaptés au niveau et au rythme de chaque élève.</p>
+                </div>
+            </a>
             <div class="card">
                 <h3>🎥 Visioconférence en direct</h3>
                 <p>Apprenez avec un vrai professeur en direct, depuis chez vous.</p>

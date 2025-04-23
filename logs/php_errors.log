@@ -1,3 +1,9 @@
 [23-Apr-2025 17:56:50 Europe/Berlin] Registration Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'domoschool.student_stats' doesn't exist
 [23-Apr-2025 18:04:00 Europe/Berlin] Registration Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'domoschool.student_stats' doesn't exist
 [23-Apr-2025 18:04:57 Europe/Berlin] Registration Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'domoschool.student_stats' doesn't exist
+[23-Apr-2025 21:55:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:210
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\auth\register.php(16): check_access_code('c4498eac2674ee9...')
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 210
+[23-Apr-2025 22:23:25 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\DomoSchool\models\register_user.php on line 97

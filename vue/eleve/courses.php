@@ -1,13 +1,9 @@
 <?php
 require_once __DIR__ . '/../../includes/functions.php';
 startSession();
-checkAuth();
 
 $userSessionData = getUserSessionData();
-if (!$userSessionData['isLoggedIn']) {
-    header('Location: login.php');
-    exit;
-}
+$isLoggedIn = $userSessionData['isLoggedIn'];
 
 $courses = getCourses();
 
@@ -20,6 +16,8 @@ foreach ($courses as $course) {
     }
     $chapters[$chapterName][] = $course;
 }
+
+$isFirstCourse = true; 
 ?>
 
 <?php include(__DIR__ . '/../../includes/header.php'); ?>
@@ -35,16 +33,27 @@ foreach ($courses as $course) {
                         <span class="arrow">&#9660;</span>
                     </div>
                     <div class="courses-list">
-                        <?php foreach ($courses as $course): ?>
+                        <?php 
+                        // Variable pour suivre si c'est le premier cours du chapitre
+                        
+                        foreach ($courses as $course): 
+                        ?>
                             <a href="../view_course.php?course_id=<?= $course['id'] ?>">
                                 <div class="course-item">
-                                    
-                                        <?= htmlspecialchars($course['title']) ?>
-                                    
-                                    
+                                    <?= htmlspecialchars($course['title']) ?>
                                     <p class="teacher">👨‍🏫 <?= htmlspecialchars($course['teacher_first_name'] . ' ' . $course['teacher_last_name']) ?></p>
+                                    
+                                    <?php 
+                                    // Si l'utilisateur n'est pas connecté et ce n'est pas le premier cours du chapitre, afficher le message de connexion
+                                    if (!$isLoggedIn && !$isFirstCourse): ?>
+                                        <p class="warning">Veuillez vous connecter pour accéder à ce cours.</p>
+                                    <?php endif; ?>
                                 </div>
                             </a>
+                            <?php 
+                            // Une fois que le premier cours a été affiché, on le marque comme déjà affiché
+                            $isFirstCourse = false; 
+                            ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -62,11 +71,9 @@ foreach ($courses as $course) {
                     </li>
                 <?php endforeach; ?>
             </ul>
-
         </aside>
     </div>
 </div>
-
 
 <?php include(__DIR__ . '/../../includes/footer.php'); ?>
 
@@ -92,5 +99,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 </script>
-
-

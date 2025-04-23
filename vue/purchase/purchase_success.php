@@ -6,15 +6,36 @@
     <?php if(isset($_SESSION['purchased_code'])): ?>
         <div class="success-code">
             <p>Votre code d'accès :</p>
-            <div class="code-display"><?= htmlspecialchars($_SESSION['purchased_code']) ?></div>
+            <div class="code-display" id="purchased-code"><?= htmlspecialchars($_SESSION['purchased_code']) ?></div>
+            <button id="copy-button" class="copy-button">Copier le code</button>
             <p class="code-instructions">
                 Utilisez ce code pour créer votre compte sur la page <a href="<?php echo BASE_URL; ?>/vue/auth/register.php">d'inscription</a>.
             </p>
         </div>
-        <?php unset($_SESSION['purchased_code']); ?>
+        <script>
+            // Stocker le code d'accès dans le localStorage
+            localStorage.setItem('purchased_code', '<?= htmlspecialchars($_SESSION['purchased_code']) ?>');
+            // Supprimer le code de session après stockage dans localStorage
+            <?php unset($_SESSION['purchased_code']); ?>
+        </script>
     <?php else: ?>
         <p>Aucun code trouvé. Veuillez vérifier votre email ou contacter le support.</p>
     <?php endif; ?>
-</div>
+</div>  
 
 <?php include('../../includes/footer.php'); ?>
+
+
+
+<script>
+
+document.getElementById("copy-button").addEventListener("click", function() {
+    const codeText = document.getElementById("purchased-code").textContent;
+    navigator.clipboard.writeText(codeText).then(function() {
+        alert("Code copié !");
+    }, function(err) {
+        alert("Erreur lors de la copie du code : " + err);
+    });
+});
+
+</script>
