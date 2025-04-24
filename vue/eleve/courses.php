@@ -27,33 +27,28 @@ $isFirstCourse = true;
     <div class="content-with-sidebar">
         <div class="main-content">
             <?php foreach ($chapters as $chapter => $courses): ?>
-                <div class="chapter-card" id="<?= htmlspecialchars(str_replace(' ', '-', strtolower($chapter))) ?>">
+                <?php 
+                // Création d'un id propre pour chaque chapitre en remplaçant les espaces par des tirets
+                $chapterId = strtolower(str_replace(' ', '-', $chapter));
+                ?>
+                <div class="chapter-card" id="<?= htmlspecialchars($chapterId) ?>">
                     <div class="chapter-header">
                         <h3><?= htmlspecialchars($chapter) ?></h3>
                         <span class="arrow">&#9660;</span>
                     </div>
                     <div class="courses-list">
-                        <?php 
-                        // Variable pour suivre si c'est le premier cours du chapitre
-                        
-                        foreach ($courses as $course): 
-                        ?>
+                        <?php foreach ($courses as $course): ?>
                             <a href="../view_course.php?course_id=<?= $course['id'] ?>">
                                 <div class="course-item">
                                     <?= htmlspecialchars($course['title']) ?>
                                     <p class="teacher">👨‍🏫 <?= htmlspecialchars($course['teacher_first_name'] . ' ' . $course['teacher_last_name']) ?></p>
                                     
-                                    <?php 
-                                    // Si l'utilisateur n'est pas connecté et ce n'est pas le premier cours du chapitre, afficher le message de connexion
-                                    if (!$isLoggedIn && !$isFirstCourse): ?>
+                                    <?php if (!$isLoggedIn && !$isFirstCourse): ?>
                                         <p class="warning">Veuillez vous connecter pour accéder à ce cours.</p>
                                     <?php endif; ?>
                                 </div>
                             </a>
-                            <?php 
-                            // Une fois que le premier cours a été affiché, on le marque comme déjà affiché
-                            $isFirstCourse = false; 
-                            ?>
+                            <?php $isFirstCourse = false; ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -64,8 +59,12 @@ $isFirstCourse = true;
             <h2>📝 Sommaire</h2>
             <ul>
                 <?php foreach ($chapters as $chapter => $_): ?>
+                    <?php 
+                    // Création de l'id propre pour chaque chapitre dans le sommaire
+                    $chapterId = strtolower(str_replace(' ', '-', $chapter));
+                    ?>
                     <li>
-                        <a class="" href="#<?= htmlspecialchars(str_replace(' ', '-', strtolower($chapter))) ?>">
+                        <a href="#<?= htmlspecialchars($chapterId) ?>">
                             <?= htmlspecialchars($chapter) ?>
                         </a>
                     </li>
@@ -90,7 +89,18 @@ document.querySelectorAll('.chapter-card').forEach(card => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        
+        // Récupérer l'ID du chapitre à partir du href
+        const chapterId = this.getAttribute('href').substring(1); // On enlève le "#" du href
+        const target = document.querySelector('#' + chapterId);
+
+        // Vérifier si la carte du chapitre existe et l'ouvrir
+        const chapterCard = document.querySelector('.chapter-card#' + chapterId);
+        if (chapterCard) {
+            chapterCard.classList.add('open');  // On ouvre la carte du chapitre
+        }
+
+        // Vérifier si la cible existe et faire défiler la page
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth'
@@ -98,4 +108,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
 </script>
