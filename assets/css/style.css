@@ -1,6 +1,6 @@
 /* ============================
-   Reset de base 
-   ============================ */
+  Reset de base
+  ============================ */
 
 /* Réinitialisation des marges, des paddings et du modèle de boîte */
 * {
@@ -13,8 +13,8 @@
 
 
 /* ============================
-   Couleurs principales 
-   ============================ */
+  Couleurs principales
+  ============================ */
 
 /* Définition des couleurs principales utilisées tout au long du site */
 :root {
@@ -29,8 +29,8 @@
 }
 
 /* ============================
-   Global 
-   ============================ */
+  Global
+  ============================ */
 
 /* Style global appliqué à toute la page */
 html, body {
@@ -53,8 +53,8 @@ a {
 
 
 /* ============================
-   Container principal
-   ============================ */
+  Container principal
+  ============================ */
 
 /* Conteneur principal pour la mise en page du site */
 .container {
@@ -66,8 +66,8 @@ a {
 }
 
 /* ============================
-   Header / Navbar 
-   ============================ */
+  Header / Navbar
+  ============================ */
 
 /* Style du header et de la barre de navigation */
 header {
@@ -110,8 +110,8 @@ nav a:hover {
 }
 
 /* ============================
-   Burger Menu 
-   ============================ */
+  Burger Menu
+  ============================ */
 
 /* Style du bouton burger pour les écrans plus petits */
 .boutonBurger {
@@ -187,8 +187,8 @@ nav a:hover {
 }
 
 /* ============================
-   Titres 
-   ============================ */
+  Titres
+  ============================ */
 
 /* Style des titres h1, h2, h3 */
 h1, h2, h3 {
@@ -199,8 +199,8 @@ h1, h2, h3 {
 }
 
 /* ============================
-   Formulaires
-   ============================ */
+  Formulaires
+  ============================ */
 
 /* Style du formulaire */
 form {
@@ -223,6 +223,8 @@ textarea {
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  background-color: var(--white); /* Ajout pour le fond en mode clair et sombre */
+  color: var(--text); /* Ajout pour la couleur du texte en mode clair et sombre */
 }
 
 input[type="text"]:focus,
@@ -250,8 +252,8 @@ button:hover {
 }
 
 /* ============================
-   Notification erreur ou succès 
-   ============================ */
+  Notification erreur ou succès
+  ============================ */
 
 /* Style des notifications */
 .alert {
@@ -275,8 +277,8 @@ button:hover {
 }
 
 /* ============================
-   Section avec iconographie et card 
-   ============================ */
+  Section avec iconographie et card
+  ============================ */
 
 /* Style des cards */
 .card {
@@ -309,131 +311,133 @@ button:hover {
 }
 
 /* ============================
-   Container d'inscription 
-   ============================ */
+  Container d'inscription
+  ============================ */
 
-   .signup-container {
-    max-width: 500px;
-    margin-top: 60px;
-    margin-bottom: 80px;
-    padding: 0 15px;
-    background-color: var(--background); /* Ajout du fond neutre */
+  .signup-container {
+   max-width: 500px;
+   margin-top: 60px;
+   margin-bottom: 80px;
+   padding: 0 15px;
+   background-color: var(--background); /* Ajout du fond neutre */
   }
-  
+
   .signup-title {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--primary); /* Utilisation de la couleur principale */
+   text-align: center;
+   margin-bottom: 20px;
+   color: var(--primary); /* Utilisation de la couleur principale */
   }
-  
+
   .signup-description {
-    text-align: center;
-    font-size: 1rem;
-    color: var(--text); /* Couleur du texte plus foncée */
-    margin-bottom: 30px;
+   text-align: center;
+   font-size: 1rem;
+   color: var(--text); /* Couleur du texte plus foncée */
+   margin-bottom: 30px;
   }
-  
+
   .signup-form {
-    background-color: var(--white); /* Fond blanc */
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px var(--shadow); /* Ombre légère */
+   background-color: var(--white); /* Fond blanc */
+   padding: 30px;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px var(--shadow); /* Ombre légère */
   }
-  
+
   .signup-label {
-    font-weight: 600;
-    margin-top: 10px;
-    display: block;
-    color: var(--text); /* Texte du label en couleur foncée */
+   font-weight: 600;
+   margin-top: 10px;
+   display: block;
+   color: var(--text); /* Texte du label en couleur foncée */
   }
-  
+
   .signup-input {
-    width: 100%;
-    padding: 15px;
-    margin-top: 8px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+   width: 100%;
+   padding: 15px;
+   margin-top: 8px;
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   font-size: 1rem;
+   transition: border-color 0.3s ease;
+   background-color: var(--white); /* Ajout pour le fond en mode clair et sombre */
+   color: var(--text); /* Ajout pour la couleur du texte en mode clair et sombre */
   }
-  
+
   .signup-input:focus {
-    border-color: var(--primary); /* Bordure lors du focus avec couleur principale */
+   border-color: var(--primary); /* Bordure lors du focus avec couleur principale */
   }
-  
+
   .signup-btn {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    background-color: var(--primary); /* Bouton avec couleur principale */
-    color: var(--white);
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+   width: 100%;
+   padding: 15px;
+   margin-top: 20px;
+   background-color: var(--primary); /* Bouton avec couleur principale */
+   color: var(--white);
+   font-size: 1.1rem;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
   }
-  
+
   .signup-btn:hover {
-    background-color: var(--primary-hover); /* Effet hover avec couleur plus foncée */
+   background-color: var(--primary-hover); /* Effet hover avec couleur plus foncée */
   }
-  
+
   .signup-login-link {
-    text-align: center;
-    margin-top: 20px;
+   text-align: center;
+   margin-top: 20px;
   }
-  
+
   .signup-login-link-text {
-    color: var(--primary); /* Lien avec couleur principale */
-    font-weight: 500;
-    text-decoration: underline;
+   color: var(--primary); /* Lien avec couleur principale */
+   font-weight: 500;
+   text-decoration: underline;
   }
 
   .buy-code-link{
-    text-align: center;
-    margin-bottom: 20px;
+   text-align: center;
+   margin-bottom: 20px;
   }
 
 /* ============================
-   Responsive 
-   ============================ */
+  Responsive
+  ============================ */
 
 /* Media query pour les écrans plus petits (tablettes et téléphones) */
 @media screen and (max-width: 768px) {
   nav {
-    display: none;
+   display: none;
   }
 
   header {
-    padding: 15px 0;
+   padding: 15px 0;
   }
 
   .boutonBurger {
-    display: block;
+   display: block;
   }
 
   .container {
-    width: 95%;
+   width: 95%;
   }
 
   .card {
-    margin: 10px 0;
-    padding: 15px;
+   margin: 10px 0;
+   padding: 15px;
 
   }
 
   .card h3 {
-    font-size: 1.1em;
+   font-size: 1.1em;
   }
 
   .card p {
-    font-size: 1em;
+   font-size: 1em;
   }
 }
 
 /* ============================
-   Footer 
-   ============================ */
+  Footer
+  ============================ */
 
 /* Style du footer */
 footer {
@@ -459,13 +463,13 @@ footer a:hover {
 }
 
 /* ============================
-   Contenu Dashboard 
-   ============================ */
+  Contenu Dashboard
+  ============================ */
 
   .dashboard-info h2 {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  color: var(--text-dark);
+  color: var(--text);
 }
 
 .stats {
@@ -476,7 +480,7 @@ footer a:hover {
 }
 
 .stat-box {
-  background-color: var(--light-gray);
+  background-color: var(--white);
   border-radius: 12px;
   padding: 20px;
   width: 100%;
@@ -493,7 +497,7 @@ footer a:hover {
 
 .stat-label {
   font-size: 1rem;
-  color: var(--text-dark);
+  color: var(--accent);
 }
 
 /* Progression */
@@ -513,7 +517,7 @@ footer a:hover {
   transition: width 0.4s ease-in-out;
   border-radius: 10px;
 }
-  
+
 
 /* Liens de navigation */
 .dashboard-links {
@@ -580,8 +584,8 @@ footer a:hover {
 
 
 /* ============================
-   Dark Mode Toggle - Version Minimaliste
-   ============================ */
+  Dark Mode Toggle - Version Minimaliste
+  ============================ */
 
 /* Conteneur principal */
 .theme-toggle {
@@ -595,8 +599,8 @@ footer a:hover {
 /* Version mobile */
 @media screen and (max-width: 768px) {
   .theme-toggle {
-    top: 25px;
-    left: 25px;
+   top: 25px;
+   left: 25px;
   }
 }
 
@@ -678,14 +682,75 @@ footer a:hover {
 }
 
 /* ============================
-   Styles Dark Mode
-   ============================ */
+  Styles Dark Mode
+  ============================ */
 html.mode-dark {
   --background: #121212;
   --text: #ffffff;
   --white: #1e1e1e;
   --shadow: rgba(255, 255, 255, 0.1);
   --accent: #7F8C8D;
+}
+
+html.mode-dark input[type="text"],
+html.mode-dark input[type="email"],
+html.mode-dark input[type="password"],
+html.mode-dark select,
+html.mode-dark textarea {
+  background-color: #333; /* Fond plus sombre pour les inputs */
+  color: #eee; /* Texte plus clair pour les inputs */
+  border-color: #555; /* Bordure plus discrète */
+}
+
+html.mode-dark form {
+  background-color: #1e1e1e; /* Fond sombre pour les formulaires */
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05);
+}
+
+html.mode-dark .card {
+  background-color: #1e1e1e; /* Fond sombre pour les cartes */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+}
+
+html.mode-dark .signup-form {
+  background-color: #1e1e1e; /* Fond sombre pour le formulaire d'inscription */
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+html.mode-dark .stat-box {
+  background-color: #1e1e1e; /* Fond sombre pour les boîtes de statistiques */
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+}
+
+html.mode-dark .sidebar {
+  background-color: #1e1e1e; /* Fond sombre pour la barre latérale */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+html.mode-dark .chapter-card {
+  background-color: #1e1e1e; /* Fond sombre pour les cartes de chapitre */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+html.mode-dark .course-item {
+  background-color: #1e1e1e; /* Fond sombre pour les éléments de cours */
+  border-left-color: var(--primary); /* Garde la couleur primaire pour l'accent */
+  box-shadow: 0 1px 4px rgba(255, 255, 255, 0.05);
+}
+
+html.mode-dark .purchase-option {
+  background-color: #1e1e1e; /* Fond sombre pour les options d'achat */
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+}
+
+html.mode-dark .success-code {
+  background-color: #1e1e1e; /* Fond sombre pour la section du code de succès */
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+}
+
+html.mode-dark .code-display {
+  background-color: #333; /* Fond légèrement plus clair pour le code */
+  color: var(--highlight); /* Garde la couleur d'accentuation */
 }
 
 /* Prévention du Flash Blanc */
@@ -714,32 +779,32 @@ html.theme-loaded .theme-toggle {
 
 
 /* ============================
-   Prévention du Flash Blanc 
-   ============================ */
-   html.mode-dark {
-    --background: #121212;
-    --text: #ffffff;
-    --white: #1e1e1e;
-    --shadow: rgba(255, 255, 255, 0.1);
-    --accent: #7F8C8D;
+  Prévention du Flash Blanc
+  ============================ */
+  html.mode-dark {
+   --background: #121212;
+   --text: #ffffff;
+   --white: #1e1e1e;
+   --shadow: rgba(255, 255, 255, 0.1);
+   --accent: #7F8C8D;
 }
 
 /* Appliquez ces styles immédiatement */
 html:not(.no-js) {
-    background-color: var(--background);
-    color: var(--text);
-    transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
 /* Cache le contenu pendant le chargement initial */
 .no-js body {
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .no-js body.loaded {
-    opacity: 1;
+  opacity: 1;
 }
 
 
@@ -765,20 +830,20 @@ iframe {
 
 
 /* ============================
-   Contenu Pages Courses
-   ============================ */
+  Contenu Pages Courses
+  ============================ */
 
 /* Code pour le side bar ( sommaire ) */
 .content-with-sidebar {
   display: flex;
   gap: 40px;
   margin-top: 30px;
-  
+
 }
 .content-with-sidebar a{
   text-decoration: underline;
   color: var(--text);
-  
+
 }
 
 .main-content {
@@ -811,14 +876,18 @@ iframe {
   color: #333;
 }
 
+html.mode-dark .sidebar li {
+  color: #eee;
+}
+
 /* Hide sidebar if screen is narrow */
 @media (max-width: 900px) {
   .content-with-sidebar {
-    flex-direction: column;
+   flex-direction: column;
   }
 
   .sidebar {
-    display: none;
+   display: none;
   }
 }
 
@@ -882,7 +951,7 @@ iframe {
 
 .course-item:hover {
   background-color: var(--primary-hover);
-  
+
   cursor: pointer;
   border-color: #38bdf8;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -905,10 +974,18 @@ iframe {
   margin-top: 5px;
 }
 
+html.mode-dark .course-item .description {
+  color: #aaa;
+}
+
 .course-item .teacher {
   font-size: 0.85em;
   margin-top: 4px;
   color: #666;
+}
+
+html.mode-dark .course-item .teacher {
+  color: #ccc;
 }
 
 
@@ -971,6 +1048,10 @@ iframe {
   margin-bottom: 25px;
 }
 
+html.mode-dark .purchase-option p {
+  color: #eee;
+}
+
 .purchase-btn {
   display: inline-block;
   background-color: var(--primary);
@@ -997,8 +1078,8 @@ iframe {
 }
 
 /* ============================
-    Page de confirmation d'achat
-    ============================ */
+  Page de confirmation d'achat
+  ============================ */
 
 .purchase-success {
   max-width: 600px;
@@ -1039,7 +1120,11 @@ iframe {
   margin-top: 20px;
 }
 
-.code-instructions a {
+html.mode-dark .code-instructions {
+  color: #eee;
+}
+
+code-instructions a {
   color: var(--primary);
   font-weight: 600;
   text-decoration: none;
@@ -1050,24 +1135,24 @@ iframe {
 }
 
 /* ============================
-    Responsive
-    ============================ */
+  Responsive
+  ============================ */
 
 @media (max-width: 768px) {
   .purchase-title, .success-title {
-    font-size: 1.6rem;
+   font-size: 1.6rem;
   }
-  
+
   .purchase-options {
-    grid-template-columns: 1fr;
+   grid-template-columns: 1fr;
   }
-  
+
   .price {
-    font-size: 1.8rem;
+   font-size: 1.8rem;
   }
-  
+
   .code-display {
-    font-size: 1.4rem;
-    padding: 10px;
+   font-size: 1.4rem;
+   padding: 10px;
   }
 }
