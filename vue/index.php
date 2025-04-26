@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="../assets/images/hero-nsi.svg" alt="Illustration de concepts NSI">
+            <img src="../assets/images/Acceuil.png" alt="Illustration de concepts NSI">
         </div>
     </section>
 
@@ -51,7 +51,7 @@
         </div>
     </section>
 
-    <section class="about">
+    <section class="about" id=#about">
         <h2 class="section-title">À propos de DomoSchool</h2>
         <div class="about-content">
             <div class="about-text">
@@ -60,7 +60,7 @@
                 <p>Rejoignez la communauté DomoSchool et bénéficiez d'un accompagnement personnalisé pour réussir votre parcours en Numérique et Sciences Informatiques.</p>
             </div>
             <div class="about-image">
-                <img src="../assets/images/avatar-nathan.png" alt="Fondateur de DomoSchool, Nathan">
+                <img src="../assets/images/photo-nathan.jpg" alt="Fondateur de DomoSchool, Nathan">
             </div>
         </div>
     </section>
