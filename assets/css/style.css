@@ -1236,9 +1236,10 @@ html.mode-dark .code-instructions a {
   align-items: center;
   justify-content: space-between;
   padding: 60px 0;
+  margin-bottom: 70px;
   gap: 40px;
   width: 100%;
-  height: calc(100vh - 200px);
+
 }
 
 .homepage-container .hero-content {
