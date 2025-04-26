@@ -51,7 +51,7 @@
         </div>
     </section>
 
-    <section class="about" id=#about">
+    <section class="about" id="about">
         <h2 class="section-title">À propos de DomoSchool</h2>
         <div class="about-content">
             <div class="about-text">
@@ -65,7 +65,7 @@
         </div>
     </section>
 
-    <section class="current-subjects">
+    <section class="current-subjects" id="subjects">
         <h2 class="section-title">Notre Matière Actuelle</h2>
         <div class="subjects-grid">
             <div class="subject-card nsi-card">
