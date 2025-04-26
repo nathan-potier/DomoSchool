@@ -1180,3 +1180,475 @@ html.mode-dark .code-instructions a {
    padding: 10px;
   }
 }
+
+
+/* ============================
+  Styles spécifiques à la Page d'Accueil
+  ============================ */
+
+/* ============================
+  Container principal (Page d'Accueil)
+  ============================ */
+.homepage-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    flex: 1;
+}
+
+/* ============================
+  Titres (Page d'Accueil)
+  ============================ */
+.homepage-container h1,
+.homepage-container h2,
+.homepage-container h3 {
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #2E7D32; /* Nouveau vert */
+    text-align: center;
+}
+
+.homepage-container h1 {
+    font-size: 2.8em;
+    line-height: 1.2;
+}
+
+.homepage-container h2.section-title {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+}
+
+.homepage-container h3 {
+    font-size: 1.6em;
+}
+
+/* ============================
+  Section Héro (Page d'Accueil)
+  ============================ */
+.homepage-container .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 0;
+    margin-bottom: 70px;
+}
+
+.homepage-container .hero-content {
+    flex: 1;
+    text-align: left;
+}
+
+.homepage-container .hero-subtitle {
+    font-size: 1.3em;
+    color: #757575; /* Nouveau gris */
+    margin-bottom: 20px;
+}
+
+.homepage-container .hero-description {
+    font-size: 1.15em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.homepage-container .hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.homepage-container .hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.homepage-container .hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============================
+  Boutons (Page d'Accueil)
+  ============================ */
+.homepage-container .button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.homepage-container .button.primary {
+    background-color: #2E7D32; /* Nouveau vert */
+    color: #FFFFFF;
+}
+
+.homepage-container .button.primary:hover {
+    background-color: #1B5E20; /* Nouveau vert foncé */
+}
+
+.homepage-container .button.secondary {
+    background-color: #FFB300; /* Nouveau jaune */
+    color: #FFFFFF;
+}
+
+.homepage-container .button.secondary:hover {
+    background-color: #E6A200; /* Nouveau jaune foncé */
+}
+
+.homepage-container .button.subtle {
+    background-color: transparent;
+    color: #2E7D32; /* Nouveau vert */
+    border: 2px solid #2E7D32; /* Nouveau vert */
+    padding: 10px 23px;
+}
+
+.homepage-container .button.subtle:hover {
+    background-color: #2E7D32; /* Nouveau vert */
+    color: #FFFFFF;
+}
+
+/* ============================
+  Section "Pourquoi DomoSchool pour la NSI ?" (Page d'Accueil)
+  ============================ */
+.homepage-container .benefits-nsi {
+    padding: 60px 0;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    margin-bottom: 70px;
+}
+
+.homepage-container .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+    padding: 0 30px;
+}
+
+.homepage-container .benefit-item {
+    text-align: center;
+    padding: 25px;
+    border-radius: 8px;
+    background-color: #F1F8E9; /* Nouveau vert clair */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.homepage-container .benefit-icon {
+    font-size: 2.8em;
+    color: #2E7D32; /* Nouveau vert */
+    margin-bottom: 20px;
+}
+
+.homepage-container .benefit-item h3 {
+    font-size: 1.4em;
+    color: #2E7D32; /* Nouveau vert */
+    margin-bottom: 15px;
+}
+
+.homepage-container .benefit-item p {
+    font-size: 1.1em;
+    color: #757575; /* Nouveau gris */
+    line-height: 1.6;
+}
+
+/* ============================
+  Section "À propos" (Page d'Accueil)
+  ============================ */
+.homepage-container .about {
+    padding: 70px 0;
+    margin-bottom: 70px;
+}
+
+.homepage-container .about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.homepage-container .about-text {
+    flex: 1;
+    text-align: left;
+}
+
+.homepage-container .about-text p {
+    font-size: 1.15em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.homepage-container .about-text strong {
+    font-weight: 700;
+    color: #2E7D32; /* Nouveau vert */
+}
+
+.homepage-container .about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.homepage-container .about-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================
+  Section "Notre Matière Actuelle" (Page d'Accueil)
+  ============================ */
+.homepage-container .current-subjects {
+    padding: 60px 0;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    margin-bottom: 70px;
+}
+
+.homepage-container .subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    padding: 0 30px;
+}
+
+.homepage-container .subject-card {
+    text-align: center;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #E8F5E9; /* Nouveau vert très clair */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.homepage-container .subject-icon {
+    font-size: 3em;
+    color: #2E7D32; /* Nouveau vert */
+    margin-bottom: 20px;
+}
+
+.homepage-container .subject-card h3 {
+    font-size: 1.6em;
+    color: #2E7D32; /* Nouveau vert */
+    margin-bottom: 15px;
+}
+
+.homepage-container .subject-card p {
+    font-size: 1.1em;
+    color: #757575; /* Nouveau gris */
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.homepage-container .nsi-card {
+    /* Styles spécifiques à la carte NSI si nécessaire */
+}
+
+/* ============================
+  Section "À venir prochainement" (Page d'Accueil)
+  ============================ */
+.homepage-container .coming-soon {
+    padding: 70px 0;
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.homepage-container .coming-soon-intro {
+    font-size: 1.2em;
+    color: #757575; /* Nouveau gris */
+    margin-bottom: 30px;
+}
+
+.homepage-container .soon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+    padding: 0 30px;
+}
+
+.homepage-container .soon-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    position: relative;
+}
+
+.homepage-container .soon-icon {
+    font-size: 2.5em;
+    color: #FFB300; /* Nouveau jaune */
+    margin-bottom: 20px;
+}
+
+.homepage-container .soon-card h3 {
+    font-size: 1.4em;
+    color: #2E7D32; /* Nouveau vert */
+    margin-bottom: 15px;
+}
+
+.homepage-container .soon-card p {
+    font-size: 1.1em;
+    color: #757575; /* Nouveau gris */
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.homepage-container .soon-status {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #bdbdbd;
+    color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9em;
+}
+
+/* ============================
+  Section Témoignages (Page d'Accueil)
+  ============================ */
+.homepage-container .testimonials {
+    padding: 70px 0;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    margin-bottom: 80px;
+}
+
+.homepage-container .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+    padding: 0 30px;
+}
+
+.homepage-container .testimonial-card {
+    background-color: #E0F2F1; /* Nouveau vert clair très doux */
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.homepage-container .testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.homepage-container .testimonial-card p {
+    font-size: 1.1em;
+    color: #333333; /* Couleur de texte globale par défaut */
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.homepage-container .testimonial-author {
+    font-size: 1em;
+    font-weight: 600;
+    color: #2E7D32; /* Nouveau vert */
+}
+
+/* ============================
+  Responsive (Page d'Accueil)
+  ============================ */
+
+@media screen and (max-width: 960px) {
+    .homepage-container .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .homepage-container .hero-content {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .homepage-container .hero-image {
+        order: -1; /* Place l'image au-dessus sur mobile */
+        margin-bottom: 30px; /* Ajout de marge sous l'image sur mobile */
+    }
+
+    .homepage-container .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .homepage-container .about-image {
+        order: -1;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .homepage-container .hero-image {
+        display: none; /* Cache l'image sur les écrans plus petits */
+    }
+
+    .homepage-container .hero-content {
+        text-align: center; /* S'assure que le contenu reste centré sans l'image */
+    }
+
+    .homepage-container .hero {
+        padding: 40px 20px; /* Ajout de padding horizontal pour éviter que le texte ne touche les bords */
+        margin-bottom: 50px;
+    }
+
+    .homepage-container .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .homepage-container .button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .homepage-container .benefits-grid,
+    .homepage-container .subjects-grid,
+    .homepage-container .soon-grid,
+    .homepage-container .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .homepage-container {
+        padding: 20px; /* Réduit le padding général sur les petits écrans */
+    }
+}
+
+/* Pour les écrans encore plus petits */
+@media screen and (max-width: 480px) {
+    .homepage-container {
+        padding: 15px; /* Réduit encore le padding */
+    }
+
+    .homepage-container h1 {
+        font-size: 2.2em; /* Réduit la taille du titre principal */
+    }
+
+    .homepage-container .hero-subtitle {
+        font-size: 1.1em; /* Réduit la taille du sous-titre */
+    }
+
+    .homepage-container .hero-description {
+        font-size: 1em; /* Réduit la taille de la description */
+    }
+
+    .homepage-container .button {
+        font-size: 0.9em; /* Réduit la taille des boutons */
+        padding: 10px 15px;
+    }
+}
