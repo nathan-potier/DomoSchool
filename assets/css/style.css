@@ -1239,7 +1239,7 @@ html.mode-dark .code-instructions a {
   margin-bottom: 70px;
   gap: 40px;
   width: 100%;
-
+  height: calc(100vh - 200px);
 }
 
 .homepage-container .hero-content {
@@ -1587,6 +1587,11 @@ html.mode-dark .code-instructions a {
    Responsive (Page d'Accueil)
 ============================ */
 @media screen and (max-width: 960px) {
+  .homepage-container .hero{
+    height: 100%;
+    margin-top: -60px;
+  }
+
   .homepage-container .hero-content,
   .homepage-container .about-text {
     text-align: center;
