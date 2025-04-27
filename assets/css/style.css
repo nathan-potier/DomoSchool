@@ -759,7 +759,7 @@
   html.mode-dark .purchase-option {
     background-color: var(--card-bg);
     box-shadow: 0 8px 24px var(--shadow);
-    transition: background-color 0.2s ease-in-out;
+    transition:  0.2s ease-in-out;
   }
 
   html.mode-dark .purchase-option:hover {
