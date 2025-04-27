@@ -20,6 +20,7 @@
     --text: #333;
     --white: #fff;
     --card-bg: #f9f9f9;
+    --card-bg-2: #e0e0e0; /* Gris clair */
     --shadow: rgba(0, 0, 0, 0.1);
   }
   
@@ -44,6 +45,13 @@
   a {
     text-decoration: none;
   }
+
+  .hidden-content {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
   
   /* ============================
     Container principal
@@ -84,6 +92,7 @@
 
   header.hidden {
     top: -150px;
+    transition: top 0.3s ease;
   }
   
 
@@ -661,106 +670,128 @@
   }
   
   /* ============================
-    Styles Dark Mode
-    ============================ */
+   Styles Dark Mode (Amélioré)
+   ============================ */
   html.mode-dark {
-    --background: #121212;
-    --text: #ffffff;
-    --white: #1e1e1e;
-    --shadow: rgba(255, 255, 255, 0.1);
-    --accent: #7F8C8D;
-    --card-bg: #1e1e1e;
+    --background: #181818; /* Un noir légèrement plus clair pour éviter l'effet "trou noir" */
+    --text: #e0e0e0;       /* Gris clair pour une meilleure lisibilité */
+    --white: #212121;      /* Nuance de gris foncé pour les fonds secondaires */
+    --shadow: rgba(255, 255, 255, 0.08); /* Ombre blanche subtile */
+    --card-bg: #212121;    /* Fond des cartes légèrement plus clair que le background */
+    --card-bg-2: #2e2e2e;
+    --card-bg-hover: #333; /* Léger éclaircissement au survol des cartes */
+    --input-bg: #303030;    /* Fond des inputs plus sombre */
+    --input-text: #f5f5f5;   /* Texte des inputs plus clair */
+    --border: #424242;      /* Bordures plus visibles */
   }
-  
+
   html.mode-dark input[type='text'],
   html.mode-dark input[type='email'],
   html.mode-dark input[type='password'],
   html.mode-dark select,
   html.mode-dark textarea {
-    background-color: #333;
-    color: #eee;
-    border-color: #555;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border-color: var(--border);
   }
-  
+
   html.mode-dark form {
-    background-color: #1e1e1e;
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg);
+    box-shadow: 0 8px 16px var(--shadow);
   }
-  
+
   html.mode-dark .card {
-    background-color: #1e1e1e;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 10px var(--shadow);
+    transition: background-color 0.2s ease-in-out; /* Ajout de transition pour l'effet hover */
   }
-  
+
+  html.mode-dark .card:hover {
+    background-color: var(--card-bg-hover);
+  }
+
   html.mode-dark .signup-form {
-    background-color: #1e1e1e;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 12px var(--shadow);
   }
-  
+
   html.mode-dark .stat-box {
-    background-color: #1e1e1e;
-    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 6px var(--shadow);
   }
-  
+
   html.mode-dark .sidebar {
-    background-color: #1e1e1e;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 8px var(--shadow);
   }
-  
+
   html.mode-dark .chapter-card {
-    background-color: #1e1e1e;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 8px var(--shadow);
   }
-  
+
   html.mode-dark .course-item {
-    background-color: #1e1e1e;
-    border-left-color: var(--primary);
-    box-shadow: 0 1px 4px rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg);
+    border-left-color: var(--primary); /* Garder la couleur primaire pour l'accent */
+    box-shadow: 0 1px 4px var(--shadow);
+    transition: background-color 0.2s ease-in-out;
   }
-  
+
+  html.mode-dark .course-item:hover {
+    background-color: var(--card-bg-hover);
+  }
+
   html.mode-dark .purchase-option {
-    background-color: #1e1e1e;
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg);
+    box-shadow: 0 8px 24px var(--shadow);
+    transition: background-color 0.2s ease-in-out;
   }
-  
+
+  html.mode-dark .purchase-option:hover {
+    background-color: var(--card-bg-hover);
+  }
+
   html.mode-dark .success-code {
-    background-color: #1e1e1e;
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+    background-color: var(--card-bg);
+    box-shadow: 0 8px 24px var(--shadow);
   }
-  
+
   html.mode-dark .code-display {
-    background-color: #333;
-    color: var(--highlight);
+    background-color: #333; /* Un gris plus foncé pour le contraste du code */
+    color: var(--highlight); /* Garder la couleur highlight pour le code */
+    border-color: #555; /* Ajouter une bordure subtile pour le délimiter */
   }
-  
+
   html:not(.no-js) {
     background-color: var(--background);
     color: var(--text);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce pour le changement de thème */
   }
-  
+
   .no-js body {
     opacity: 0;
   }
-  
+
   .no-js body.loaded {
     opacity: 1;
     transition: opacity 0.3s ease;
   }
-  
+
   html:not(.theme-loaded) .theme-toggle {
     opacity: 0;
   }
-  
+
   html.theme-loaded .theme-toggle {
     opacity: 1;
     transition: opacity 0.3s ease;
   }
-  
+
   iframe {
     width: 100%;
     height: 100vh;
     border: none;
     overflow: hidden;
+    background-color: var(--background); /* Assurer un fond sombre pour l'iframe */
   }
   
   /* ============================
@@ -1228,16 +1259,16 @@
   .homepage-container .button.secondary:hover {
     background-color: var(--highlight-hover);
   }
-  
-  .homepage-container .button.subtle {
+
+  .homepage-container .button.subtle {  
     background-color: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
+    color: var(--accent);
+    border: 2px solid var(--accent);
     padding: 10px 23px;
   }
   
   .homepage-container .button.subtle:hover {
-    background-color: var(--primary);
+    background-color: var(--accent);
     color: var(--white);
   }
   
@@ -1262,7 +1293,7 @@
     text-align: center;
     padding: 25px;
     border-radius: 8px;
-    background-color: var(--card-bg);
+    background-color: var(--card-bg-2);
     box-shadow: 0 1px 3px var(--shadow);
     transition: transform 0.3s ease;
   }
@@ -1351,19 +1382,27 @@
     margin-top: 30px;
     padding: 0 30px;
   }
-  
+
   .homepage-container .subject-card {
     text-align: center;
     padding: 30px;
     border-radius: 8px;
-    background-color: var(--card-bg);
+    background-color: var(--card-bg-2);
     box-shadow: 0 1px 3px var(--shadow);
     transition: transform 0.3s ease;
   }
   
-  .homepage-container .subject-card:hover {
-    transform: scale(1.05);
+
+
+  
+  .homepage-container .subject-card.nsi-card:hover .button.subtle {
+    transform: scale(1.10);
   }
+
+
+
+
+
   
   .homepage-container .subject-icon {
     font-size: clamp(2rem, 5vw, 3rem);
@@ -1467,7 +1506,7 @@
   }
   
   .homepage-container .testimonial-card {
-    background-color: var(--card-bg);
+    background-color: var(--card-bg-2);
     border-radius: 8px;
     padding: 30px;
     box-shadow: 0 1px 3px var(--shadow);
@@ -1479,14 +1518,13 @@
     transform: scale(1.05);
   }
   
-  .homepage-container .testimonial-card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px var(--shadow);
+  .homepage-container .testimonial-card i {
+    display: block;
+    margin: 0 auto 20px; /* Ajustez la marge selon vos besoins */
+    color: var(--primary); /* Couleur de l'icône */
+    font-size: 40px; /* Ajuste la taille de l'icône ici */
   }
+
   
   .homepage-container .testimonial-card p {
     font-size: clamp(1rem, 2vw, 1.1rem);
@@ -1505,6 +1543,7 @@
     .homepage-container .hero {
       flex-direction: column;
       text-align: center;
+      margin-top: -20px;
     }
   
     .homepage-container .hero-content,
@@ -1589,6 +1628,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
   }
   
   .back-to-top.show {

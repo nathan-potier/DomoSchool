@@ -33,7 +33,7 @@ include(__DIR__ . '/../includes/header.php');
 <!-- Lien vers le fichier CSS -->
 <link rel="stylesheet" href="../path/to/style.css">
 
-<div class="content-wrapper">
+<div class="container content-wrapper">
     <?php
     if ($course) {
         // Si le cours existe, afficher son contenu

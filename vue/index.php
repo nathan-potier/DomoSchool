@@ -105,20 +105,24 @@
         <h2 class="section-title">Ce que les élèves de NSI disent de DomoSchool</h2>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <img src="../assets/images/avatar-lea.png" alt="Léa">
+                <i class="fas fa-user-circle fa-4x"></i>
                 <p>“DomoSchool m'a vraiment aidé à comprendre les algorithmes et la programmation en Python. Les exercices sont super !”</p>
                 <strong class="testimonial-author">Léa, Terminale NSI</strong>
             </div>
             <div class="testimonial-card">
-                <img src="../assets/images/avatar-maxime.png" alt="Maxime">
+                <i class="fas fa-user-circle fa-4x"></i>
                 <p>“Les cours sont bien structurés et les projets sont une excellente façon de mettre en pratique ce qu'on apprend.”</p>
                 <strong class="testimonial-author">Maxime, Première NSI</strong>
             </div>
         </div>
     </section>
+
 </div>
 
-<button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+<button class="back-to-top"  onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+</button>
 
 <?php include('../includes/footer.php'); ?>
 
