@@ -77,12 +77,15 @@ $isFirstCourse = true;
 <?php include(__DIR__ . '/../../includes/footer.php'); ?>
 
 <script>
-document.querySelectorAll('.chapter-card').forEach(card => {
-  const header = card.querySelector('.chapter-header');
-  header.addEventListener('click', () => {
-    card.classList.toggle('open');
+  document.querySelectorAll('.chapter-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Si on a cliqué sur un lien à l’intérieur, on laisse le lien faire son boulot
+      if (e.target.closest('a')) return;
+
+      // Sinon, on bascule l’ouverture de la carte
+      this.classList.toggle('open');
+    });
   });
-});
 </script>
 
 <script>

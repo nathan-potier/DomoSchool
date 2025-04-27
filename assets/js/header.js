@@ -5,6 +5,7 @@ const containers = document.querySelectorAll('.container');
 let lastHeaderHeight = 0; 
 let lastWindowWidth = window.innerWidth; 
 
+
 // Fonction pour ajuster les marges en fonction de la hauteur du header
 function adjustMargins() {
     if (header && containers.length > 0) {
@@ -22,13 +23,7 @@ function adjustMargins() {
     }
 }
 
-// Fonction pour scroller vers le haut de 2 crans
-function pushContentDown() {
-    window.scrollBy({
-        top: -200, // 2 crans vers le haut (environ)
-        behavior: 'auto'
-    });
-}
+
 
   
 
@@ -62,6 +57,8 @@ window.addEventListener('scroll', function() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const headerHeight = header.offsetHeight;
 
+
+
     if (scrollTop > 50) {
         if (scrollTop > lastScrollTop) {
             // Scrolling down - cacher le header
@@ -70,7 +67,7 @@ window.addEventListener('scroll', function() {
             // Scrolling up - montrer le header et décaler la page
             if (header.classList.contains('hidden')) {
                 header.classList.remove('hidden');
-                pushContentDown(headerHeight);
+                
             }
         }
     } else {
@@ -90,3 +87,6 @@ window.addEventListener('scroll', function() {
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+
+
