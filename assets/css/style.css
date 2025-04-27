@@ -1186,6 +1186,19 @@ html.mode-dark .code-instructions a {
 ============================ */
 
 /* ============================
+   Variables CSS
+============================ */
+
+/* ============================
+   Importation des polices
+============================ */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ============================
    Container principal (Page d'Accueil)
 ============================ */
 .homepage-container {
@@ -1196,10 +1209,7 @@ html.mode-dark .code-instructions a {
   flex: 1;
   box-sizing: border-box;
   overflow-x: hidden; /* Correction dépassement horizontal */
-
-  
 }
-
 
 /* ============================
    Titres (Page d'Accueil)
@@ -1239,7 +1249,6 @@ html.mode-dark .code-instructions a {
   margin-bottom: 70px;
   gap: 40px;
   width: 100%;
-
 }
 
 .homepage-container .hero-content {
@@ -1278,7 +1287,8 @@ html.mode-dark .code-instructions a {
   height: auto;
   max-height: 500px;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px var(--shadow);
 }
 
 /* ============================
@@ -1287,15 +1297,20 @@ html.mode-dark .code-instructions a {
 .homepage-container .button {
   display: inline-block;
   padding: 12px 25px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: clamp(0.9rem, 2vw, 1.1rem);
   text-decoration: none;
   text-align: center;
   border: none;
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.3s ease;
   white-space: nowrap;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.homepage-container .button:hover {
+  transform: scale(1.05);
 }
 
 .homepage-container .button.primary {
@@ -1354,6 +1369,11 @@ html.mode-dark .code-instructions a {
   border-radius: 8px;
   background-color: var(--card-bg);
   box-shadow: 0 1px 3px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.homepage-container .benefit-item:hover {
+  transform: scale(1.05);
 }
 
 .homepage-container .benefit-icon {
@@ -1418,7 +1438,7 @@ html.mode-dark .code-instructions a {
   max-width: 100%;
   height: auto;
   max-height: 400px;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0 4px 10px var(--shadow);
   object-fit: contain;
 }
@@ -1449,6 +1469,11 @@ html.mode-dark .code-instructions a {
   border-radius: 8px;
   background-color: var(--card-bg);
   box-shadow: 0 1px 3px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.homepage-container .subject-card:hover {
+  transform: scale(1.05);
 }
 
 .homepage-container .subject-icon {
@@ -1503,6 +1528,11 @@ html.mode-dark .code-instructions a {
   min-height: 250px;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.homepage-container .soon-card:hover {
+  transform: scale(1.05);
 }
 
 .homepage-container .soon-icon {
@@ -1559,6 +1589,11 @@ html.mode-dark .code-instructions a {
   padding: 30px;
   box-shadow: 0 1px 3px var(--shadow);
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.homepage-container .testimonial-card:hover {
+  transform: scale(1.05);
 }
 
 .homepage-container .testimonial-card img {
@@ -1587,8 +1622,10 @@ html.mode-dark .code-instructions a {
    Responsive (Page d'Accueil)
 ============================ */
 @media screen and (max-width: 960px) {
-  .homepage-container .hero{
+  .homepage-container .hero {
     margin-top: -60px;
+    flex-direction: column-reverse;
+    text-align: center;
   }
 
   .homepage-container .hero-content,
@@ -1598,6 +1635,7 @@ html.mode-dark .code-instructions a {
 
   .homepage-container .hero-buttons {
     justify-content: center;
+    margin-top: 20px;
   }
 }
 
@@ -1641,4 +1679,18 @@ html.mode-dark .code-instructions a {
   .homepage-container .testimonial-card {
     padding: 20px;
   }
+}
+
+/* ============================
+   Animations de défilement
+============================ */
+.homepage-container section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.homepage-container section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

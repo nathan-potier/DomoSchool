@@ -71,7 +71,7 @@ $userRole = $userSessionData['userRole'];
     <nav class="menuBurger">
         <a href="<?php echo BASE_URL; ?>/vue/index.php">Accueil</a>
         <a href="<?php echo BASE_URL; ?>/vue/index.php#about">À propos</a>
-        <a href="<?php echo BASE_URL; ?>/vue/index.php#subjects">Matières</a>
+        <a href="<?php echo BASE_URL; ?>/vue/eleve/courses.php">Cours</a>
 
         <?php if (!$isLoggedIn): ?>
             <a href="<?php echo BASE_URL; ?>/vue/auth/login.php">Se connecter</a>
@@ -94,7 +94,7 @@ $userRole = $userSessionData['userRole'];
     <nav class="desktop-nav">
         <a href="<?php echo BASE_URL; ?>/vue/index.php">Accueil</a>
         <a href="<?php echo BASE_URL; ?>/vue/index.php#about">À propos</a>
-        <a href="<?php echo BASE_URL; ?>/vue/index.php#subjects">Matières</a>
+        <a href="<?php echo BASE_URL; ?>/vue/eleve/courses.php">Cours</a>
 
         <?php if (!$isLoggedIn): ?>
             <a href="<?php echo BASE_URL; ?>/vue/auth/login.php">Se connecter</a>
