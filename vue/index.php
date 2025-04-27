@@ -1,7 +1,6 @@
 <?php include('../includes/header.php'); ?>
 
 <div class="container homepage-container">
-
     <section class="hero">
         <div class="hero-content">
             <h1>Devenez un As de la NSI avec <span class="primary-color">DomoSchool</span></h1>
@@ -99,7 +98,7 @@
                 <p>Comprendre le monde d'hier et d'aujourd'hui à travers des récits captivants et des outils interactifs.</p>
                 <span class="soon-status">En planification</span>
             </div>
-            </div>
+        </div>
     </section>
 
     <section class="testimonials">
@@ -117,28 +116,9 @@
             </div>
         </div>
     </section>
-
 </div>
+
+<button class="back-to-top" onclick="scrollToTop()">↑</button>
 
 <?php include('../includes/footer.php'); ?>
 
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('.homepage-container section');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
-  });
-</script>

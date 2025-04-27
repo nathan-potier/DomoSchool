@@ -36,6 +36,7 @@ $userRole = $userSessionData['userRole'];
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
     <script src="<?php echo BASE_URL; ?>/assets/js/menuBurger.js" defer></script>
     <script src="<?php echo BASE_URL; ?>/assets/js/main.js" defer></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/header.js" defer></script>
 </head>
 <body>
 <header>
