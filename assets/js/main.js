@@ -1,13 +1,35 @@
 document.addEventListener('DOMContentLoaded', function() {
     const toggle = document.querySelector('input[name="theme-mode"]');
     const btToggle = document.querySelector('.btToggle');
+
+
+    function invertLogoColors(shouldInvert) {
+        const logo = document.querySelector('.logo img');
+        if (logo) {
+            if (shouldInvert) {
+                logo.style.filter = 'brightness(0) invert(1)';
+                logo.style.backgroundColor = ''; // <-- couleur que tu veux
+                logo.style.mixBlendMode = 'screen'; // ou multiply selon effet voulu
+            } else {
+                logo.style.filter = '';
+                logo.style.backgroundColor = '';
+                logo.style.mixBlendMode = '';
+            }
+        }
+    }
+    
+   
+
+
     
     function applyMode(isDark) {
         document.documentElement.classList.remove('mode-dark', 'mode-white');
         document.documentElement.classList.add(isDark ? 'mode-dark' : 'mode-white');
         localStorage.setItem('mode', isDark ? 'mode-dark' : 'mode-white');
         toggle.checked = isDark;
-        
+
+
+        invertLogoColors(isDark);
         // Update iframes after theme change
         updateIframesTheme(isDark);
     }

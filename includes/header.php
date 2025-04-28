@@ -59,7 +59,7 @@ $userRole = $userSessionData['userRole'];
     <!-- Logo -->
     <div class="logo">
         <a href="<?php echo BASE_URL; ?>/vue/index.php">
-            <img class="header-content" src="<?php echo BASE_URL; ?>/assets/images/logo.png" alt="Logo" class="header-profile">
+            <img class="header-content" src="<?php echo BASE_URL; ?>/assets/images/logo-sans-bg2.png" alt="Logo">
         </a>
     </div>
 
