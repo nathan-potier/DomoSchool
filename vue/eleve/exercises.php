@@ -3,12 +3,12 @@ require_once __DIR__ . '/../../includes/functions.php';
 startSession();
 
 if (empty($_SESSION['user_id'])) {
-    redirect('login.php');
+    redirect(BASE_URL . '/login');
 }
 
 $user = getUserData($_SESSION['user_id']);
 if (!$user) {
-    redirect('login.php');
+    redirect(BASE_URL . '/login');
 }
 
 $exercises = getExercisesByStudent($_SESSION['user_id']);
@@ -24,7 +24,7 @@ $exercises = getExercisesByStudent($_SESSION['user_id']);
     <h3><?= htmlspecialchars($exercise['title']) ?></h3>
     <p><?= htmlspecialchars($exercise['description']) ?></p>
 
-    <form method="post" action="submit_exercise.php">
+    <form method="post" action="<?= BASE_URL . '/submit_exercise' ?>">
         <textarea id="code-editor" name="code"><?= htmlspecialchars($exercise['code']) ?></textarea>
         <button type="submit">Soumettre</button>
     </form>
@@ -37,6 +37,5 @@ $exercises = getExercisesByStudent($_SESSION['user_id']);
         theme: "default"
     });
 </script>
-
 
 <?php include('../includes/footer.php'); ?>

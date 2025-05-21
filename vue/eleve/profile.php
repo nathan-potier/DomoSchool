@@ -10,7 +10,7 @@ $userSessionData = getUserSessionData();
 // Vérifier si l'utilisateur est connecté avant de procéder
 if (!$userSessionData['isLoggedIn']) {
     // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
-    header('Location: login.php');
+    header('Location: ' . BASE_URL . '/login');
     exit;
 }
 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lastName = sanitizeInput($_POST['last_name']);
     $email = sanitizeInput($_POST['email']);
     updateUserProfile($_SESSION['user_id'], $firstName, $lastName, $email);
-    redirect('profile.php?success=Profil mis à jour');
+    redirect(BASE_URL . '/eleve/profile?success=Profil mis à jour');
 }
 ?>
 

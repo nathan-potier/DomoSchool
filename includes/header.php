@@ -1,9 +1,6 @@
 <?php
-
-
 require_once __DIR__ . '/functions.php';  // Inclure le fichier où la fonction est définie
 startSession();  // Démarrer la session si elle n'est pas déjà active
-
 
 // Récupérer les informations sur l'utilisateur
 $userSessionData = getUserSessionData();
@@ -29,8 +26,6 @@ $userRole = $userSessionData['userRole'];
 
         })();
     </script>
-    
-
 
     <title>DomoSchool</title>
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
@@ -38,6 +33,7 @@ $userRole = $userSessionData['userRole'];
     <script src="<?php echo BASE_URL; ?>/assets/js/main.js" defer></script>
     <script src="<?php echo BASE_URL; ?>/assets/js/header.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 
 </head>
 <body class="hidden-content">
@@ -58,7 +54,7 @@ $userRole = $userSessionData['userRole'];
 
     <!-- Logo -->
     <div class="logo">
-        <a href="<?php echo BASE_URL; ?>/vue/index.php">
+        <a href="<?php echo BASE_URL; ?>/index">
             <img class="header-content" src="<?php echo BASE_URL; ?>/assets/images/logo-sans-bg2.png" alt="Logo">
         </a>
     </div>
@@ -72,51 +68,50 @@ $userRole = $userSessionData['userRole'];
 
     <!-- Menu pour mobile -->
     <nav class="menuBurger">
-        <a href="<?php echo BASE_URL; ?>/vue/index.php">Accueil</a>
-        <a href="<?php echo BASE_URL; ?>/vue/index.php#about">À propos</a>
-        <a href="<?php echo BASE_URL; ?>/vue/eleve/courses.php">Cours</a>
+        <a href="<?php echo BASE_URL; ?>/index">Accueil</a>
+        <a href="<?php echo BASE_URL; ?>/index#about">À propos</a>
+        <a href="<?php echo BASE_URL; ?>/courses">Cours</a>
 
         <?php if (!$isLoggedIn): ?>
-            <a href="<?php echo BASE_URL; ?>/vue/auth/login.php">Se connecter</a>
-            <a href="<?php echo BASE_URL; ?>/vue/auth/register.php">S'inscrire</a>
+            <a href="<?php echo BASE_URL; ?>/login">Se connecter</a>
+            <a href="<?php echo BASE_URL; ?>/register">S'inscrire</a>
         <?php else: ?>
             <a href="<?php
                 if ($userRole === 'student') {
-                    echo BASE_URL . '/vue/eleve/dashboard.php';
+                    echo BASE_URL . '/eleve/dashboard';
                 } elseif ($userRole === 'teacher') {
-                    echo BASE_URL . '/vue/professeur/dashboard.php';
+                    echo BASE_URL . '/professeur/dashboard';
                 } elseif ($userRole === 'parent') {
-                    echo BASE_URL . '/vue/parent/dashboard.php';
+                    echo BASE_URL . '/parent/dashboard';
                 } elseif ($userRole === 'admin') {
-                    echo BASE_URL . '/vue/admin/dashboard.php';
+                    echo BASE_URL . '/admin/dashboard';
                 }
             ?>">Tableau de bord</a>
         <?php endif; ?>
     </nav>
 
     <nav class="desktop-nav">
-        <a href="<?php echo BASE_URL; ?>/vue/index.php">Accueil</a>
-        <a href="<?php echo BASE_URL; ?>/vue/index.php#about">À propos</a>
-        <a href="<?php echo BASE_URL; ?>/vue/eleve/courses.php">Cours</a>
+        <a href="<?php echo BASE_URL; ?>/index">Accueil</a>
+        <a href="<?php echo BASE_URL; ?>/index#about">À propos</a>
+        <a href="<?php echo BASE_URL; ?>/courses">Cours</a>
 
         <?php if (!$isLoggedIn): ?>
-            <a href="<?php echo BASE_URL; ?>/vue/auth/login.php">Se connecter</a>
-            <a href="<?php echo BASE_URL; ?>/vue/auth/register.php">S'inscrire</a>
+            <a href="<?php echo BASE_URL; ?>/login">Se connecter</a>
+            <a href="<?php echo BASE_URL; ?>/register">S'inscrire</a>
         <?php else: ?>
             <a href="<?php
                 if ($userRole === 'student') {
-                    echo BASE_URL . '/vue/eleve/dashboard.php';
+                    echo BASE_URL . '/eleve/dashboard';
                 } elseif ($userRole === 'teacher') {
-                    echo BASE_URL . '/vue/professeur/dashboard.php';
+                    echo BASE_URL . '/professeur/dashboard';
                 } elseif ($userRole === 'parent') {
-                    echo BASE_URL . '/vue/parent/dashboard.php';
+                    echo BASE_URL . '/parent/dashboard';
                 } elseif ($userRole === 'admin') {
-                    echo BASE_URL . '/vue/admin/dashboard.php';
+                    echo BASE_URL . '/admin/dashboard';
                 }
             ?>">Tableau de bord</a>
         <?php endif; ?>
     </nav>
-
 
 </header>
 

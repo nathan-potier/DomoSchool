@@ -1,6 +1,7 @@
 <?php include('../includes/header.php'); ?>
 
 <div class="container homepage-container">
+    <?php include('../includes/notif.php'); ?>
     <section class="hero">
         <div class="hero-content">
             <h1>Devenez un As de la NSI avec <span class="primary-color">DomoSchool</span></h1>
@@ -10,17 +11,18 @@
             </p>
             <div class="hero-buttons">
                 <?php if (!$isLoggedIn): ?>
-                    <a href="auth/login.php" class="button primary">Se connecter</a>
-                    <a href="auth/register.php" class="button secondary">Créer un compte</a>
+                    <a href="<?= BASE_URL ?>/login" class="button primary">Se connecter</a>
+                    <a href="<?= BASE_URL ?>/register" class="button secondary">Créer un compte</a>
+
                 <?php else: ?>
-                    <a href="eleve/courses.php" class="button primary">
+                    <a href="<?= BASE_URL ?>/eleve/courses" class="button primary">
                         <i class="fas fa-code"></i> Accéder aux cours NSI
                     </a>
                 <?php endif; ?>
             </div>
         </div>
         <div class="hero-image">
-            <img src="../assets/images/Acceuil.png" alt="Illustration de concepts NSI">
+            <img src="<?= BASE_URL ?>/assets/images/Acceuil.png" alt="Illustration de concepts NSI">
         </div>
     </section>
 
@@ -59,7 +61,7 @@
                 <p>Rejoignez la communauté DomoSchool et bénéficiez d'un accompagnement personnalisé pour réussir votre parcours en Numérique et Sciences Informatiques.</p>
             </div>
             <div class="about-image">
-                <img src="../assets/images/photo-nathan.jpg" alt="Fondateur de DomoSchool, Nathan">
+                <img src="<?= BASE_URL ?>/assets/images/photo-nathan.jpg" alt="Fondateur de DomoSchool, Nathan">
             </div>
         </div>
     </section>
@@ -71,7 +73,7 @@
                 <i class="fas fa-code subject-icon"></i>
                 <h3>Numérique et Sciences Informatiques (NSI)</h3>
                 <p>Maîtrisez les fondamentaux de la programmation, des algorithmes, des bases de données, des réseaux et de la pensée computationnelle.</p>
-                <a href="eleve/courses.php" class="button subtle">Explorer les cours NSI</a>
+                <a href="<?= BASE_URL ?>/eleve/courses" class="button subtle">Explorer les cours NSI</a>
             </div>
         </div>
     </section>
@@ -125,4 +127,7 @@
 </button>
 
 <?php include('../includes/footer.php'); ?>
+
+
+
 

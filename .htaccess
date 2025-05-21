@@ -1,11 +1,70 @@
 RewriteEngine On
+RewriteBase /DomoSchool/
 
-# Redirige /dashboard vers /vue/eleve/dashboard.php
-RewriteRule ^dashboard$ /DomoSchool/vue/eleve/dashboard.php [L]
+# --- Redirections élèves ---
+RewriteRule ^eleve/dashboard$             vue/eleve/dashboard.php [L]
+RewriteRule ^eleve/profile$               vue/eleve/profile.php [L]
+RewriteRule ^eleve/courses$               vue/eleve/courses.php [L]
+RewriteRule ^eleve/exercises$             vue/eleve/exercises.php [L]
+RewriteRule ^eleve/schedule$              vue/eleve/schedule.php [L]
 
-# Exemple pour d'autres pages
-# Redirige /profile vers /vue/eleve/profile.php
-RewriteRule ^profile$ /DomoSchool/vue/eleve/profile.php [L]
+# --- Redirections parents ---
+RewriteRule ^parent/dashboard$            vue/parent/dashboard.php [L]
+RewriteRule ^parent/profile$              vue/parent/profile.php [L]
+RewriteRule ^parent/child$                vue/parent/child.php [L]
+RewriteRule ^parent/messages$             vue/parent/messages.php [L]
 
-# Optionnel : Gérer la page d'accueil (par exemple /index redirige vers vue/index.php)
-RewriteRule ^index$ /DomoSchool/vue/index.php [L]
+# --- Redirections professeurs ---
+RewriteRule ^professeur/dashboard$        vue/professeur/dashboard.php [L]
+RewriteRule ^professeur/profile$          vue/professeur/profile.php [L]
+RewriteRule ^professeur/students$         vue/professeur/students.php [L]
+RewriteRule ^professeur/messages$         vue/professeur/messages.php [L]
+RewriteRule ^professeur/create-course$    vue/professeur/create-course.php [L]
+RewriteRule ^professeur/create-exercise$  vue/professeur/create-exercise.php [L]
+
+
+# --- Redirections administrateur ---
+RewriteRule ^admin/dashboard$             vue/admin/dashboard.php [L]
+RewriteRule ^admin/users$                 vue/admin/users.php [L]
+RewriteRule ^admin/courses$               vue/admin/courses.php [L]
+RewriteRule ^admin/logs$                  vue/admin/logs.php [L]
+RewriteRule ^admin/settings$              vue/admin/settings.php [L]
+RewriteRule ^admin/access-codes$          vue/admin/access_codes.php [L]
+
+# --- Authentification ---
+RewriteRule ^login$                       vue/auth/login.php [L]
+RewriteRule ^register$                    vue/auth/register.php [L]
+RewriteRule ^reset-password$              vue/auth/reset_password.php [L]
+RewriteRule ^authenticate$ models/authenticate.php [L]               
+
+# --- Achats / paiements ---
+RewriteRule ^purchase$                    vue/purchase/purchase_code.php [L]
+RewriteRule ^checkout$                    vue/purchase/checkout.php [L]
+RewriteRule ^purchase-success$            vue/purchase/purchase_success.php [L]
+
+# --- Page d'accueil et vue d’un cours ---
+RewriteRule ^index$                       vue/index.php [L]
+RewriteRule ^courses$                     vue/eleve/courses.php [L]
+
+
+
+RewriteRule ^course/([0-9]+)$ vue/view_course.php?course_id=$1 [L,QSA]
+
+
+
+# --- Déconnexion sans .php ---
+RewriteRule ^logout$ models/logout.php [L]
+RewriteRule ^register_user$ models/register_user.php [L]
+
+
+
+
+
+
+# --- Sécurité et fallback ---
+# Si le fichier ou dossier existe, ne pas réécrire
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Sinon, rediriger vers l'index ou une page 404 personnalisée
+RewriteRule ^.*$ vue/index.php [L]

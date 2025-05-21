@@ -4,7 +4,7 @@ require_once __DIR__ . '/../includes/functions.php';
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    redirect('../vue/auth/register.php');
+    redirect(BASE_URL . '/register');
 }
 
 // Vérification du code d'accès
@@ -14,7 +14,7 @@ $check_result = check_access_code($access_code); // ['valid' => true, 'role' => 
 if (!$check_result['valid']) {
     $message = $check_result['message'] ?? 'Code invalide ou déjà utilisé';
     $_SESSION['old_inputs'] = $_POST;
-    redirect('../vue/auth/register.php?error=' . urlencode($message));
+    redirect(BASE_URL . '/register?error=' . urlencode($message));
 }
 
 $role = $check_result['role'];
@@ -31,27 +31,27 @@ $data = [
 
 if (in_array('', $data)) {
     $_SESSION['old_inputs'] = $data;
-    redirect('../vue/auth/register.php?error=Tous les champs sont obligatoires');
+    redirect(BASE_URL . '/register?error=Tous les champs sont obligatoires');
 }
 
 if (!validateEmail($data['email'])) {
-    $data['email'] = ''; 
+    $data['email'] = '';
     $_SESSION['old_inputs'] = $data;
-    redirect('../vue/auth/register.php?error=Email invalide');
+    redirect(BASE_URL . '/register?error=Email invalide');
 }
 
 if ($data['password'] !== $data['password_confirm']) {
-    $data['password'] = ''; 
+    $data['password'] = '';
     $data['password_confirm'] = '';
     $_SESSION['old_inputs'] = $data;
-    redirect('../vue/auth/register.php?error=Les mots de passe ne correspondent pas');
+    redirect(BASE_URL . '/register?error=Les mots de passe ne correspondent pas');
 }
 
 if (strlen($data['password']) < 8) {
-    $data['password'] = ''; 
+    $data['password'] = '';
     $data['password_confirm'] = '';
     $_SESSION['old_inputs'] = $data;
-    redirect('../vue/auth/register.php?error=Le mot de passe doit faire au moins 8 caractères');
+    redirect(BASE_URL . '/register?error=Le mot de passe doit faire au moins 8 caractères');
 }
 
 try {
@@ -63,7 +63,7 @@ try {
     if ($stmt->fetch()) {
         $data['email'] = ''; // on vide l'email seulement dans ce cas
         $_SESSION['old_inputs'] = $data;
-        redirect('../vue/auth/register.php?error=Cet email est déjà utilisé');
+        redirect(BASE_URL . '/register?error=Cet email est déjà utilisé');
     }
 
     $connex->beginTransaction();
@@ -101,7 +101,7 @@ try {
 
     unset($_SESSION['old_inputs']);
 
-    redirect('../vue/index.php?success=Votre compte a été créé et vous êtes maintenant connecté.');
+    redirect(BASE_URL . '/index?success=Votre compte a été créé et vous êtes maintenant connecté.');
 
 } catch (PDOException $e) {
     if (isset($connex) && $connex->inTransaction()) {
@@ -110,3 +110,4 @@ try {
     error_log('Registration Error: ' . $e->getMessage());
     die("Erreur détaillée: " . $e->getMessage());
 }
+?>

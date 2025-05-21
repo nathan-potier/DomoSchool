@@ -34,7 +34,7 @@ function checkAuth() {
 
     // Vérifie si l'utilisateur est connecté
     if (empty($_SESSION['user_id'])) {
-        redirect(BASE_URL . '/vue/auth/login.php');
+        redirect(BASE_URL . '/login');
     }
 
     // Initialiser 'last_activity' si elle n'existe pas encore
@@ -49,7 +49,7 @@ function checkAuth() {
 
         session_unset();  // Détruire les variables de session
         session_destroy(); // Détruire la session
-        redirect(BASE_URL . '/vue/auth/login.php'); // Redirection vers la page de login
+        redirect(BASE_URL . '/login'); // Redirection vers la page de login
     }
 
     // Met à jour 'last_activity' à chaque nouvelle activité

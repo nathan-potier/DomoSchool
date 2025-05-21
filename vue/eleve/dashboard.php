@@ -8,7 +8,7 @@ $user = getUserSessionData();
 
 if ($user === null) {
     // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
-    header('Location: ' . BASE_URL . '/vue/login.php');
+    header('Location: ' . BASE_URL . '/login');
     exit();
 }
 
@@ -45,18 +45,16 @@ $fullName = $user['userName'];
         </div>
     </div>
 
-
     <div class="dashboard-links">
-        <a href="courses.php">Voir les Cours</a>
-        <a href="exercises.php">Voir les Exercices</a>
-        <a href="schedule.php">Planification des Cours</a>
-        <a href="profile.php">Modifier le Profil</a>
+        <a href="<?= BASE_URL . '/eleve/courses' ?>">Voir les Cours</a>
+        <a href="<?= BASE_URL . '/eleve/exercises' ?>">Voir les Exercices</a>
+        <a href="<?= BASE_URL . '/eleve/schedule' ?>">Planification des Cours</a>
+        <a href="<?= BASE_URL . '/eleve/profile' ?>">Modifier le Profil</a>
     </div>
 
     <div class="logout-btn">
-        <a href="<?= BASE_URL . '/models/logout.php' ?>">Déconnexion</a>
+        <a href="<?= BASE_URL . '/logout' ?>">Déconnexion</a>
     </div>
 </div>
-
 
 <?php include('../../includes/footer.php'); ?>
