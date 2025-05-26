@@ -29,3 +29,31 @@ Stack trace:
 #0 C:\xampp\htdocs\DomoSchool\vue\professeur\profile.php(27): updateUserProfile(1, 'Nathann', 'POTIER', 'nathan.pro.po@g...')
 #1 {main}
   thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 159
+[26-May-2025 22:54:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:159
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\professeur\profile.php(27): updateUserProfile(1, 'bob', 'POTIER', 'nathan.pro.po@g...')
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 159
+[26-May-2025 22:59:40 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\DomoSchool\models\register_user.php on line 4
+[26-May-2025 22:59:46 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\DomoSchool\models\register_user.php on line 4
+[26-May-2025 23:02:19 Europe/Berlin] PHP Warning:  include(../includes/notif.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\DomoSchool\vue\eleve\dashboard.php on line 21
+[26-May-2025 23:02:19 Europe/Berlin] PHP Warning:  include(): Failed opening '../includes/notif.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\DomoSchool\vue\eleve\dashboard.php on line 21
+[26-May-2025 23:22:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getRevisionTopics() in C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php on line 9
+[26-May-2025 23:28:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:254
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php(9): getRevisionTopics()
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 254
+[26-May-2025 23:29:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:254
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php(9): getRevisionTopics()
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 254
+[26-May-2025 23:29:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:254
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php(9): getRevisionTopics()
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 254

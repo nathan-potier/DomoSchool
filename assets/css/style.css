@@ -125,7 +125,7 @@
   }
 
   .desktop-nav{
-    margin-left: 30px;
+    margin-left: 15px;
     margin-top: -20px;
     padding-bottom: 20px;
   }
@@ -1665,3 +1665,112 @@
     background-color: var(--primary-hover);
   }
   
+
+
+
+
+
+
+
+
+
+
+  .topic-card {
+    background: var(--background);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px var(--shadow);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .topic-card.open .subtopics-list {
+    max-height: 1000px;
+    opacity: 1;
+    margin-top: 15px;
+  }
+
+  .topic-card.open .subtopics-list a {
+    text-decoration: none;
+  }
+
+  .topic-card .subtopics-list {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .topic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .topic-card h3 {
+    margin: 0;
+    font-size: 1.1em;
+  }
+
+  .topic-card .arrow {
+    font-size: 1.2em;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+  }
+
+  .topic-card.open .arrow {
+    transform: rotate(180deg);
+  }
+
+  .subtopic-item {
+    background-color: var(--background);
+    border-left: 4px solid var(--primary);
+    padding: 12px 16px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px var(--shadow);
+  }
+
+  .subtopic-item:hover {
+    background-color: var(--primary-hover);
+    cursor: pointer;
+    border-color: #38bdf8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  html.mode-dark .subtopic-item:hover {
+    background-color: #38bdf8;
+    color: var(--white);
+  }
+
+  .subtopic-item a {
+    font-size: 1.05em;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  .subtopic-item a:hover {
+    text-decoration: underline;
+  }
+
+  .subtopic-item .description {
+    color: var(--accent);
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+
+  html.mode-dark .subtopic-item .description {
+    color: #aaa;
+  }
+
+  .subtopic-item .teacher {
+    font-size: 0.85em;
+    margin-top: 4px;
+    color: #666;
+  }
+
+  html.mode-dark .subtopic-item .teacher {
+    color: #ccc;
+  }

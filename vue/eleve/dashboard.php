@@ -18,6 +18,7 @@ $fullName = $user['userName'];
 <?php include('../../includes/header.php'); ?>
 
 <div class="container">
+    <?php include('../../includes/notif.php'); ?>
     <h1>🎓 Bienvenue, <?= htmlspecialchars($fullName) ?> !</h1>
 
     <div class="dashboard-info">

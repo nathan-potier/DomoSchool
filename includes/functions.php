@@ -155,14 +155,28 @@ function getStudentSchedule($studentId) {
 
 function updateUserProfile($userId, $firstName, $lastName, $email) {
     global $pdo;
+
+    // Vérifiez si $pdo est déjà initialisé, sinon initialisez-le
+    if (!$pdo) {
+        $db = Database::getInstance();
+        $pdo = $db->getConnection();
+    }
+
+    // Vérifiez si la connexion est valide
+    if (!$pdo) {
+        throw new Exception("La connexion à la base de données a échoué.");
+    }
+
     $sql = "UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':first_name', $firstName, PDO::PARAM_STR);
     $stmt->bindParam(':last_name', $lastName, PDO::PARAM_STR);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+
     return $stmt->execute();
 }
+
 
 function getExercisesByStudent($studentId) {
     global $pdo;
@@ -230,6 +244,43 @@ function check_access_code($code) {
             'message' => 'Erreur système. Veuillez réessayer plus tard.'
         ];
     }
+}
+
+
+function getRevisionTopics() {
+    global $pdo;
+
+    // Vérifiez si $pdo est déjà initialisé, sinon initialisez-le
+    if (!$pdo) {
+        $db = Database::getInstance();
+        $pdo = $db->getConnection();
+    }
+
+    // Vérifiez si la connexion est valide
+    if (!$pdo) {
+        throw new Exception("La connexion à la base de données a échoué.");
+    }
+
+    // Récupérer les sujets de révision
+    $stmt = $pdo->prepare("SELECT * FROM revision_topics");
+    $stmt->execute();
+    $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Initialiser le tableau des sujets de révision
+    $revisionTopics = [];
+
+    // Pour chaque sujet de révision, récupérer les sous-sujets
+    foreach ($topics as $topic) {
+        $topicId = $topic['id'];
+        $stmt = $pdo->prepare("SELECT * FROM revision_subtopics WHERE topic_id = ?");
+        $stmt->execute([$topicId]);
+        $subtopics = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Ajouter les sous-sujets au sujet de révision
+        $revisionTopics[$topic['title']] = $subtopics;
+    }
+
+    return $revisionTopics;
 }
 
 

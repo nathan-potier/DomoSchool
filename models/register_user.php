@@ -101,7 +101,7 @@ try {
 
     unset($_SESSION['old_inputs']);
 
-    redirect(BASE_URL . '/index?success=Votre compte a été créé et vous êtes maintenant connecté.');
+    redirect(BASE_URL . '/accueil?success=Votre compte a été créé et vous êtes maintenant connecté.');
 
 } catch (PDOException $e) {
     if (isset($connex) && $connex->inTransaction()) {

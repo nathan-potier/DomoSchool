@@ -54,7 +54,7 @@ $userRole = $userSessionData['userRole'];
 
     <!-- Logo -->
     <div class="logo">
-        <a href="<?php echo BASE_URL; ?>/index">
+        <a href="<?php echo BASE_URL; ?>/accueil">
             <img class="header-content" src="<?php echo BASE_URL; ?>/assets/images/logo-sans-bg2.png" alt="Logo">
         </a>
     </div>
@@ -68,8 +68,8 @@ $userRole = $userSessionData['userRole'];
 
     <!-- Menu pour mobile -->
     <nav class="menuBurger">
-        <a href="<?php echo BASE_URL; ?>/index">Accueil</a>
-        <a href="<?php echo BASE_URL; ?>/index#about">À propos</a>
+        <a href="<?php echo BASE_URL; ?>/accueil">Accueil</a>
+        <a href="<?php echo BASE_URL; ?>/accueil#about">À propos</a>
         <a href="<?php echo BASE_URL; ?>/courses">Cours</a>
 
         <?php if (!$isLoggedIn): ?>
@@ -90,15 +90,19 @@ $userRole = $userSessionData['userRole'];
         <?php endif; ?>
     </nav>
 
+
+    <!-- Menu pour ordinateur -->
     <nav class="desktop-nav">
-        <a href="<?php echo BASE_URL; ?>/index">Accueil</a>
-        <a href="<?php echo BASE_URL; ?>/index#about">À propos</a>
+        <a href="<?php echo BASE_URL; ?>/accueil">Accueil</a>
+        <a href="<?php echo BASE_URL; ?>/accueil#about">À propos</a>
         <a href="<?php echo BASE_URL; ?>/courses">Cours</a>
+
 
         <?php if (!$isLoggedIn): ?>
             <a href="<?php echo BASE_URL; ?>/login">Se connecter</a>
             <a href="<?php echo BASE_URL; ?>/register">S'inscrire</a>
         <?php else: ?>
+            <a href="<?php echo BASE_URL; ?>/BAC">BAC</a>
             <a href="<?php
                 if ($userRole === 'student') {
                     echo BASE_URL . '/eleve/dashboard';

@@ -92,6 +92,57 @@ CREATE TABLE access_codes (
 
 
 
+-- Table des sujets de révision pour le bac NSI
+CREATE TABLE revision_topics (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    chapter_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (chapter_id) REFERENCES chapters(id) ON DELETE SET NULL
+);
+
+-- Table des sous-sujets de révision
+CREATE TABLE revision_subtopics (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    topic_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (topic_id) REFERENCES revision_topics(id) ON DELETE CASCADE
+);
+
+-- Table pour suivre les révisions des élèves
+CREATE TABLE student_revisions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    subtopic_id INT NOT NULL,
+    completed BOOLEAN DEFAULT FALSE,
+    last_reviewed TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (subtopic_id) REFERENCES revision_subtopics(id) ON DELETE CASCADE
+);
+
+
+-- Insertion de sujets de révision
+INSERT INTO revision_topics (title, description, chapter_id) VALUES
+('Algorithmes et Programmation', 'Étudier les bases de la programmation et des algorithmes.', 1),
+('Architecture des Machines', 'Comprendre les composants d\'un ordinateur et les systèmes d\'exploitation.', 2),
+('Réseaux', 'Apprendre les protocoles réseau et la sécurité des réseaux.', 3),
+('Bases de Données', 'Étudier les modèles de bases de données et le langage SQL.', 4);
+
+-- Insertion de sous-sujets de révision
+INSERT INTO revision_subtopics (topic_id, title, description) VALUES
+(1, 'Les bases de la programmation', 'Variables, boucles, conditions'),
+(1, 'Les structures de données', 'Listes, piles, files'),
+(2, 'Les composants d\'un ordinateur', 'CPU, RAM, disque dur'),
+(2, 'Les systèmes d\'exploitation', 'Fonctions et gestion des processus'),
+(3, 'Les protocoles réseau', 'TCP/IP, HTTP, FTP'),
+(3, 'La sécurité des réseaux', 'Firewalls, VPN, cryptographie'),
+(4, 'Les modèles de données', 'Modèle relationnel, SQL'),
+(4, 'Les requêtes SQL', 'SELECT, INSERT, UPDATE, DELETE');
 
 
 

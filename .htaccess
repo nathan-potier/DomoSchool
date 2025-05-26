@@ -5,6 +5,7 @@ RewriteBase /DomoSchool/
 RewriteRule ^eleve/dashboard$             vue/eleve/dashboard.php [L]
 RewriteRule ^eleve/profile$               vue/eleve/profile.php [L]
 RewriteRule ^eleve/courses$               vue/eleve/courses.php [L]
+RewriteRule ^BAC$               vue/eleve/bac.php [L]
 RewriteRule ^eleve/exercises$             vue/eleve/exercises.php [L]
 RewriteRule ^eleve/schedule$              vue/eleve/schedule.php [L]
 

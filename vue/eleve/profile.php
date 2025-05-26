@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $lastName = sanitizeInput($_POST['last_name']);
     $email = sanitizeInput($_POST['email']);
     updateUserProfile($_SESSION['user_id'], $firstName, $lastName, $email);
-    redirect(BASE_URL . '/eleve/profile?success=Profil mis à jour');
+    redirect(BASE_URL . '/eleve/dashboard?success=Profil mis à jour');
 }
 ?>
 

@@ -7,7 +7,7 @@ startSession();
 
 // Si l'utilisateur est déjà authentifié, rediriger vers la page d'accueil ou le tableau de bord
 if (isset($_SESSION['user_id'])) {
-    redirect(BASE_URL . '/index'); // Rediriger vers la page d'accueil si l'utilisateur est déjà connecté
+    redirect(BASE_URL . '/accueil'); // Rediriger vers la page d'accueil si l'utilisateur est déjà connecté
 }
 
 // Vérification des informations de connexion
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             logActivity('user_login', $user['id']); // Loguer l'activité de connexion
 
             // Rediriger l'utilisateur vers la page appropriée en fonction de son rôle
-            switch ($user['role']) {
+            /*switch ($user['role']) {
                 case 'admin':
                     redirect(BASE_URL . '/admin/dashboard');
                     break;
@@ -56,7 +56,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     break;
                 default:
                     redirect(BASE_URL . '/eleve/dashboard');
-            }
+            }*/
+
+            redirect(BASE_URL . '/accueil?success=Vous êtes maintenant connecté.');
+            
         } else {
             // Authentification échouée
             redirect(BASE_URL . '/login?error=Identifiants incorrects');
