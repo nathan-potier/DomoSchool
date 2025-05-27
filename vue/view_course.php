@@ -2,31 +2,41 @@
 require_once __DIR__ . '/../includes/functions.php';
 startSession();
 
+$userId = $_SESSION['user_id'] ?? null; // Récupère l'utilisateur connecté s'il y en a un
+
 // Vérifie si un ID de cours a été passé dans l'URL
 if (isset($_GET['course_id'])) {
     $courseId = (int) $_GET['course_id'];
 
-    // Récupère les informations du cours à partir de la base de données
-    $course = getCourseById($courseId);  // Assurez-vous que cette fonction existe pour récupérer les détails du cours
+    // Récupère les informations du cours
+    $course = getCourseById($courseId);
+    $courses = getCourses();
+    $firstCourse = $courses[0];
 
-    // Récupère la liste complète des cours
-    $courses = getCourses();  
-    
-    // On suppose que les cours sont récupérés dans un ordre spécifique (par exemple, par ID croissant ou autre critère logique)
-    // Vérifie si l'ID du premier cours dans la liste correspond à l'ID du premier cours dans la base de données
-    $firstCourse = $courses[0];  // Le premier cours dans le tableau
-
-    // Vérifie si le cours actuel n'est pas le premier cours
+    // Si ce n’est pas le premier cours, vérifie que l'utilisateur est connecté
     if ($course['id'] !== $firstCourse['id']) {
-        // Si ce n'est pas le premier cours, vérifie si l'utilisateur est connecté
         checkAuth();
     }
 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $userId) {
+        if (isset($_POST['complete_course'])) {
+            $timeSpentMinutes = isset($_POST['time_spent']) ? (int) $_POST['time_spent'] : 1;
+            $result = markCourseAsRead($userId, $courseId, $timeSpentMinutes);
+            echo $result ? "<p>Cours marqué comme lu !</p>" : "<p>Erreur lors de la mise à jour du cours.</p>";
+        }
+
+        if (isset($_POST['uncomplete_course'])) {
+            $result = unmarkCourseAsRead($userId, $courseId);
+            echo $result ? "<p>Cours marqué comme non lu.</p>" : "<p>Erreur lors de l'annulation.</p>";
+        }
+    }
+
+
+
 } else {
-    $course = null; // Si l'ID du cours n'est pas passé, aucun cours à afficher
+    $course = null;
 }
 
-// Inclure le header
 include(__DIR__ . '/../includes/header.php');
 ?>
 
@@ -36,41 +46,50 @@ include(__DIR__ . '/../includes/header.php');
 <div class="container content-wrapper">
     <?php
     if ($course) {
-        // Si le cours existe, afficher son contenu
         echo "<div class='course-container'>";
 
-        // Vérification du chemin du fichier HTML
         $filePath = BASE_URL . $course['file_path'];
-   
-        // Si le cours est un fichier .html, l'inclure dans un iframe
+
         if (!empty($course['file_path']) && pathinfo($course['file_path'], PATHINFO_EXTENSION) == 'html') {
-            // Inclure le fichier HTML dans un iframe avec un événement onload pour ajuster la hauteur
             echo "<iframe src='$filePath' id='course-iframe' width='100%' frameborder='0' scrolling='no' onload='resizeIframe(this)'></iframe>";
         } elseif (!empty($course['file_path'])) {
-            // Si le cours a un fichier autre que .html, fournir un lien de téléchargement
             echo '<a href="'. BASE_URL . htmlspecialchars($course['file_path']) . '" target="_blank">Télécharger le cours</a>';
         }
 
         echo "</div>";
+
+        if ($userId) {
+            if (hasUserReadCourse($userId, $courseId)) {
+                echo '<div class="course-complete-button-container">';
+                echo '<form method="POST">';
+                echo '<button type="submit" name="uncomplete_course" class="course-complete-button cancel">Marquer comme non lu</button>';
+                echo '</form>';
+                echo '</div>';
+            } else {
+                echo '<div class="course-complete-button-container">';
+                echo '<form method="POST" id="completion-form">';
+                echo '<input type="hidden" name="time_spent" id="time_spent_input">';
+                echo '<button type="submit" name="complete_course" class="course-complete-button">Marquer comme lu</button>';
+                echo '</form>';
+                echo '</div>';
+            }
+        }
+
+
+
     } else {
-        // Si le cours n'existe pas ou l'ID est invalide
         echo "<p>ID de cours manquant ou cours non trouvé.</p>";
     }
     ?>
 </div>
 
-<?php
-// Inclure le footer
-include(__DIR__ . '/../includes/footer.php');
-?>
+<?php include(__DIR__ . '/../includes/footer.php'); ?>
 
-<!-- Script JavaScript pour ajuster la hauteur de l'iframe -->
 <script>
 function resizeIframe(iframe) {
     iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
 }
-
-
 </script>
 
 
+<script src="<?php echo BASE_URL; ?>/assets/js/listener.js" defer></script>

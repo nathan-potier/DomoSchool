@@ -75,14 +75,14 @@ function getUserData($userId) {
     $stmt->execute([$userId]);
     return $stmt->fetch();
 }
+
 function getUserSessionData() {
-    // Vérifie si l'utilisateur est connecté et récupère ses données
     if (isset($_SESSION['user_id'])) {
-        // Si l'utilisateur est connecté, on récupère ses données depuis la base
         $userData = getUserData($_SESSION['user_id']);
         if ($userData) {
             return [
                 'isLoggedIn' => true,
+                'userId' => $_SESSION['user_id'], // 👈 ajoute ça
                 'userRole' => $userData['role'],
                 'userName' => $userData['first_name'] . ' ' . $userData['last_name'],
                 'userEmail' => $userData['email'],
@@ -90,16 +90,17 @@ function getUserSessionData() {
             ];
         }
     }
-    
-    // Si l'utilisateur n'est pas connecté ou que les données sont manquantes
+
     return [
         'isLoggedIn' => false,
+        'userId' => null, // 👈 pense à garder la clé même si c'est null
         'userRole' => null,
         'userName' => null,
         'userEmail' => null,
         'lastLogin' => null
     ];
 }
+
 
 function getCourses() {
     global $connex;
@@ -311,6 +312,238 @@ function getExerciseById($exerciseId) {
     // Retourner les détails de l'exercice
     return $exercise;
 }
+
+function markExerciseAsCompleted($userId, $exerciseId, $timeSpentMinutes) {
+    global $connex;
+
+    try {
+        // Vérifier si l'exercice est déjà marqué comme fait
+        $stmt = $connex->prepare("SELECT 1 FROM user_exercise_completion WHERE user_id = ? AND exercise_id = ?");
+        $stmt->execute([$userId, $exerciseId]);
+        if ($stmt->fetch()) {
+            // L'exercice est déjà fait
+            return false;
+        }
+
+        $connex->beginTransaction();
+
+        // 1. Ajouter l'entrée dans user_exercise_completion
+        $stmt = $connex->prepare("
+            INSERT INTO user_exercise_completion 
+            (user_id, exercise_id, time_spent_minutes) 
+            VALUES (?, ?, ?)
+        ");
+        $stmt->execute([$userId, $exerciseId, $timeSpentMinutes]);
+
+        // 2. Mettre à jour les stats globales
+        $stmt = $connex->prepare("
+            INSERT INTO user_learning_stats 
+            (user_id, total_exercises_completed, total_time_spent_minutes) 
+            VALUES (?, 1, ?)
+            ON DUPLICATE KEY UPDATE 
+                total_exercises_completed = total_exercises_completed + 1,
+                total_time_spent_minutes = total_time_spent_minutes + VALUES(total_time_spent_minutes)
+        ");
+        $stmt->execute([$userId, $timeSpentMinutes]);
+
+        // 3. Recalculer la progression
+        updateUserProgress($userId);
+
+        $connex->commit();
+        redirect(BASE_URL . '/exercice/'.$exerciseId);
+        return true;
+
+    } catch (PDOException $e) {
+        if ($connex->inTransaction()) {
+            $connex->rollBack();
+        }
+        error_log("Erreur lors du marquage de l'exercice comme fait : " . $e->getMessage());
+        redirect(BASE_URL . '/course/'.$exerciseId);
+        return false;
+    }
+}
+
+
+function markCourseAsRead($userId, $courseId, $timeSpentMinutes) {
+    global $connex;
+
+    try {
+        // Vérifier si le cours est déjà marqué comme lu
+        $stmt = $connex->prepare("SELECT 1 FROM user_course_completion WHERE user_id = ? AND course_id = ?");
+        $stmt->execute([$userId, $courseId]);
+        if ($stmt->fetch()) {
+            // Le cours a déjà été lu, on ne fait rien
+            return false;
+        }
+
+        $connex->beginTransaction();
+
+        // 1. Ajouter l'entrée dans user_course_completion
+        $stmt = $connex->prepare("
+            INSERT INTO user_course_completion 
+            (user_id, course_id, time_spent_minutes) 
+            VALUES (?, ?, ?)
+        ");
+        $stmt->execute([$userId, $courseId, $timeSpentMinutes]);
+
+        // 2. Mettre à jour les stats globales
+        $stmt = $connex->prepare("
+            INSERT INTO user_learning_stats 
+            (user_id, total_courses_read, total_time_spent_minutes) 
+            VALUES (?, 1, ?)
+            ON DUPLICATE KEY UPDATE 
+                total_courses_read = total_courses_read + 1,
+                total_time_spent_minutes = total_time_spent_minutes + VALUES(total_time_spent_minutes)
+        ");
+        $stmt->execute([$userId, $timeSpentMinutes]);
+
+        // 3. Recalculer la progression
+        updateUserProgress($userId);
+
+        $connex->commit();
+        redirect(BASE_URL . '/course/'.$courseId);
+        return true;
+
+    } catch (PDOException $e) {
+        $connex->rollBack();
+        error_log("Erreur lors du marquage du cours comme lu : " . $e->getMessage());
+        redirect(BASE_URL . '/course/'.$courseId);
+        return false;
+    }
+}
+
+
+function updateUserProgress($userId) {
+    global $connex;
+    
+    $stmt = $connex->prepare("
+        UPDATE user_learning_stats uls
+        SET overall_progress = (
+            SELECT ROUND(
+                (
+                    (SELECT COUNT(*) FROM user_course_completion WHERE user_id = ?) / 
+                    (SELECT COUNT(*) FROM courses) * 50
+                ) + (
+                    (SELECT COUNT(*) FROM user_exercise_completion WHERE user_id = ?) / 
+                    (SELECT COUNT(*) FROM exercises) * 50
+                )
+            )
+        )
+        WHERE user_id = ?
+    ");
+    $stmt->execute([$userId, $userId, $userId]);
+}
+
+
+function getUserStats($userId) {
+    global $connex;
+    
+    $stmt = $connex->prepare("
+        SELECT 
+            total_courses_read AS courses_read,
+            total_exercises_completed AS exercises_done,
+            total_time_spent_minutes AS time_spent,
+            overall_progress AS progress
+        FROM user_learning_stats
+        WHERE user_id = ?
+    ");
+    $stmt->execute([$userId]);
+    
+    return $stmt->fetch(PDO::FETCH_ASSOC) ?: [
+        'courses_read' => 0,
+        'exercises_done' => 0,
+        'time_spent' => 0,
+        'progress' => 0
+    ];
+}
+
+function hasUserReadCourse($userId, $courseId) {
+    global $connex;
+    $stmt = $connex->prepare("SELECT COUNT(*) FROM user_course_completion WHERE user_id = ? AND course_id = ?");
+    $stmt->execute([$userId, $courseId]);
+    return $stmt->fetchColumn() > 0;
+}
+
+function hasUserMakeExercises($userId, $courseId) {
+    global $connex;
+    $stmt = $connex->prepare("SELECT COUNT(*) FROM user_exercise_completion WHERE user_id = ? AND exercise_id = ?");
+    $stmt->execute([$userId, $courseId]);
+    return $stmt->fetchColumn() > 0;
+}
+
+
+function unmarkCourseAsRead($userId, $courseId) {
+    global $connex;
+
+    // Récupère le temps enregistré pour ce cours
+    $stmt = $connex->prepare("SELECT time_spent_minutes FROM user_course_completion WHERE user_id = ? AND course_id = ?");
+    $stmt->execute([$userId, $courseId]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$row) return false;
+
+    $timeSpent = (int)$row['time_spent_minutes'];
+
+    // Supprime l'entrée dans user_course_completion
+    $deleteStmt = $connex->prepare("DELETE FROM user_course_completion WHERE user_id = ? AND course_id = ?");
+    $deleteStmt->execute([$userId, $courseId]);
+
+    // Met à jour les stats
+    $update = $connex->prepare("
+        UPDATE user_learning_stats
+        SET
+            total_courses_read = GREATEST(total_courses_read - 1, 0),
+            total_time_spent_minutes = GREATEST(total_time_spent_minutes - ?, 0),
+            overall_progress = CASE
+                WHEN ((SELECT COUNT(*) FROM courses) + (SELECT COUNT(*) FROM exercises)) = 0 THEN 0
+                ELSE ROUND(
+                    (GREATEST(total_courses_read - 1, 0) + total_exercises_completed) * 100.0 /
+                    ((SELECT COUNT(*) FROM courses) + (SELECT COUNT(*) FROM exercises))
+                )
+            END
+        WHERE user_id = ?
+    ");
+    $update->execute([$timeSpent, $userId]);
+
+    redirect(BASE_URL . '/course/'.$courseId);
+    return true;
+}
+
+
+function unmarkExerciseAsCompleted($userId, $exerciseId) {
+    global $connex;
+
+    $stmt = $connex->prepare("SELECT time_spent_minutes FROM user_exercise_completion WHERE user_id = ? AND exercise_id = ?");
+    $stmt->execute([$userId, $exerciseId]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$row) return false;
+
+    $timeSpent = (int)$row['time_spent_minutes'];
+
+    $deleteStmt = $connex->prepare("DELETE FROM user_exercise_completion WHERE user_id = ? AND exercise_id = ?");
+    $deleteStmt->execute([$userId, $exerciseId]);
+
+    $update = $connex->prepare("
+        UPDATE user_learning_stats
+        SET
+            total_exercises_completed = GREATEST(total_exercises_completed - 1, 0),
+            total_time_spent_minutes = GREATEST(total_time_spent_minutes - ?, 0),
+            overall_progress = CASE
+                WHEN ((SELECT COUNT(*) FROM courses) + (SELECT COUNT(*) FROM exercises)) = 0 THEN 0
+                ELSE ROUND(
+                    (GREATEST(total_courses_read - 1, 0) + total_exercises_completed) * 100.0 /
+                    ((SELECT COUNT(*) FROM courses) + (SELECT COUNT(*) FROM exercises))
+                )
+            END
+        WHERE user_id = ?
+    ");
+    $update->execute([$timeSpent, $userId]);
+
+    redirect(BASE_URL . '/exercice/'.$exerciseId);
+    return true;
+}
+
 
 
 ?>

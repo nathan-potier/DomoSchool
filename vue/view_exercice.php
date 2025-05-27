@@ -2,19 +2,21 @@
 require_once __DIR__ . '/../includes/functions.php';
 startSession();
 
+$userId = $_SESSION['user_id'] ?? null; // Récupère l'utilisateur connecté s'il y en a un
+
+
 // Vérifie si un ID d'exercice a été passé dans l'URL
 if (isset($_GET['exercice_id'])) {
     $exerciseId = (int) $_GET['exercice_id'];
 
     // Récupère les informations de l'exercice à partir de la base de données
-    $exercise = getExerciseById($exerciseId);  // Assurez-vous que cette fonction existe pour récupérer les détails de l'exercice
+    $exercise = getExerciseById($exerciseId);
 
     // Récupère la liste complète des exercices
     $exercises = getExercises();
 
-    // On suppose que les exercices sont récupérés dans un ordre spécifique (par exemple, par ID croissant ou autre critère logique)
-    // Vérifie si l'ID du premier exercice dans la liste correspond à l'ID du premier exercice dans la base de données
-    $firstExercise = $exercises[0];  // Le premier exercice dans le tableau
+    // On suppose que les exercices sont récupérés dans un ordre spécifique
+    $firstExercise = $exercises[0];
 
     // Vérifie si l'exercice actuel n'est pas le premier exercice
     if ($exercise['id'] !== $firstExercise['id']) {
@@ -22,8 +24,23 @@ if (isset($_GET['exercice_id'])) {
         checkAuth();
     }
 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $userId) {
+        if (isset($_POST['complete_course'])) {
+            $timeSpentMinutes = isset($_POST['time_spent']) ? (int) $_POST['time_spent'] : 1;
+            $result = markExerciseAsCompleted($userId, $exerciseId, $timeSpentMinutes);
+            echo $result ? "<p>Exercice marqué comme fait !</p>" : "<p>Erreur lors de l'enregistrement.</p>";
+        }
+
+        if (isset($_POST['uncomplete_exercise'])) {
+            $result = unmarkExerciseAsCompleted($userId, $exerciseId);
+            echo $result ? "<p>Exercice marqué comme non fait.</p>" : "<p>Erreur lors de l'annulation.</p>";
+        }
+    }
+
+
+
 } else {
-    $exercise = null; // Si l'ID de l'exercice n'est pas passé, aucun exercice à afficher
+    $exercise = null;
 }
 
 // Inclure le header
@@ -36,37 +53,50 @@ include(__DIR__ . '/../includes/header.php');
 <div class="container content-wrapper">
     <?php
     if ($exercise) {
-        // Si l'exercice existe, afficher son contenu
         echo "<div class='exercise-container'>";
 
-        // Vérification du chemin du fichier HTML
         $filePath = BASE_URL . $exercise['file_path'];
 
-        // Si l'exercice est un fichier .html, l'inclure dans un iframe
         if (!empty($exercise['file_path']) && pathinfo($exercise['file_path'], PATHINFO_EXTENSION) == 'html') {
-            // Inclure le fichier HTML dans un iframe avec un événement onload pour ajuster la hauteur
             echo "<iframe src='$filePath' id='exercise-iframe' width='100%' frameborder='0' scrolling='no' onload='resizeIframe(this)'></iframe>";
         } elseif (!empty($exercise['file_path'])) {
-            // Si l'exercice a un fichier autre que .html, fournir un lien de téléchargement
             echo '<a href="'. BASE_URL . htmlspecialchars($exercise['file_path']) . '" target="_blank">Télécharger l\'exercice</a>';
         }
 
         echo "</div>";
+
+        if ($userId) {
+            if (hasUserMakeExercises($userId, $exerciseId)) {
+                echo '<div class="course-complete-button-container">';
+                echo '<form method="POST">';
+                echo '<button type="submit" name="uncomplete_exercise" class="course-complete-button cancel">Marquer comme non fait</button>';
+                echo '</form>';
+                echo '</div>';
+            } else {
+                echo '<div class="course-complete-button-container">';
+                echo '<form method="POST" id="completion-form">';
+                echo '<input type="hidden" name="time_spent" id="time_spent_input">';
+                echo '<button type="submit" name="complete_course" class="course-complete-button">Marquer comme fait</button>';
+                echo '</form>';
+                echo '</div>';
+            }
+        }
+
     } else {
-        // Si l'exercice n'existe pas ou l'ID est invalide
         echo "<p>ID d'exercice manquant ou exercice non trouvé.</p>";
     }
     ?>
 </div>
 
 <?php
-// Inclure le footer
 include(__DIR__ . '/../includes/footer.php');
 ?>
 
-<!-- Script JavaScript pour ajuster la hauteur de l'iframe -->
 <script>
 function resizeIframe(iframe) {
     iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
 }
 </script>
+
+
+<script src="<?php echo BASE_URL; ?>/assets/js/listener.js" defer></script>

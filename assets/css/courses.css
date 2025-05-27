@@ -158,3 +158,35 @@ html.mode-dark .course-item .description {
 html.mode-dark .course-item .teacher {
   color: #ccc;
 }
+
+
+
+.exercise-complete-button-container,
+.course-complete-button-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.exercise-complete-button,
+.course-complete-button {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.exercise-complete-button:hover,
+.course-complete-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.course-complete-button.cancel {
+    background-color: #f44336;
+    color: white;
+}
+
+
