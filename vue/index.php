@@ -1,113 +1,137 @@
 <?php include('../includes/header.php'); ?>
 
 
+<div class="container homepage-container">
+    <?php include('../includes/notif.php'); ?>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Devenez un As de la NSI avec <span class="primary-color">DomoSchooll</span></h1>
+            <p class="hero-subtitle">Votre tremplin vers la maîtrise du Numérique et des Sciences Informatiques.</p>
+            <p class="hero-description">
+                Plongez dans un univers d'apprentissage interactif conçu spécialement pour les élèves de NSI. Découvrez des cours vidéo captivants, des exercices pratiques et des projets stimulants pour exceller dans cette discipline essentielle.
 
-<div class="container">
-
-    <!-- Section d’intro -->
-    <section style="text-align: center; margin-bottom: 50px;">
-        <h1>Bienvenue sur <span style="color: var(--primary);">DomoSchooll</span></h1>
-        <p style="font-size: 1.2rem; max-width: 700px; margin: 20px auto;">
-            DomoSchool est votre plateforme d'éducation moderne. Cours particuliers en ligne, exercices interactifs, 
-            suivi en temps réel... tout pour garantir la réussite scolaire de vos enfants.
-        </p>
-        <?php if (!$isLoggedIn): ?>
-            <a href="auth/login.php">
-                <button style="margin: 10px;">Se connecter</button>
-            </a>
-            <a href="auth/register.php">
-                <button style="margin: 10px; background-color: #10b981;">Créer un compte</button>
-            </a>
-        <?php else: ?>
-            <a href="eleve/courses.php">
-                <button style="margin: 10px; background-color: var(--primary); color: white;">
-                    📘 Voir les cours
-                </button>
-            </a>
-        <?php endif; ?>
-
-
-    </section>
-
-    <!-- Avantages -->
-    <section>
-        <h2 style="text-align: center;">Nos avantages</h2>
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 30px; margin-top: 30px;">
-            <a href="eleve/courses.php">
-                <div class="card">
-                    <h3>📚 Cours personnalisés</h3>
-                    <p>Des parcours adaptés au niveau et au rythme de chaque élève.</p>
-                </div>
-            </a>
-            <div class="card">
-                <h3>🎥 Visioconférence en direct</h3>
-                <p>Apprenez avec un vrai professeur en direct, depuis chez vous.</p>
-            </div>
-            <div class="card">
-                <h3>📈 Suivi parental</h3>
-                <p>Des tableaux de bord clairs pour suivre les progrès de vos enfants.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Qui sommes-nous -->
-    <section style="margin: 80px 0;">
-        <h2 style="text-align: center;">Qui sommes-nous ?</h2>
-        <p style="max-width: 800px; margin: 20px auto; font-size: 1.1rem; text-align: center;">
-            DomoSchool est une initiative française dédiée à l’accompagnement scolaire. Nous rassemblons des enseignants passionnés, des développeurs éducatifs et des parents engagés pour offrir un environnement d’apprentissage moderne, bienveillant et efficace.
-        </p>
-    </section>
-
-    <!-- Derniers ajouts -->
-    <section>
-        <h2 style="text-align: center;">🆕 Derniers ajouts</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
-            <div class="card">
-                <h3>🔢 Nouveau module : Fractions</h3>
-                <p>Un module interactif pour maîtriser les bases des fractions dès le primaire.</p>
-            </div>
-            <div class="card">
-                <h3>🧪 Sciences - Niveau 5e</h3>
-                <p>Des vidéos courtes et des quiz sur l’énergie, la matière et l’environnement.</p>
-            </div>
-            <div class="card">
-                <h3>🧠 Préparation brevet</h3>
-                <p>Une série d’exercices corrigés pour briller le jour de l’examen.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Défi du jour -->
-    <section style="margin: 80px 0;">
-        <h2 style="text-align: center;">🏆 Défi du jour</h2>
-        <div class="card" style="max-width: 700px; margin: 30px auto; text-align: center;">
-            <h3>💡 Résous cette énigme mathématique :</h3>
-            <p style="margin: 20px 0;">
-                Si 3 chats attrapent 3 souris en 3 minutes, combien de chats faut-il pour attraper 100 souris en 100 minutes ?
             </p>
-            <button onclick="alert('Réfléchis bien à la proportion 😉')">Je tente ma chance !</button>
+            <div class="hero-buttons">
+                <?php if (!$isLoggedIn): ?>
+                    <a href="<?= BASE_URL ?>/login" class="button primary">Se connecter</a>
+                    <a href="<?= BASE_URL ?>/register" class="button secondary">Créer un compte</a>
+
+                <?php else: ?>
+                    <a href="<?= BASE_URL ?>/eleve/courses" class="button primary">
+                        <i class="fas fa-code"></i> Accéder aux cours NSI
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="<?= BASE_URL ?>/assets/images/Acceuil.png" alt="Illustration de concepts NSI">
         </div>
     </section>
 
-    <!-- Témoignages -->
-    <section style="margin-bottom: 80px;">
-        <h2 style="text-align: center;">✨ Ils nous font confiance</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 30px;">
-            <div class="card" style="max-width: 300px;">
-                <p>“Grâce à DomoSchool, ma fille a repris confiance en elle et adore apprendre !”</p>
-                <strong>— Claire, maman de Louise (6e)</strong>
+    <section class="benefits-nsi">
+        <h2 class="section-title">Pourquoi choisir DomoSchool pour la NSI ?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <i class="fas fa-play-circle benefit-icon"></i>
+                <h3>Cours Captivants</h3>
+                <p>Des explications claires et des démonstrations visuelles pour faciliter la compréhension des concepts complexes.</p>
             </div>
-            <div class="card" style="max-width: 300px;">
-                <p>“Les cours sont dynamiques et bien faits. Mention spéciale aux quiz interactifs !”</p>
-                <strong>— Julien, élève de 3e</strong>
+            <div class="benefit-item">
+                <i class="fas fa-keyboard benefit-icon"></i>
+                <h3>Exercices et Corrigés</h3>
+                <p>Mettez en pratique vos connaissances avec des exercices auto-corrigés et des solutions détaillées.</p>
             </div>
-            <div class="card" style="max-width: 300px;">
-                <p>“Une plateforme très complète avec un suivi pédagogique de qualité.”</p>
-                <strong>— M. Durand, professeur de maths</strong>
+            <div class="benefit-item">
+                <i class="fas fa-project-diagram benefit-icon"></i>
+                <h3>Projets Pratiques et Concrets</h3>
+                <p>Développez vos compétences en réalisant des projets qui vous plongent au cœur des problématiques informatiques.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-puzzle-piece benefit-icon"></i>
+                <h3>Apprentissage Progressif</h3>
+                <p>Un parcours structuré qui vous guide étape par étape, des bases aux concepts avancés de la NSI.</p>
             </div>
         </div>
     </section>
+
+    <section class="about" id="about">
+        <h2 class="section-title">À propos de DomoSchool</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p><strong>DomoSchool</strong> est né de la passion de <strong>Nathan</strong>, un ancien élève de NSI désireux de rendre cette discipline à la fois accessible et stimulante pour tous les lycéens.</p>
+                <p>Fort de son expérience, Nathan a conçu une plateforme où l'apprentissage de la NSI se fait de manière interactive, avec des ressources pédagogiques adaptées aux programmes scolaires et aux défis rencontrés par les élèves.</p>
+                <p>Rejoignez la communauté DomoSchool et bénéficiez d'un accompagnement personnalisé pour réussir votre parcours en Numérique et Sciences Informatiques.</p>
+            </div>
+            <div class="about-image">
+                <img src="<?= BASE_URL ?>/assets/images/photo-nathan.jpg" alt="Fondateur de DomoSchool, Nathan">
+            </div>
+        </div>
+    </section>
+
+    <section class="current-subjects" id="subjects">
+        <h2 class="section-title">Notre Matière Actuelle</h2>
+        <div class="subjects-grid">
+            <div class="subject-card nsi-card">
+                <i class="fas fa-code subject-icon"></i>
+                <h3>Numérique et Sciences Informatiques (NSI)</h3>
+                <p>Maîtrisez les fondamentaux de la programmation, des algorithmes, des bases de données, des réseaux et de la pensée computationnelle.</p>
+                <a href="<?= BASE_URL ?>/eleve/courses" class="button subtle">Explorer les cours NSI</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="coming-soon">
+        <h2 class="section-title">Et bientôt, encore plus de matières pour votre réussite !</h2>
+        <p class="coming-soon-intro">Nous élargissons constamment notre offre pour vous accompagner dans d'autres disciplines essentielles au lycée.</p>
+        <div class="soon-grid">
+            <div class="soon-card">
+                <i class="fas fa-book-open soon-icon"></i>
+                <h3>NSI Première</h3>
+                <p>Explorer les bases du numérique d’aujourd’hui et les fondements de demain en concevant des algorithmes, des programmes et des objets connectés.</p>
+                <span class="soon-status">En développement</span>
+            </div>
+            <div class="soon-card">
+                <i class="fas fa-chart-bar soon-icon"></i>
+                <h3>Mathématiques</h3>
+                <p>Des exercices progressifs et des explications détaillées pour renforcer vos compétences en algèbre, géométrie, analyse...</p>
+                <span class="soon-status">En planification</span>
+            </div>
+            <div class="soon-card">
+                <i class="fas fa-atom soon-icon"></i>
+                <h3>Sciences Physiques</h3>
+                <p>Des cours interactifs pour explorer la mécanique, l'électricité, l'optique et bien d'autres domaines.</p>
+                <span class="soon-status">En planification</span>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    <section class="testimonials">
+        <h2 class="section-title">Ce que les élèves de NSI disent de DomoSchool</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <i class="fas fa-user-circle fa-4x"></i>
+                <p>“DomoSchool m'a vraiment aidé à comprendre les algorithmes et la programmation en Python. Les exercices sont super !”</p>
+                <strong class="testimonial-author">Léa, Terminale NSI</strong>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-user-circle fa-4x"></i>
+                <p>“Les cours sont bien structurés et les projets sont une excellente façon de mettre en pratique ce qu'on apprend.”</p>
+                <strong class="testimonial-author">Maxime, Première NSI</strong>
+            </div>
+        </div>
+    </section>
+    -->
 
 </div>
 
+
+<button class="back-to-top"  onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
 <?php include('../includes/footer.php'); ?>
+
+
+
+

@@ -7,7 +7,7 @@ checkAuth();
 $user = getUserSessionData();
 
 if ($user === null || $user['userRole'] !== 'teacher') {
-    header('Location: ' . BASE_URL . '/vue/login.php');
+    header('Location: ' . BASE_URL . '/login');
     exit();
 }
 
@@ -25,16 +25,16 @@ $fullName = $user['userName'];
     </div>
 
     <div class="dashboard-links">
-        <a href="create-course.php" class="btn">Créer un nouveau cours</a>
-        <a href="create-exercise.php" class="btn">Créer un exercice</a>
-        <a href="students.php" class="btn">Mes élèves</a>
-        <a href="messages.php" class="btn">Messagerie interne</a>
-        <a href="profile.php" class="btn">Modifier le profil</a>
+        <a href="<?= BASE_URL ?>/professeur/create-course" class="btn">Créer un nouveau cours</a>
+        <a href="<?= BASE_URL ?>/professeur/create-exercise" class="btn">Créer un exercice</a>
+        <a href="<?= BASE_URL ?>/professeur/students" class="btn">Mes élèves</a>
+        <a href="<?= BASE_URL ?>/professeur/messages" class="btn">Messagerie interne</a>
+        <a href="<?= BASE_URL ?>/professeur/profile" class="btn">Modifier le profil</a>
     </div>
 
     <!-- Bouton de déconnexion -->
     <div class="logout-btn">
-        <a href="<?= BASE_URL . '/models/logout.php' ?>" class="btn">Déconnexion</a>
+        <a href="<?= BASE_URL ?>/logout" class="btn">Déconnexion</a>
     </div>
 </div>
 

@@ -7,7 +7,7 @@ checkAuth();
 $user = getUserSessionData();
 
 if ($user === null || $user['userRole'] !== 'teacher') {
-    header('Location: ' . BASE_URL . '/vue/login.php');
+    header('Location: ' . BASE_URL . '/login');
     exit();
 }
 
@@ -25,14 +25,14 @@ $fullName = $user['userName'];
     </div>
 
     <div class="dashboard-links">
-        <a href="child.php" class="btn">Suivi de mon enfant</a>
-        <a href="messages.php" class="btn">Messagerie avec les professeurs</a>
-        <a href="profile.php" class="btn">Modifier le profil</a>
+        <a href="<?= BASE_URL . '/parent/child' ?>" class="btn">Suivi de mon enfant</a>
+        <a href="<?= BASE_URL . '/parent/messages' ?>" class="btn">Messagerie avec les professeurs</a>
+        <a href="<?= BASE_URL . '/parent/profile' ?>" class="btn">Modifier le profil</a>
     </div>
 
     <!-- Bouton de déconnexion -->
     <div class="logout-btn">
-        <a href="<?= BASE_URL . '/models/logout.php' ?>" class="btn">Déconnexion</a>
+        <a href="<?= BASE_URL . '/logout' ?>" class="btn">Déconnexion</a>
     </div>
 </div>
 

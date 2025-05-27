@@ -7,7 +7,7 @@ checkAuth();
 $user = getUserSessionData();
 
 if ($user === null || $user['userRole'] !== 'admin') {
-    header('Location: ' . BASE_URL . '/vue/login.php');
+    header('Location: ' . BASE_URL . '/login');
     exit();
 }
 
@@ -25,15 +25,15 @@ $fullName = $user['userName'];
     </div>
 
     <div class="dashboard-links">
-        <a href="users.php" class="btn">Gérer les utilisateurs</a>
-        <a href="courses.php" class="btn">Valider les cours</a>
-        <a href="logs.php" class="btn">Consulter les logs</a>
-        <a href="settings.php" class="btn">Paramètres généraux</a>
+        <a href="<?= BASE_URL . '/admin/users' ?>" class="btn">Gérer les utilisateurs</a>
+        <a href="<?= BASE_URL . '/admin/courses' ?>" class="btn">Valider les cours</a>
+        <a href="<?= BASE_URL . '/admin/logs' ?>" class="btn">Consulter les logs</a>
+        <a href="<?= BASE_URL . '/admin/settings' ?>" class="btn">Paramètres généraux</a>
     </div>
 
     <!-- Bouton de déconnexion -->
     <div class="logout-btn">
-        <a href="<?= BASE_URL . '/models/logout.php' ?>" class="btn">Déconnexion</a>
+        <a href="<?= BASE_URL . '/logout' ?>" class="btn">Déconnexion</a>
     </div>
 </div>
 

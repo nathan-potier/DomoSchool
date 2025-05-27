@@ -17,7 +17,7 @@ foreach ($courses as $course) {
     $chapters[$chapterName][] = $course;
 }
 
-$isFirstCourse = true; 
+$isFirstCourse = true;
 ?>
 
 <?php include(__DIR__ . '/../../includes/header.php'); ?>
@@ -27,7 +27,7 @@ $isFirstCourse = true;
     <div class="content-with-sidebar">
         <div class="main-content">
             <?php foreach ($chapters as $chapter => $courses): ?>
-                <?php 
+                <?php
                 // Création d'un id propre pour chaque chapitre en remplaçant les espaces par des tirets
                 $chapterId = strtolower(str_replace(' ', '-', $chapter));
                 ?>
@@ -38,11 +38,12 @@ $isFirstCourse = true;
                     </div>
                     <div class="courses-list">
                         <?php foreach ($courses as $course): ?>
-                            <a href="../view_course.php?course_id=<?= $course['id'] ?>">
+                            <a href="<?= BASE_URL . '/course/' . $course['id'] ?>">
                                 <div class="course-item">
                                     <?= htmlspecialchars($course['title']) ?>
+                                    <p class="description">📖 <?= htmlspecialchars($course['description']) ?></p>
                                     <p class="teacher">👨‍🏫 <?= htmlspecialchars($course['teacher_first_name'] . ' ' . $course['teacher_last_name']) ?></p>
-                                    
+
                                     <?php if (!$isLoggedIn && !$isFirstCourse): ?>
                                         <p class="warning">Veuillez vous connecter pour accéder à ce cours.</p>
                                     <?php endif; ?>
@@ -50,6 +51,7 @@ $isFirstCourse = true;
                             </a>
                             <?php $isFirstCourse = false; ?>
                         <?php endforeach; ?>
+
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -59,7 +61,7 @@ $isFirstCourse = true;
             <h2>📝 Sommaire</h2>
             <ul>
                 <?php foreach ($chapters as $chapter => $_): ?>
-                    <?php 
+                    <?php
                     // Création de l'id propre pour chaque chapitre dans le sommaire
                     $chapterId = strtolower(str_replace(' ', '-', $chapter));
                     ?>
@@ -77,19 +79,22 @@ $isFirstCourse = true;
 <?php include(__DIR__ . '/../../includes/footer.php'); ?>
 
 <script>
-document.querySelectorAll('.chapter-card').forEach(card => {
-  const header = card.querySelector('.chapter-header');
-  header.addEventListener('click', () => {
-    card.classList.toggle('open');
+  document.querySelectorAll('.chapter-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Si on a cliqué sur un lien à l’intérieur, on laisse le lien faire son boulot
+      if (e.target.closest('a')) return;
+
+      // Sinon, on bascule l’ouverture de la carte
+      this.classList.toggle('open');
+    });
   });
-});
 </script>
 
 <script>
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        
+
         // Récupérer l'ID du chapitre à partir du href
         const chapterId = this.getAttribute('href').substring(1); // On enlève le "#" du href
         const target = document.querySelector('#' + chapterId);
@@ -108,5 +113,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
 </script>

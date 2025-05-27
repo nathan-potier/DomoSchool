@@ -1,0 +1,735 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Exos</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="187165be-9e24-807b-9c02-dff15cc20561" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/webb4.jpg" style="object-position:center 50%"/><h1 class="page-title">Exos</h1><p class="page-description"></p></header><div class="page-body"><h3 id="187165be-9e24-80a1-962a-f61a6f74cfd9" class=""><strong>Exercice 1 : Trouver la plus grande valeur d’un tableau</strong></h3><p id="187165be-9e24-806f-b334-c4f30be52278" class=""><strong>But</strong> : Comprendre le parcours d’un tableau et comparer des valeurs.</p><p id="187165be-9e24-80da-94e9-f7a75afea5b6" class=""><strong>Énoncé</strong> : Écris une fonction <code>trouver_maximum(tableau)</code> qui prend en paramètre un tableau de nombres et retourne la plus grande valeur du tableau.</p><p id="187165be-9e24-8038-838e-f0ad5c5be181" class=""><strong>Exemple</strong> :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="187165be-9e24-808e-9f02-dddd0ce5889d" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">tableau = [4, 7, 1, 9, 3]
+print(trouver_maximum(tableau))  # Résultat attendu : 9
+</code></pre><p id="187165be-9e24-80a2-998e-f4adac079242" class=""><strong>Indications</strong> :</p><ol type="1" id="187165be-9e24-801a-b38f-eeba360e036a" class="numbered-list" start="1"><li>Commence par définir une variable <code>maxi</code> avec une valeur initiale du tableau.</li></ol><ol type="1" id="187165be-9e24-8070-a451-e168ebe45cc4" class="numbered-list" start="2"><li>Parcours chaque élément du tableau.</li></ol><ol type="1" id="187165be-9e24-8051-99a2-f4292f46cb88" class="numbered-list" start="3"><li>Si un élément est plus grand que <code>maxi</code>, mets à jour <code>maxi</code>.</li></ol><hr id="187165be-9e24-808f-b3c2-c2a194b4cd21"/><h3 id="187165be-9e24-8099-870b-c5232912c744" class=""><strong>Exercice 2 : Trouver l&#x27;indice de la plus petite valeur</strong></h3><p id="187165be-9e24-80f9-aa78-d2d4c677afed" class=""><strong>But</strong> : Travailler avec les indices tout en manipulant un tableau.</p><p id="187165be-9e24-80cc-b033-f4fe8ba972d7" class=""><strong>Énoncé</strong> : Écris une fonction <code>indice_minimum(tableau)</code> qui retourne l’indice de la plus petite valeur dans le tableau.</p><p id="187165be-9e24-80cc-ab42-cd8883753ad1" class=""><strong>Exemple</strong> :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="187165be-9e24-80eb-8a9b-e4f739db6571" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">tableau = [10, 3, 5, 2, 7]
+print(indice_minimum(tableau))  # Résultat attendu : 3 (indice de la valeur 2)
+</code></pre><p id="187165be-9e24-80d4-a5c6-fd865b436f4b" class=""><strong>Indications</strong> :</p><ol type="1" id="187165be-9e24-8033-a240-e27115e887a6" class="numbered-list" start="1"><li>Utilise deux variables : <code>mini</code> pour stocker la plus petite valeur et <code>indice_mini</code> pour son indice.</li></ol><ol type="1" id="187165be-9e24-8052-bcfa-de0958a34a2d" class="numbered-list" start="2"><li>Parcours le tableau avec une boucle <code>for</code> .</li></ol><hr id="187165be-9e24-8030-aee6-f7c039fd820c"/><h3 id="187165be-9e24-8056-98d0-dfd9890502b7" class=""><strong>Exercice 3 : Vérifier si un tableau est trié</strong></h3><p id="187165be-9e24-807a-9cfe-e26cddf563e2" class=""><strong>But</strong> : Introduire la logique conditionnelle pour comparer des éléments consécutifs.</p><p id="187165be-9e24-8007-9edc-cb852923d83a" class=""><strong>Énoncé</strong> : Écris une fonction <code>est_trie(tableau)</code> qui retourne <code>True</code> si les éléments du tableau sont triés par ordre croissant, et <code>False</code> sinon.</p><p id="187165be-9e24-8011-b366-e72cc1983862" class=""><strong>Exemple</strong> :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="187165be-9e24-80bc-bef1-c18ab41968bf" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">tableau1 = [1, 2, 3, 4, 5]
+tableau2 = [5, 3, 2, 1]
+print(est_trie(tableau1))  # Résultat attendu : True
+print(est_trie(tableau2))  # Résultat attendu : False
+</code></pre><p id="187165be-9e24-8062-a1e8-e86fdaefe9cf" class=""><strong>Indications</strong> :</p><ol type="1" id="187165be-9e24-80e2-be0c-d8e9d2a488b8" class="numbered-list" start="1"><li>Parcours le tableau en comparant chaque élément avec le suivant.</li></ol><ol type="1" id="187165be-9e24-80e5-bf18-c8fa9f3099d2" class="numbered-list" start="2"><li>Si un élément est plus grand que le suivant, retourne <code>False</code>.</li></ol><ol type="1" id="187165be-9e24-8099-aae3-e438ccb2cf4d" class="numbered-list" start="3"><li>Si tu arrives à la fin sans trouver de problème, retourne <code>True</code>.</li></ol><hr id="187165be-9e24-805f-82c5-c91f722c8385"/><h3 id="187165be-9e24-8036-be4a-cad113816d6e" class=""><strong>Méthodologie proposée </strong> :</h3><ol type="1" id="187165be-9e24-8082-92b3-dd28c7076ad1" class="numbered-list" start="1"><li><strong>Lire et reformuler l’énoncé</strong> pour bien comprendre la demande.</li></ol><ol type="1" id="187165be-9e24-8022-bba0-ddcced1554a1" class="numbered-list" start="2"><li><strong>Décomposer le problème</strong> en étapes simples (par exemple, initialiser une variable, parcourir le tableau).</li></ol><ol type="1" id="187165be-9e24-80c9-8ba8-fa6d896e72ba" class="numbered-list" start="3"><li><strong>Écrire une ébauche de solution</strong> avant de coder directement.</li></ol><ol type="1" id="187165be-9e24-8077-9d0e-d5a0e8644322" class="numbered-list" start="4"><li><strong>Tester avec des exemples concrets</strong> pour valider la solution.</li></ol><hr id="18e165be-9e24-8016-bd83-f71a082d89eb"/><p id="18e165be-9e24-806b-9b8f-cf6839f140f4" class="">
+</p><p id="18e165be-9e24-80df-84c0-e82afae90fc2" class="">
+</p><p id="18e165be-9e24-8040-a5cb-d83450744b79" class="">
+</p><p id="18e165be-9e24-8035-937e-c93567be9b12" class="">
+</p><p id="18e165be-9e24-80ec-beaf-c6ba2fb0cd74" class="">
+</p><h3 id="18e165be-9e24-8029-9521-e4badeb8c7a1" class=""><mark class="highlight-red"><strong>Exercice 4 : Compter les occurrences d’un élément dans un tableau</strong></mark></h3><p id="18e165be-9e24-805f-80f6-e07993d79201" class=""><strong>But</strong> : Apprendre à manipuler les boucles et les conditions.</p><p id="18e165be-9e24-8059-b7d8-cb0e25e4b032" class=""><strong>Énoncé</strong> : Écris une fonction <code>compter_occurrences(tableau, valeur)</code> qui prend en paramètre un tableau de nombres et une valeur, et retourne le nombre de fois que cette valeur apparaît dans le tableau.</p><p id="18e165be-9e24-807a-96a2-ff3ff691723d" class=""><strong>Exemple</strong> :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18e165be-9e24-8013-9af2-f872ac510ca6" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">tableau = [1, 4, 2, 4, 3, 4, 5]
+print(compter_occurrences(tableau, 4))  # Résultat attendu : 3
+</code></pre><p id="18e165be-9e24-8041-9449-d7b042a6c423" class=""><strong>Indications</strong> :</p><ol type="1" id="18e165be-9e24-80f2-b0c0-c611c7cdb922" class="numbered-list" start="1"><li>Initialise un compteur à 0.</li></ol><ol type="1" id="18e165be-9e24-802f-bacd-d02f7d211844" class="numbered-list" start="2"><li>Parcours le tableau et incrémente le compteur chaque fois que l’élément est trouvé.</li></ol><hr id="18e165be-9e24-8085-8bf0-e4cbc9f521eb"/><h3 id="18e165be-9e24-80e1-b7ac-edc10cca13cb" class=""><strong>Exercice 5 : Inverser un tableau</strong></h3><p id="18e165be-9e24-80bb-9cf6-d157cb023c8e" class=""><strong>But</strong> : S’entraîner à manipuler les indices et comprendre le principe d’inversion.</p><p id="18e165be-9e24-80b1-be00-e66328230f16" class=""><strong>Énoncé</strong> : Écris une fonction <code>inverser_tableau(tableau)</code> qui retourne une nouvelle liste contenant les éléments du tableau original dans l’ordre inverse.</p><p id="18e165be-9e24-80e1-8dca-d34999ea67a9" class=""><strong>Exemple</strong> :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18e165be-9e24-80a8-9c2c-cbd2467dfaa6" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">tableau = [1, 2, 3, 4, 5]
+print(inverser_tableau(tableau))  # Résultat attendu : [5, 4, 3, 2, 1]
+</code></pre><p id="18e165be-9e24-803d-ac15-ca0f321cba5b" class=""><strong>Indications</strong> :</p><ol type="1" id="18e165be-9e24-801b-af74-d22dcfefc732" class="numbered-list" start="1"><li>Crée une nouvelle liste vide.</li></ol><ol type="1" id="18e165be-9e24-80c7-99d9-dd37860594d2" class="numbered-list" start="2"><li>Parcours le tableau de la fin vers le début et ajoute chaque élément à la nouvelle liste.</li></ol><hr id="18e165be-9e24-80c1-a917-d5f9756a6ae1"/><h3 id="18e165be-9e24-8067-b0c6-fdeb1607a9e2" class=""><strong>Exercice 6 : Vérifier si un nombre est premier</strong></h3><p id="18e165be-9e24-80d0-829a-f92b2a0df517" class=""><strong>But</strong> : Travailler avec les boucles et les conditions.</p><p id="18e165be-9e24-8038-b6c9-dbc6fceb102c" class=""><strong>Énoncé</strong> : Écris une fonction <code>est_premier(n)</code> qui retourne <code>True</code> si <code>n</code> est un nombre premier, et <code>False</code> sinon.</p><p id="18e165be-9e24-8085-80c4-c2300aa7b989" class=""><strong>Exemple</strong> :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18e165be-9e24-80ae-b229-c951d4d795ce" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">print(est_premier(7))  # Résultat attendu : True
+print(est_premier(10))  # Résultat attendu : False
+</code></pre><p id="18e165be-9e24-80d1-8870-dca8918c5c05" class=""><strong>Indications</strong> :</p><ol type="1" id="18e165be-9e24-800a-a33d-d80daaad2809" class="numbered-list" start="1"><li>Un nombre premier est un entier supérieur à 1 qui n’a que deux diviseurs : 1 et lui-même.</li></ol><ol type="1" id="18e165be-9e24-80c7-819d-c854a9b87511" class="numbered-list" start="2"><li>Parcours les nombres de 2 à la racine carrée de <code>n</code> pour vérifier s&#x27;il est divisible.</li></ol><hr id="18e165be-9e24-8078-959f-d0a96a20188b"/><h3 id="18e165be-9e24-80a0-b6e5-efcb3e11ee08" class=""><strong>Exercice 7 : Calcul du factoriel d’un nombre</strong></h3><p id="18e165be-9e24-8077-85b5-f7b056573ca6" class=""><strong>But</strong> : Comprendre la récursivité et les boucles.</p><p id="18e165be-9e24-8049-82c0-d7d22bfc6493" class=""><strong>Énoncé</strong> : Écris une fonction <code>factoriel(n)</code> qui retourne la factorielle de <code>n</code> (n! = n × (n-1) × … × 1).</p><p id="18e165be-9e24-80b1-964b-f626847cf9dd" class=""><strong>Exemple</strong> :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18e165be-9e24-803f-acd6-f1a7daa5828c" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">print(factoriel(5))  # Résultat attendu : 120 (5 × 4 × 3 × 2 × 1)
+</code></pre><p id="18e165be-9e24-8060-b851-e71e795e3163" class=""><strong>Indications</strong> :</p><ol type="1" id="18e165be-9e24-805f-a2b9-eac76672452b" class="numbered-list" start="1"><li>Utilise une boucle <code>for</code> ou une fonction récursive.</li></ol><hr id="18e165be-9e24-8047-8f6f-f96008deabfb"/><h3 id="18e165be-9e24-805a-bb71-d4cb14232d7f" class=""><strong>Exercice 8 : Trouver le plus grand diviseur commun (PGCD)</strong></h3><p id="18e165be-9e24-80f3-b75e-dbbaba577563" class=""><strong>But</strong> : Apprendre l’algorithme d’Euclide.</p><p id="18e165be-9e24-80ba-b5c0-c30815680bd4" class=""><strong>Énoncé</strong> : Écris une fonction <code>pgcd(a, b)</code> qui retourne le plus grand diviseur commun de <code>a</code> et <code>b</code>.</p><p id="18e165be-9e24-8068-b7e0-e7ac491d56ad" class=""><strong>Exemple</strong> :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18e165be-9e24-800c-85b6-f0e973487d3a" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">print(pgcd(48, 18))  # Résultat attendu : 6
+</code></pre><p id="18e165be-9e24-8042-b5b6-c146b212fbb0" class=""><strong>Indications</strong> :</p><ol type="1" id="18e165be-9e24-8034-86c0-f402e135a2d0" class="numbered-list" start="1"><li>Utilise l’algorithme d’Euclide :<ul id="18e165be-9e24-80ae-a5d8-da0d6e233596" class="bulleted-list"><li style="list-style-type:disc">Si <code>b == 0</code>, retourne <code>a</code>.</li></ul><ul id="18e165be-9e24-8068-9e69-c2334d2192c6" class="bulleted-list"><li style="list-style-type:disc">Sinon, remplace <code>a</code> par <code>b</code> et <code>b</code> par <code>a % b</code> jusqu’à <code>b == 0</code>.</li></ul></li></ol><hr id="18e165be-9e24-8095-8d92-c037a261cc7c"/><h3 id="18e165be-9e24-80a4-89e8-d54725997f97" class=""><strong>Exercice 9 : Vérifier si un mot est un palindrome</strong></h3><p id="18e165be-9e24-805f-9bd0-e73d4b29b12d" class=""><strong>But</strong> : Manipuler les chaînes de caractères.</p><p id="18e165be-9e24-8081-ba68-d4eeb3b9b57b" class=""><strong>Énoncé</strong> : Écris une fonction <code>est_palindrome(mot)</code> qui retourne <code>True</code> si le mot est un palindrome (se lit de la même manière dans les deux sens).</p><p id="18e165be-9e24-80f6-9fc4-f5f807f646d2" class=""><strong>Exemple</strong> :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18e165be-9e24-803c-93c5-d610018d218b" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">print(est_palindrome(&quot;radar&quot;))  # Résultat attendu : True
+print(est_palindrome(&quot;python&quot;))  # Résultat attendu : False
+</code></pre><p id="18e165be-9e24-80bb-bac7-ef7637f90d87" class=""><strong>Indications</strong> :</p><ol type="1" id="18e165be-9e24-80ec-ac32-dcdc81f53482" class="numbered-list" start="1"><li>Compare la chaîne originale avec sa version inversée (<code>mot[::-1]</code>).</li></ol><hr id="18e165be-9e24-80d3-ba12-cd7943afc3d1"/><h3 id="18e165be-9e24-804f-b177-f8851632ea0d" class=""><strong>Exercice 10 : Générer la suite de Fibonacci</strong></h3><p id="18e165be-9e24-80d6-bcad-ccadc3337680" class=""><strong>But</strong> : Travailler avec les suites et la récursivité.</p><p id="18e165be-9e24-802b-aef9-cba627ce4c32" class=""><strong>Énoncé</strong> : Écris une fonction <code>fibonacci(n)</code> qui retourne le <code>n</code>-ième terme de la suite de Fibonacci (où <code>F(0) = 0</code>, <code>F(1) = 1</code>, et <code>F(n) = F(n-1) + F(n-2)</code> pour <code>n ≥ 2</code>).</p><p id="18e165be-9e24-80c9-b20e-d06dccef420b" class=""><strong>Exemple</strong> :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="18e165be-9e24-809c-932b-fdeadb90f6a2" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">print(fibonacci(6))  # Résultat attendu : 8
+</code></pre><p id="18e165be-9e24-80ff-96f2-d3bfc66d3a9a" class=""><strong>Indications</strong> :</p><ol type="1" id="18e165be-9e24-8008-b1da-d74920c7b6ce" class="numbered-list" start="1"><li>Utilise la récursivité ou une boucle avec deux variables pour stocker les précédents termes.</li></ol><p id="1b1165be-9e24-80ba-89ec-f45c4b71aed4" class="">
+</p><p id="1b1165be-9e24-80ea-8f1f-d719c81bd2e8" class="">
+</p><p id="1b1165be-9e24-80d3-8c05-f3141468c10d" class="">
+</p><p id="1b1165be-9e24-809f-83e4-eec26d3a54c3" class="">
+</p><h3 id="1b1165be-9e24-8022-a3fa-ec6c788a0da3" class=""><strong>Exercice 11 : Variables locales et la pile</strong></h3><p id="1b1165be-9e24-8053-af16-cb110c06cce6" class=""><strong>Objectif :</strong> Observer comment les variables locales disparaissent après l&#x27;exécution d&#x27;une fonction.</p><p id="1b1165be-9e24-8061-b705-cbb0ff47d8fe" class=""><strong>Code à compléter :</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1b1165be-9e24-8057-b248-f9a6b9cfd501" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def ma_fonction():
+    a = 5  # Variable locale stockée sur la pile
+    b = [1, 2, 3]  # La liste est stockée sur le tas, mais sa référence est sur la pile
+    print(&quot;Dans la fonction :&quot;, a, b)
+
+ma_fonction()
+# Essaye d&#x27;afficher a et b ici : que se passe-t-il ?
+</code></pre><p id="1b1165be-9e24-8077-a5c0-f05b34f205b8" class=""><strong>Question</strong> : Pourquoi <code>a</code> et <code>b</code> ne sont plus accessibles en dehors de la fonction ?</p><hr id="1b1165be-9e24-8062-ae36-d22a56241300"/><h3 id="1b1165be-9e24-8098-a42e-c55f932fbe8c" class=""><strong>Exercice 12 : Références et tas</strong></h3><p id="1b1165be-9e24-8041-a03f-d7d4fce70174" class=""><strong>Objectif :</strong> Comprendre que les listes sont stockées sur le tas et peuvent être modifiées via plusieurs variables.</p><p id="1b1165be-9e24-804b-a1ce-fc1b10a3803a" class=""><strong>Code à compléter :</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1b1165be-9e24-80d3-b4ca-c64d43194582" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">liste1 = [10, 20, 30]  # Liste stockée sur le tas
+liste2 = liste1  # liste2 pointe sur le même objet
+
+liste2.append(40)  # On modifie liste2
+print(&quot;liste1 :&quot;, liste1)  # Que va-t-il s&#x27;afficher ?
+print(&quot;liste2 :&quot;, liste2)  # Pourquoi les deux listes sont-elles identiques ?
+</code></pre><p id="1b1165be-9e24-805f-a524-db39097206fb" class=""><strong>Question</strong> : Pourquoi <code>liste1</code> a aussi été modifiée alors qu&#x27;on a modifié <code>liste2</code> ?</p><hr id="1b1165be-9e24-80c6-9e31-c4530ce1ddcf"/><h3 id="1b1165be-9e24-8042-a0b4-e467eca3bc87" class=""><strong>Exercice 13 : Factorielle d&#x27;un nombre (Récursivité)</strong></h3><p id="1b1165be-9e24-8082-a063-c6a5d0f6d65f" class=""><strong>Objectif :</strong> Comprendre comment une fonction peut <strong>s’appeler elle-même</strong> pour résoudre un problème.<div class="indented"><p id="1b1165be-9e24-80a9-80fd-e03dee050e10" class=""><strong>Énoncé :</strong></p></div></p><p id="1b1165be-9e24-8012-b7dc-d8fd5fb4f731" class="">Écris une fonction récursive qui calcule la <strong>factorielle</strong> d&#x27;un nombre entier positif <code>n</code>.</p><p id="1b1165be-9e24-80fc-8e34-f7633e018273" class="">La <strong>factorielle</strong> d&#x27;un nombre <code>n</code> (notée <code>n!</code>) est définie par :<div class="indented"><p id="1b1165be-9e24-8064-aff6-f1478e194047" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">!</mo><mo>=</mo><mi>n</mi><mo>×</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><mo>×</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n! = n \times (n-1) \times (n-2) \times ... \times 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">n</span><span class="mclose">!</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord">...</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span><span>﻿</span></span></p></div></p><p id="1b1165be-9e24-80fe-b24a-e537c44c8be3" class="">Avec :</p><ul id="1b1165be-9e24-8094-b37d-c46900f7e432" class="bulleted-list"><li style="list-style-type:disc"><code>0! = 1</code> (cas de base)</li></ul><ul id="1b1165be-9e24-805b-8b6a-f0a0fdf1296b" class="bulleted-list"><li style="list-style-type:disc"><code>n! = n × (n-1)!</code> (récursivité)</li></ul><hr id="1b1165be-9e24-80b4-978f-c9034d94a8fc"/><p id="1b1165be-9e24-80b1-8149-f05de5c97ee6" class=""><strong>Code à compléter :</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1b1165be-9e24-80c8-82cb-f2a05f654fee" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">def factorielle(n):
+    if n == 0:  # Cas de base
+        return 1
+    else:
+        return __________  # Appel récursif
+
+# Test
+print(factorielle(5))  # Résultat attendu : 120
+</code></pre><p id="1b1165be-9e24-8054-b9a3-c4279fd240d4" class=""> <strong>Questions :</strong></p><ol type="1" id="1b1165be-9e24-80d8-aba9-c1ee04324845" class="numbered-list" start="1"><li>Complète l&#x27;appel récursif dans la fonction.</li></ol><ol type="1" id="1b1165be-9e24-80ef-b85f-ff31370147bf" class="numbered-list" start="2"><li>Que se passe-t-il si tu appelles <code>factorielle(5)</code> ?</li></ol><ol type="1" id="1b1165be-9e24-8044-bc99-df585aed35ad" class="numbered-list" start="3"><li>Pourquoi faut-il un <strong>cas de base</strong> (<code>n == 0</code>) ?</li></ol><hr id="1b1165be-9e24-8081-af95-c9ea3172a8d8"/><p id="1b1165be-9e24-8048-bca8-ec8026e1dd7c" class=""> <strong>Bonus :</strong> Essaye d&#x27;afficher la progression du calcul en ajoutant un <code>print(n)</code>.</p><p id="1b9165be-9e24-8014-8c1c-d8201321410a" class="">
+</p><p id="1b9165be-9e24-804d-95a9-e5a416a45018" class="">
+</p><h3 id="1b9165be-9e24-8029-b172-e453b21526ca" class=""><strong>Exercice 14</strong></h3><h3 id="1b9165be-9e24-80fd-ba18-e6ae186e7e0a" class=""><strong>Tri à bulles</strong> (Bubble Sort)</h3><ol type="1" id="1b9165be-9e24-80a9-9ad6-d7e49a5bf353" class="numbered-list" start="1"><li><strong>Principe</strong> : On compare chaque élément avec le suivant et on échange s’il est plus grand. À chaque passage, le plus grand élément remonte à la fin.</li></ol><ol type="1" id="1b9165be-9e24-802a-a880-d8c61f347bcc" class="numbered-list" start="2"><li><strong>Étapes</strong> :<ul id="1b9165be-9e24-80c2-bbac-c354db2b4e0b" class="bulleted-list"><li style="list-style-type:disc">Parcourir la liste plusieurs fois.</li></ul><ul id="1b9165be-9e24-80d1-826d-c684678ceddc" class="bulleted-list"><li style="list-style-type:disc">Comparer chaque paire d’éléments adjacents et échanger si nécessaire.</li></ul><ul id="1b9165be-9e24-8094-b49b-cd96b9bf481d" class="bulleted-list"><li style="list-style-type:disc">Répéter jusqu’à ce que la liste soit triée.</li></ul></li></ol><ol type="1" id="1b9165be-9e24-80fa-b5f6-f5c3230e5ef5" class="numbered-list" start="3"><li><strong>Optimisation possible</strong> : Arrêter l’algorithme si aucun échange n’a été fait dans un passage.</li></ol><hr id="1b9165be-9e24-80be-a460-e103c6b3a72c"/><h3 id="1b9165be-9e24-8016-ad4b-e1ff45201480" class=""><strong>Exercice 15</strong></h3><h3 id="1b9165be-9e24-8053-b3ad-e5d12acdb821" class=""><strong>Tri par sélection</strong> (Selection Sort)</h3><ol type="1" id="1b9165be-9e24-80ff-8dc7-eeb729244068" class="numbered-list" start="1"><li><strong>Principe</strong> : On cherche le plus petit élément et on l’échange avec le premier, puis on recommence avec le reste de la liste.</li></ol><ol type="1" id="1b9165be-9e24-8028-ab8f-eb1ae64f74bb" class="numbered-list" start="2"><li><strong>Étapes</strong> :<ul id="1b9165be-9e24-80f3-b642-de8d6424ec47" class="bulleted-list"><li style="list-style-type:disc">Trouver le plus petit élément dans la liste et l’échanger avec le premier élément.</li></ul><ul id="1b9165be-9e24-80af-8c5e-eb93126b56ad" class="bulleted-list"><li style="list-style-type:disc">Trouver le deuxième plus petit élément et l’échanger avec le deuxième élément, etc.</li></ul><ul id="1b9165be-9e24-809b-9c05-fd76832f2798" class="bulleted-list"><li style="list-style-type:disc">Répéter jusqu’à ce que toute la liste soit triée.</li></ul></li></ol><p id="1b9165be-9e24-80a4-814b-fefd0518df76" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

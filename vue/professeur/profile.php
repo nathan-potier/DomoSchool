@@ -2,38 +2,45 @@
 require_once __DIR__ . '/../../includes/functions.php';
 startSession();
 
-checkAuth();  // Cette fonction vérifie si l'utilisateur est connecté
+checkAuth(); // Vérifie que l'utilisateur est connecté
 
-// Récupérer les données de session utilisateur
+// Récupération des données de session
 $userSessionData = getUserSessionData();
 
-// Vérifier si l'utilisateur est connecté avant de procéder
+// Redirection si l'utilisateur n'est pas connecté
 if (!$userSessionData['isLoggedIn']) {
-    // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
-    header('Location: login.php');
+    header('Location: ' . BASE_URL . '/login');
     exit;
 }
 
-// Séparer le nom complet en prénom et nom de famille
+// Séparer le nom complet
 $userNameParts = explode(' ', $userSessionData['userName'], 2);
-$firstName = $userNameParts[0] ?? '';  // Si le prénom existe, on l'assigne, sinon c'est une chaîne vide
-$lastName = $userNameParts[1] ?? '';   // Si le nom de famille existe, on l'assigne, sinon c'est une chaîne vide
+$firstName = $userNameParts[0] ?? '';
+$lastName = $userNameParts[1] ?? '';
 
-// Si le formulaire est soumis, mettre à jour le profil
+// Si formulaire soumis, on met à jour le profil
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $firstName = sanitizeInput($_POST['first_name']);
     $lastName = sanitizeInput($_POST['last_name']);
     $email = sanitizeInput($_POST['email']);
+
     updateUserProfile($_SESSION['user_id'], $firstName, $lastName, $email);
-    redirect('profile.php?success=Profil mis à jour');
+
+    // Redirection propre après succès
+    header('Location: ' . BASE_URL . '/professeur/profile?success=Profil mis à jour');
+    exit;
 }
 ?>
 
-<!-- Inclure le header avec le bon chemin -->
 <?php include(__DIR__ . '/../../includes/header.php'); ?>
 
 <div class="container">
     <h1>Modifier votre profil</h1>
+
+    <?php if (isset($_GET['success'])): ?>
+        <p class="success-message"><?= htmlspecialchars($_GET['success']) ?></p>
+    <?php endif; ?>
+
     <form method="post">
         <label for="first_name">Prénom</label>
         <input type="text" name="first_name" value="<?= htmlspecialchars($firstName) ?>" required>
@@ -48,5 +55,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </div>
 
-<!-- Inclure le footer -->
 <?php include(__DIR__ . '/../../includes/footer.php'); ?>

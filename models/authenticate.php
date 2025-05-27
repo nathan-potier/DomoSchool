@@ -7,7 +7,7 @@ startSession();
 
 // Si l'utilisateur est déjà authentifié, rediriger vers la page d'accueil ou le tableau de bord
 if (isset($_SESSION['user_id'])) {
-    redirect('../vue/index.php'); // Rediriger vers la page d'accueil si l'utilisateur est déjà connecté
+    redirect(BASE_URL . '/accueil'); // Rediriger vers la page d'accueil si l'utilisateur est déjà connecté
 }
 
 // Vérification des informations de connexion
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validation des données
     if (empty($email) || empty($password)) {
         // Si un des champs est vide, redirige l'utilisateur avec un message d'erreur
-        redirect('../vue/login.php?error=Tous les champs sont obligatoires');
+        redirect(BASE_URL . '/login?error=Tous les champs sont obligatoires');
     }
 
     // Connexion à la base de données
@@ -44,27 +44,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             logActivity('user_login', $user['id']); // Loguer l'activité de connexion
 
             // Rediriger l'utilisateur vers la page appropriée en fonction de son rôle
-            switch ($user['role']) {
+            /*switch ($user['role']) {
                 case 'admin':
-                    redirect('../vue/admin/dashboard.php');
+                    redirect(BASE_URL . '/admin/dashboard');
                     break;
                 case 'teacher':
-                    redirect('../vue/professeur/dashboard.php');
+                    redirect(BASE_URL . '/professeur/dashboard');
                     break;
                 case 'parent':
-                    redirect('../vue/parent/dashboard.php');
+                    redirect(BASE_URL . '/parent/dashboard');
                     break;
                 default:
-                    redirect('../vue/eleve/dashboard.php');
-            }
+                    redirect(BASE_URL . '/eleve/dashboard');
+            }*/
+
+            redirect(BASE_URL . '/accueil?success=Vous êtes maintenant connecté.');
+            
         } else {
             // Authentification échouée
-            redirect('../vue/auth/login.php?error=Identifiants incorrects');
+            redirect(BASE_URL . '/login?error=Identifiants incorrects');
         }
 
     } catch (PDOException $e) {
         error_log('Authentication Error: '.$e->getMessage());
-        redirect('../vue/login.php?error=Erreur système. Veuillez réessayer');
+        redirect(BASE_URL . '/login?error=Erreur système. Veuillez réessayer');
     }
 }
 
