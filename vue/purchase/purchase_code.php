@@ -4,6 +4,7 @@
     <h1 class="purchase-title">🛒 Acheter un code d'accès</h1>
     
     <div class="purchase-options">
+    <!--
         <div class="purchase-option">
             <h3>Élève</h3>
             <p class="price">19,99€</p>
@@ -24,6 +25,7 @@
             <p>Pour créer des cours et exercices</p>
             <a href="<?= BASE_URL ?>/contact" class="purchase-btn">Nous contacter</a>
         </div>
+        -->
     </div>
 </div>
 
