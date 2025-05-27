@@ -49,8 +49,8 @@ RewriteRule ^courses$                     vue/eleve/courses.php [L]
 
 
 
-RewriteRule ^course/([0-9]+)$ vue/view_course.php?course_id=$1 [L,QSA]
-RewriteRule ^exercice/([0-9]+)$ vue/view_exercice.php?exercice_id=$1 [L,QSA]
+RewriteRule ^course/([0-9]+)$             vue/view_course.php?course_id=$1 [L,QSA]
+RewriteRule ^exercice/([0-9]+)$            vue/view_exercice.php?exercice_id=$1 [L,QSA]
 
 
 

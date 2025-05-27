@@ -3,7 +3,7 @@ require_once __DIR__ . '/../includes/functions.php';
 startSession();
 
 // Vérifie si un ID d'exercice a été passé dans l'URL
-if (isset($_GET['exercie_id'])) {
+if (isset($_GET['exercice_id'])) {
     $exerciseId = (int) $_GET['exercice_id'];
 
     // Récupère les informations de l'exercice à partir de la base de données
