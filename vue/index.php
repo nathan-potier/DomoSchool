@@ -6,7 +6,7 @@
 
     <!-- Section d’intro -->
     <section style="text-align: center; margin-bottom: 50px;">
-        <h1>Bienvenue sur <span style="color: var(--primary);">DomoSchool</span></h1>
+        <h1>Bienvenue sur <span style="color: var(--primary);">DomoSchooll</span></h1>
         <p style="font-size: 1.2rem; max-width: 700px; margin: 20px auto;">
             DomoSchool est votre plateforme d'éducation moderne. Cours particuliers en ligne, exercices interactifs, 
             suivi en temps réel... tout pour garantir la réussite scolaire de vos enfants.
