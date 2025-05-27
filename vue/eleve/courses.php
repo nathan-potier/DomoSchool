@@ -41,6 +41,7 @@ $isFirstCourse = true;
                             <a href="<?= BASE_URL . '/course/' . $course['id'] ?>">
                                 <div class="course-item">
                                     <?= htmlspecialchars($course['title']) ?>
+                                    <p class="description">📖 <?= htmlspecialchars($course['description']) ?></p>
                                     <p class="teacher">👨‍🏫 <?= htmlspecialchars($course['teacher_first_name'] . ' ' . $course['teacher_last_name']) ?></p>
 
                                     <?php if (!$isLoggedIn && !$isFirstCourse): ?>
@@ -50,6 +51,7 @@ $isFirstCourse = true;
                             </a>
                             <?php $isFirstCourse = false; ?>
                         <?php endforeach; ?>
+
                     </div>
                 </div>
             <?php endforeach; ?>

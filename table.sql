@@ -29,6 +29,7 @@ CREATE TABLE chapters (
     description TEXT
 );
 
+
 INSERT INTO chapters (name, description) VALUES
 ('Algorithmique et programmation', 'Étudier les bases de l\'algorithmique, les structures de données, les algorithmes de tri et de recherche, et la programmation en Python.'),
 ('Structures de données', 'Les listes, tableaux, dictionnaires, piles, files, arbres, graphes et leurs applications en algorithmique.'),
@@ -46,6 +47,7 @@ INSERT INTO chapters (name, description) VALUES
 -- Table des exercices génériques créés par les profs
 CREATE TABLE exercises (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    
     title VARCHAR(255) NOT NULL,
     description TEXT,
     language VARCHAR(50) DEFAULT 'python',

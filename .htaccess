@@ -5,8 +5,8 @@ RewriteBase /DomoSchool/
 RewriteRule ^eleve/dashboard$             vue/eleve/dashboard.php [L]
 RewriteRule ^eleve/profile$               vue/eleve/profile.php [L]
 RewriteRule ^eleve/courses$               vue/eleve/courses.php [L]
-RewriteRule ^BAC$               vue/eleve/bac.php [L]
-RewriteRule ^eleve/exercises$             vue/eleve/exercises.php [L]
+RewriteRule ^exercices$                   vue/eleve/exercices.php [L]
+RewriteRule ^eleve/exercices$             vue/eleve/exercises.php [L]
 RewriteRule ^eleve/schedule$              vue/eleve/schedule.php [L]
 
 # --- Redirections parents ---
@@ -50,6 +50,8 @@ RewriteRule ^courses$                     vue/eleve/courses.php [L]
 
 
 RewriteRule ^course/([0-9]+)$ vue/view_course.php?course_id=$1 [L,QSA]
+RewriteRule ^exercice/([0-9]+)$ vue/view_exercice.php?exercice_id=$1 [L,QSA]
+
 
 
 

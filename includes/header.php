@@ -28,7 +28,27 @@ $userRole = $userSessionData['userRole'];
     </script>
 
     <title>DomoSchool</title>
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/reset.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/variables.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/global.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/header.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/burger-menu.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/forms.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/notifications.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/cards.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/signup.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/responsive.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/footer.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/dashboard.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/dark-mode.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/courses.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/purchase.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/homepage.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/topics.css">
+
+
+
+    
     <script src="<?php echo BASE_URL; ?>/assets/js/menuBurger.js" defer></script>
     <script src="<?php echo BASE_URL; ?>/assets/js/main.js" defer></script>
     <script src="<?php echo BASE_URL; ?>/assets/js/header.js" defer></script>
@@ -76,6 +96,7 @@ $userRole = $userSessionData['userRole'];
             <a href="<?php echo BASE_URL; ?>/login">Se connecter</a>
             <a href="<?php echo BASE_URL; ?>/register">S'inscrire</a>
         <?php else: ?>
+            <a href="<?php echo BASE_URL; ?>/exercices">Exercices</a>
             <a href="<?php
                 if ($userRole === 'student') {
                     echo BASE_URL . '/eleve/dashboard';
@@ -102,7 +123,7 @@ $userRole = $userSessionData['userRole'];
             <a href="<?php echo BASE_URL; ?>/login">Se connecter</a>
             <a href="<?php echo BASE_URL; ?>/register">S'inscrire</a>
         <?php else: ?>
-            <a href="<?php echo BASE_URL; ?>/BAC">BAC</a>
+            <a href="<?php echo BASE_URL; ?>/exercices">Exercices</a>
             <a href="<?php
                 if ($userRole === 'student') {
                     echo BASE_URL . '/eleve/dashboard';

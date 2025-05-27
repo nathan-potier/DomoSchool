@@ -286,6 +286,31 @@ function getRevisionTopics() {
 
 
 
+function getExercises() {
+    global $connex;
+    $stmt = $connex->prepare("SELECT id, title, description FROM exercises");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getExerciseById($exerciseId) {
+    global $connex; // Assurez-vous que la variable $connex est définie et représente votre connexion à la base de données
+
+    // Préparer la requête SQL pour récupérer les détails de l'exercice
+    $query = "SELECT id, title, description, language, file_path FROM exercises WHERE id = ?";
+
+    // Préparer la déclaration
+    $stmt = $connex->prepare($query);
+
+    // Exécuter la déclaration avec l'ID de l'exercice
+    $stmt->execute([$exerciseId]);
+
+    // Récupérer les résultats
+    $exercise = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Retourner les détails de l'exercice
+    return $exercise;
+}
 
 
 ?>

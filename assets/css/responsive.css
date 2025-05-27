@@ -1,0 +1,35 @@
+@media screen and (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  header {
+    padding: 15px 0;
+  }
+
+  .boutonBurger {
+    display: block;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .card {
+    margin: 10px 0;
+    padding: 15px;
+  }
+
+  .card h3 {
+    font-size: 1.1em;
+  }
+
+  .card p {
+    font-size: 1em;
+  }
+
+  header img {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+}

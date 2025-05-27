@@ -125,7 +125,7 @@
   }
 
   .desktop-nav{
-    margin-left: 15px;
+    margin-left: 55px;
     margin-top: -20px;
     padding-bottom: 20px;
   }
@@ -892,6 +892,13 @@
     opacity: 1;
     margin-top: 15px;
   }
+
+  .courses-list .description {
+    font-style: italic;
+    color: #666;
+    margin: 5px 0;
+  }
+
   
   .chapter-card.open .courses-list a {
     text-decoration: none;

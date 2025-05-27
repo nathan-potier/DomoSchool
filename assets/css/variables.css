@@ -1,0 +1,12 @@
+:root {
+  --primary: #4A90E2;
+  --primary-hover: #357ABD;
+  --highlight: #FF9800;
+  --highlight-hover: #e68900;
+  --accent: #FF5722;
+  --text: #333;
+  --white: #fff;
+  --card-bg: #f9f9f9;
+  --card-bg-2: #e0e0e0;
+  --shadow: rgba(0, 0, 0, 0.1);
+}

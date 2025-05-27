@@ -1,0 +1,28 @@
+.card {
+  background: var(--white);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card h3 {
+  font-size: 1.3em;
+  margin-top: 15px;
+  color: var(--primary);
+}
+
+.card p {
+  font-size: 1.1em;
+  color: var(--accent);
+}
