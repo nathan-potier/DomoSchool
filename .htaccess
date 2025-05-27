@@ -4,6 +4,14 @@ Header always set Content-Security-Policy "frame-ancestors 'self';"
 Header always set X-Frame-Options "SAMEORIGIN"
 
 
+# Redirections pour les pages du footer
+RewriteRule ^mentions-legales$              includes/footer/mentions-legales.php [L]
+RewriteRule ^politique-de-confidentialite$  includes/footer/politique-de-confidentialite.php [L]
+RewriteRule ^conditions-generales$          includes/footer/cgu.php [L]
+RewriteRule ^politique-de-cookies$          includes/footer/cookies.php [L]
+RewriteRule ^contact$                       includes/footer/contact.php [L]
+RewriteRule ^faq$                           includes/footer/faq.php [L]
+
 # --- Redirections élèves ---
 RewriteRule ^eleve/dashboard$             vue/eleve/dashboard.php [L]
 RewriteRule ^eleve/profile$               vue/eleve/profile.php [L]

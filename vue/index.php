@@ -31,12 +31,12 @@
         <div class="benefits-grid">
             <div class="benefit-item">
                 <i class="fas fa-play-circle benefit-icon"></i>
-                <h3>Cours Vidéo Captivants</h3>
+                <h3>Cours Captivants</h3>
                 <p>Des explications claires et des démonstrations visuelles pour faciliter la compréhension des concepts complexes.</p>
             </div>
             <div class="benefit-item">
                 <i class="fas fa-keyboard benefit-icon"></i>
-                <h3>Exercices Interactifs et Corrigés</h3>
+                <h3>Exercices et Corrigés</h3>
                 <p>Mettez en pratique vos connaissances avec des exercices auto-corrigés et des solutions détaillées.</p>
             </div>
             <div class="benefit-item">
@@ -83,26 +83,27 @@
         <p class="coming-soon-intro">Nous élargissons constamment notre offre pour vous accompagner dans d'autres disciplines essentielles au lycée.</p>
         <div class="soon-grid">
             <div class="soon-card">
-                <i class="fas fa-atom soon-icon"></i>
-                <h3>Sciences Physiques</h3>
-                <p>Des cours interactifs pour explorer la mécanique, l'électricité, l'optique et bien d'autres domaines.</p>
-                <span class="soon-status">Prochainement</span>
+                <i class="fas fa-book-open soon-icon"></i>
+                <h3>NSI Première</h3>
+                <p>Explorer les bases du numérique d’aujourd’hui et les fondements de demain en concevant des algorithmes, des programmes et des objets connectés.</p>
+                <span class="soon-status">En développement</span>
             </div>
             <div class="soon-card">
                 <i class="fas fa-chart-bar soon-icon"></i>
                 <h3>Mathématiques</h3>
                 <p>Des exercices progressifs et des explications détaillées pour renforcer vos compétences en algèbre, géométrie, analyse...</p>
-                <span class="soon-status">En développement</span>
+                <span class="soon-status">En planification</span>
             </div>
             <div class="soon-card">
-                <i class="fas fa-book-open soon-icon"></i>
-                <h3>Histoire-Géographie</h3>
-                <p>Comprendre le monde d'hier et d'aujourd'hui à travers des récits captivants et des outils interactifs.</p>
+                <i class="fas fa-atom soon-icon"></i>
+                <h3>Sciences Physiques</h3>
+                <p>Des cours interactifs pour explorer la mécanique, l'électricité, l'optique et bien d'autres domaines.</p>
                 <span class="soon-status">En planification</span>
             </div>
         </div>
     </section>
 
+    <!--
     <section class="testimonials">
         <h2 class="section-title">Ce que les élèves de NSI disent de DomoSchool</h2>
         <div class="testimonials-grid">
@@ -118,6 +119,7 @@
             </div>
         </div>
     </section>
+    -->
 
 </div>
 
