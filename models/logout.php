@@ -10,5 +10,5 @@ session_unset();
 session_destroy();
 
 // Rediriger vers la page de connexion avec un message de succès
-redirect('../vue/auth/login.php?success=Vous êtes déconnecté avec succès');
+redirect(BASE_URL . '/login?success=Vous êtes déconnecté avec succès');
 ?>

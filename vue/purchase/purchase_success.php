@@ -9,7 +9,7 @@
             <div class="code-display" id="purchased-code"><?= htmlspecialchars($_SESSION['purchased_code']) ?></div>
             <button id="copy-button" class="copy-button">Copier le code</button>
             <p class="code-instructions">
-                Utilisez ce code pour créer votre compte sur la page <a href="<?php echo BASE_URL; ?>/vue/auth/register.php">d'inscription</a>.
+                Utilisez ce code pour créer votre compte sur la page <a href="<?= BASE_URL ?>/register">d'inscription</a>.
             </p>
         </div>
         <script>

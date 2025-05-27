@@ -3,12 +3,12 @@ require_once __DIR__ . '/../includes/functions.php';
 startSession();
 
 if (empty($_SESSION['user_id'])) {
-    redirect('login.php');
+    redirect(BASE_URL . '/login');
 }
 
 $user = getUserData($_SESSION['user_id']);
 if (!$user) {
-    redirect('login.php');
+    redirect(BASE_URL . '/login');
 }
 
 // Exemple de suivi d'un enfant
@@ -22,7 +22,7 @@ $child = getChildByParent($_SESSION['user_id']);
 
     <p><strong>Nom :</strong> <?= htmlspecialchars($child['name']) ?></p>
     <p><strong>Progrès :</strong> <?= $child['progress'] ?>%</p>
-    <a href="child-details.php?id=<?= $child['id'] ?>" class="btn">Voir les Détails</a>
+    <a href="<?= BASE_URL . '/parent/child-details?id=' . $child['id'] ?>" class="btn">Voir les Détails</a>
 </div>
 
 <?php include('../includes/footer.php'); ?>

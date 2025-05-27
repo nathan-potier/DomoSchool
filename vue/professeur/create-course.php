@@ -7,14 +7,14 @@ checkAuth();  // Vérifie si l'utilisateur est connecté et autorisé à créer 
 // Vérifier si l'utilisateur est connecté avant de procéder
 $userSessionData = getUserSessionData();
 if (!$userSessionData['isLoggedIn']) {
-    header('Location: login.php');
+    header('Location: ' . BASE_URL . '/login');
     exit;
 }
 
 // Vérifier si l'utilisateur est un professeur ou admin
 if ($userSessionData['userRole'] !== 'teacher' && $userSessionData['userRole'] !== 'admin') {
     // Si l'utilisateur n'est ni professeur ni admin, rediriger
-    header('Location: dashboard.php');
+    header('Location: ' . BASE_URL . '/professeur/dashboard');
     exit;
 }
 
@@ -59,17 +59,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-
     // Insérer le cours dans la base de données
     $teacherId = $_SESSION['user_id']; // Assigner l'ID du professeur
-    $query = "INSERT INTO courses (title, description, teacher_id, file_path, chapter_id) 
+    $query = "INSERT INTO courses (title, description, teacher_id, file_path, chapter_id)
               VALUES (?, ?, ?, ?, ?)";
 
     $stmt = $connex->prepare($query);
     $stmt->execute([$title, $description, $teacherId, $filePath, $chapterId]);
 
     // Rediriger vers la page de confirmation ou de détail
-    header('Location: create-course.php?success=Cours créé avec succès.');
+    header('Location: ' . BASE_URL . '/professeur/create-course?success=Cours créé avec succès.');
     exit;
 }
 ?>
@@ -78,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php include(__DIR__ . '/../../includes/header.php'); ?>
 
 <div class="container">
-    
+
     <h1>Créer un nouveau cours</h1>
     <?php include('../../includes/notif.php'); ?>
     <!-- Formulaire pour créer un cours -->

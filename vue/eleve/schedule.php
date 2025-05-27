@@ -3,12 +3,12 @@ require_once __DIR__ . '/../includes/functions.php';
 startSession();
 
 if (empty($_SESSION['user_id'])) {
-    redirect('login.php');
+    redirect(BASE_URL . '/login');
 }
 
 $user = getUserData($_SESSION['user_id']);
 if (!$user) {
-    redirect('login.php');
+    redirect(BASE_URL . '/login');
 }
 
 $schedule = getStudentSchedule($_SESSION['user_id']);

@@ -13,13 +13,13 @@ unset($_SESSION['old_inputs']);
     </p>
     <?php include('../../includes/notif.php'); ?>
 
-    <form method="post" action="../../models/register_user.php" class="signup-form">
+    <form method="post" action="<?= BASE_URL . '/register_user' ?>" class="signup-form">
         <label for="access_code" class="signup-label">🔑 Code d'accès :</label>
         <input type="text" id="access_code" name="access_code" required placeholder="Entrez votre code unique" class="signup-input"
             value="<?= htmlspecialchars($old['access_code'] ?? '') ?>">
 
         <p class="buy-code-link">
-            Besoin d'un code ? <a href="../purchase/purchase_code.php" class="signup-login-link-text">Acheter un code d'accès</a>
+            Besoin d'un code ? <a href="<?= BASE_URL . '/purchase' ?>" class="signup-login-link-text">Acheter un code d'accès</a>
         </p>
 
         <label for="first_name" class="signup-label">👤 Prénom :</label>
@@ -46,7 +46,7 @@ unset($_SESSION['old_inputs']);
     </form>
 
     <p class="signup-login-link">
-        Déjà un compte ? <a href="login.php" class="signup-login-link-text">Se connecter</a>
+        Déjà un compte ? <a href="<?= BASE_URL . '/login' ?>" class="signup-login-link-text">Se connecter</a>
     </p>
 </div>
 

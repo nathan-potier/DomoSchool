@@ -41,76 +41,135 @@ DomoSchool est une plateforme d'éducation en ligne qui combine des **cours part
 
 ```
 domoschool/
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   ├── images/
-│   │   └── logo.png
-│   └── js/
-│       ├── main.js
-│       └── menuBurger.js
-├── config/
-│   └── config.php
-├── includes/
-│   ├── db.php                → Connexion à la base de données
-│   ├── footer.php            → Pied de page
-│   ├── functions.php         → Fonctions générales (validation, gestion erreurs)
-│   ├── header.php            → En-tête global (menu, etc.)
-│   └── notif.php             → Gestion des notifications
-├── logs/
-│   ├── activity.log
-│   └── errors.log
-├── models/
-│   ├── authenticate.php      → Vérification de connexion
-│   ├── checkout.php          → Traitement du paiement et génération de code
-│   ├── check_code.php        → Vérification de la validité d'un code
-│   ├── logout.php            → Déconnexion utilisateur
-│   ├── register_user.php     → Inscription avec code d'accès
-│   ├── get_user_data.php     → Récupération des informations utilisateurs
-│   ├── get_courses.php       → Récupération des cours
-│   ├── get_exercises.php     → Récupération des exercices
-│   └── update_profile.php    → Mise à jour du profil utilisateur
-├── uploads/
-│   └── courses/
-│       └── [fichiers uploadés ici]
-├── vue/
-│   ├── eleve/
-│   │   ├── dashboard.php     → Tableau de bord de l'élève
-│   │   ├── courses.php       → Liste des cours de l'élève
-│   │   ├── profile.php       → Modification du profil de l'élève
-│   │   ├── exercises.php     → Liste des exercices interactifs
-│   │   └── schedule.php      → Planification des cours
-│   ├── parent/
-│   │   ├── dashboard.php     → Tableau de bord du parent
-│   │   ├── child.php         → Suivi d'un enfant spécifique
-│   │   ├── profile.php       → Modification du profil du parent
-│   │   └── messages.php      → Messagerie avec les professeurs
-│   ├── professeur/
-│   │   ├── dashboard.php     → Tableau de bord du professeur
-│   │   ├── create-course.php → Création de nouveaux cours
-│   │   ├── create-exercise.php → Création d'exercices
-│   │   ├── students.php      → Liste des élèves suivis
-│   │   ├── messages.php      → Messagerie interne
-│   │   └── profile.php       → Modification du profil du professeur
-│   ├── admin/
-│   │   ├── dashboard.php     → Vue d'ensemble de l'administration
-│   │   ├── users.php         → Gestion des utilisateurs
-│   │   ├── courses.php       → Validation des cours créés
-│   │   ├── logs.php          → Logs d'activité
-│   │   ├── settings.php      → Paramètres généraux du site
-│   │   └── access_codes.php  → Gestion des codes d'accès (nouveau)
-│   ├── auth/
-│   │   ├── login.php         → Page de connexion
-│   │   ├── register.php      → Page d'inscription (avec code)
-│   │   └── reset_password.php→ Réinitialisation de mot de passe
-│   ├── purchase/
-│   │   ├── purchase_code.php → Page de choix du type de code
-│   │   ├── checkout.php      → Processus de paiement
-│   │   └── purchase_success.php → Confirmation d'achat
-│   ├── index.php             → Page d'accueil publique
-│   └── view_course.php
-├── README.md
-└── table.sql                 → Commandes pour créer les tables (inclut maintenant access_codes)
+|   .htaccess
+|   README.md
+|   table.sql
+|
++---.dist
++---assets
+|   +---css
+|   |       all1one(old).css
+|   |       burger-menu.css
+|   |       cards.css
+|   |       courses.css
+|   |       dark-mode.css
+|   |       dashboard.css
+|   |       footer.css
+|   |       forms.css
+|   |       global.css
+|   |       header.css
+|   |       homepage.css
+|   |       notifications.css
+|   |       purchase.css
+|   |       reset.css
+|   |       responsive.css
+|   |       signup.css
+|   |       topics.css
+|   |       variables.css
+|   |
+|   +---images
+|   |       Acceuil.png
+|   |       logo-sans-bg-blanc.png
+|   |       logo-sans-bg-claire.png
+|   |       logo-sans-bg-noir.png
+|   |       logo-sans-bg.png
+|   |       logo-sans-bg2.png
+|   |       logo.png
+|   |       photo-nathan.jpg
+|   |
+|   \---js
+|           header.js
+|           listener_time.js
+|           main.js
+|           menuBurger.js
+|           notif.js
+|
++---config
+|       config.php
+|
++---includes
+|   |   db.php
+|   |   footer.php
+|   |   functions.php
+|   |   header.php
+|   |   notif.php
+|   |
+|   \---footer
+|           cgu.php
+|           contact.php
+|           cookies.php
+|           faq.php
+|           mentions-legales.php
+|           politique-de-confidentialite.php
+|
++---logs
+|       activity.log
+|       database.log
+|       errors.log
+|       php_errors.log
+|       
++---models
+|       authenticate.php
+|       check_code.php
+|       get_courses.php
+|       get_exercises.php
+|       get_user_data.php
+|       logout.php
+|       register_user.php
+|       update_profile.php
+|
++---uploads
+|   +---courses
+|   |       course_67f9a52c31cd2.html
+|   |       course_67f9a573da7df.html
+|   |       course_67fade20e682c.html
+|   |       course_67fb832410f90.html
+|   |
+|   \---exercices
+|           exercise_6835a6840bd46.html
+|
+\---vue
+    |   index.php
+    |   view_course.php
+    |   view_exercice.php
+    |
+    +---admin
+    |       courses.php
+    |       dashboard.php
+    |       logs.php
+    |       settings.php
+    |       users.php
+    |
+    +---auth
+    |       login.php
+    |       register.php
+    |
+    +---eleve
+    |       courses.php
+    |       dashboard.php
+    |       exercices.php
+    |       profile.php
+    |       schedule.php
+    |
+    +---parent
+    |       child.php
+    |       dashboard.php
+    |       messages.php
+    |       profile.php
+    |
+    +---professeur
+    |       create-course.php
+    |       create-exercise.php
+    |       dashboard.php
+    |       messages.php
+    |       profile.php
+    |       students.php
+    |
+    \---purchase
+            checkout.php
+            purchase_code.php
+            purchase_success.php
+
 ```
 
 ## 🚀 Roadmap

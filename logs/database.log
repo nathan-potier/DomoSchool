@@ -2,3 +2,13 @@
 [2025-04-11 17:32:09] DB Error: SQLSTATE[HY000] [2002] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée
 [2025-04-11 17:32:19] DB Error: SQLSTATE[HY000] [2002] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée
 [2025-04-23 21:57:07] DB Error in check_access_code: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'is_used' in 'where clause'
+[2025-05-27 21:57:07] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-27 21:57:43] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-27 21:58:19] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-27 21:58:19] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-27 21:58:19] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-27 22:01:15] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-27 22:01:16] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-27 22:01:16] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-27 22:01:19] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-27 22:01:21] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)

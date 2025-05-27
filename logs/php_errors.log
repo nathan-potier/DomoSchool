@@ -18,3 +18,120 @@ Stack trace:
 #0 C:\xampp\htdocs\DomoSchool\vue\eleve\exercises.php(14): getExercisesByStudent('10')
 #1 {main}
   thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 174
+[08-May-2025 16:54:13 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\DomoSchool\models\register_user.php on line 4
+[21-May-2025 21:51:09 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\DomoSchool\models\register_user.php on line 4
+[21-May-2025 21:51:30 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\DomoSchool\models\register_user.php on line 4
+[21-May-2025 21:57:05 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\DomoSchool\models\register_user.php on line 4
+[21-May-2025 22:04:52 Europe/Berlin] PHP Warning:  include(../../includes/notif.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\DomoSchool\vue\index.php on line 3
+[21-May-2025 22:04:52 Europe/Berlin] PHP Warning:  include(): Failed opening '../../includes/notif.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\DomoSchool\vue\index.php on line 3
+[21-May-2025 22:47:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:159
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\professeur\profile.php(27): updateUserProfile(1, 'Nathann', 'POTIER', 'nathan.pro.po@g...')
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 159
+[26-May-2025 22:54:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:159
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\professeur\profile.php(27): updateUserProfile(1, 'bob', 'POTIER', 'nathan.pro.po@g...')
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 159
+[26-May-2025 22:59:40 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\DomoSchool\models\register_user.php on line 4
+[26-May-2025 22:59:46 Europe/Berlin] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\DomoSchool\models\register_user.php on line 4
+[26-May-2025 23:02:19 Europe/Berlin] PHP Warning:  include(../includes/notif.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\DomoSchool\vue\eleve\dashboard.php on line 21
+[26-May-2025 23:02:19 Europe/Berlin] PHP Warning:  include(): Failed opening '../includes/notif.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\DomoSchool\vue\eleve\dashboard.php on line 21
+[26-May-2025 23:22:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function getRevisionTopics() in C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php on line 9
+[26-May-2025 23:28:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:254
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php(9): getRevisionTopics()
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 254
+[26-May-2025 23:29:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:254
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php(9): getRevisionTopics()
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 254
+[26-May-2025 23:29:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:254
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php(9): getRevisionTopics()
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 254
+[27-May-2025 13:29:39 Europe/Berlin] PHP Warning:  Undefined variable $exercises in C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php on line 7
+[27-May-2025 13:29:39 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php on line 7
+[27-May-2025 13:29:39 Europe/Berlin] PHP Warning:  Undefined variable $exercises in C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php on line 36
+[27-May-2025 13:29:39 Europe/Berlin] PHP Warning:  foreach() argument must be of type array|object, null given in C:\xampp\htdocs\DomoSchool\vue\eleve\bac.php on line 36
+[27-May-2025 13:32:12 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'file_path' in 'field list' in C:\xampp\htdocs\DomoSchool\vue\professeur\create-exercise.php:63
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\professeur\create-exercise.php(63): PDO->prepare('INSERT INTO exe...')
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\vue\professeur\create-exercise.php on line 63
+[27-May-2025 13:32:26 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'file_path' in 'field list' in C:\xampp\htdocs\DomoSchool\vue\professeur\create-exercise.php:63
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\professeur\create-exercise.php(63): PDO->prepare('INSERT INTO exe...')
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\vue\professeur\create-exercise.php on line 63
+[27-May-2025 15:20:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:322
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\view_exercice.php(26): markExerciseAsCompleted(3)
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 322
+[27-May-2025 15:21:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:322
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\view_exercice.php(26): markExerciseAsCompleted(3)
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 322
+[27-May-2025 15:23:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\DomoSchool\includes\functions.php:322
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\view_exercice.php(26): markExerciseAsCompleted(3)
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 322
+[27-May-2025 15:42:14 Europe/Berlin] Error marking course as read: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'domoschool.user_course_completion' doesn't exist
+[27-May-2025 15:42:17 Europe/Berlin] Error marking course as read: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'domoschool.user_course_completion' doesn't exist
+[27-May-2025 16:01:08 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'domoschool.student_exercises' doesn't exist in C:\xampp\htdocs\DomoSchool\vue\view_exercice.php:66
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\vue\view_exercice.php(66): PDO->prepare('SELECT * FROM s...')
+#1 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\vue\view_exercice.php on line 66
+[27-May-2025 16:01:55 Europe/Berlin] PHP Warning:  Undefined variable $userId in C:\xampp\htdocs\DomoSchool\vue\view_exercice.php on line 63
+[27-May-2025 16:02:13 Europe/Berlin] PHP Warning:  Undefined variable $courseId in C:\xampp\htdocs\DomoSchool\vue\view_exercice.php on line 67
+[27-May-2025 16:02:13 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course_id' in 'where clause' in C:\xampp\htdocs\DomoSchool\includes\functions.php:461
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\includes\functions.php(461): PDO->prepare('SELECT COUNT(*)...')
+#1 C:\xampp\htdocs\DomoSchool\vue\view_exercice.php(67): hasUserMakeExercises(1, NULL)
+#2 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 461
+[27-May-2025 16:02:37 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course_id' in 'where clause' in C:\xampp\htdocs\DomoSchool\includes\functions.php:461
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\includes\functions.php(461): PDO->prepare('SELECT COUNT(*)...')
+#1 C:\xampp\htdocs\DomoSchool\vue\view_exercice.php(67): hasUserMakeExercises(1, 3)
+#2 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 461
+[27-May-2025 16:02:59 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: There is no active transaction in C:\xampp\htdocs\DomoSchool\includes\functions.php:355
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\includes\functions.php(355): PDO->rollBack()
+#1 C:\xampp\htdocs\DomoSchool\vue\view_exercice.php(29): markExerciseAsCompleted(1, 3, 0)
+#2 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 355
+[27-May-2025 16:04:14 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: There is no active transaction in C:\xampp\htdocs\DomoSchool\includes\functions.php:355
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\includes\functions.php(355): PDO->rollBack()
+#1 C:\xampp\htdocs\DomoSchool\vue\view_exercice.php(29): markExerciseAsCompleted(1, 3, 0)
+#2 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 355
+[27-May-2025 16:05:17 Europe/Berlin] Erreur lors du marquage du cours comme lu : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course_id' in 'where clause'
+[27-May-2025 16:05:18 Europe/Berlin] Erreur lors du marquage du cours comme lu : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course_id' in 'where clause'
+[27-May-2025 16:05:20 Europe/Berlin] Erreur lors du marquage du cours comme lu : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course_id' in 'where clause'
+[27-May-2025 16:05:21 Europe/Berlin] Erreur lors du marquage du cours comme lu : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'course_id' in 'where clause'
+[27-May-2025 16:16:41 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\DomoSchool\vue\eleve\dashboard.php on line 16
+[27-May-2025 16:16:47 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\DomoSchool\vue\eleve\dashboard.php on line 16
+[27-May-2025 16:22:25 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\DomoSchool\vue\eleve\dashboard.php on line 16
+[27-May-2025 16:22:31 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\DomoSchool\vue\eleve\dashboard.php on line 16
+[27-May-2025 16:22:37 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\DomoSchool\vue\eleve\dashboard.php on line 16
+[27-May-2025 16:56:39 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number in C:\xampp\htdocs\DomoSchool\includes\functions.php:506
+Stack trace:
+#0 C:\xampp\htdocs\DomoSchool\includes\functions.php(506): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\DomoSchool\vue\view_course.php(29): unmarkCourseAsRead(12, 6)
+#2 {main}
+  thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 506
+[27-May-2025 22:16:50 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in /home/u778856315/domains/domoschool.com/public_html/models/register_user.php on line 4

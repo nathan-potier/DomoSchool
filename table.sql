@@ -29,6 +29,7 @@ CREATE TABLE chapters (
     description TEXT
 );
 
+
 INSERT INTO chapters (name, description) VALUES
 ('Algorithmique et programmation', 'Étudier les bases de l\'algorithmique, les structures de données, les algorithmes de tri et de recherche, et la programmation en Python.'),
 ('Structures de données', 'Les listes, tableaux, dictionnaires, piles, files, arbres, graphes et leurs applications en algorithmique.'),
@@ -49,23 +50,54 @@ CREATE TABLE exercises (
     title VARCHAR(255) NOT NULL,
     description TEXT,
     language VARCHAR(50) DEFAULT 'python',
+    file_path VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Table des exercices réalisés par les élèves
-CREATE TABLE student_exercises (
+
+
+
+
+
+CREATE TABLE user_course_completion (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    student_id INT NOT NULL,
-    exercise_id INT NOT NULL,
-    filename VARCHAR(255),
-    code TEXT, -- le contenu du fichier ici
-    language VARCHAR(50) DEFAULT 'python', -- redondance utile si l'élève choisit un autre langage
-    completed BOOLEAN DEFAULT FALSE,
-    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    
-    FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (exercise_id) REFERENCES exercises(id) ON DELETE CASCADE
+    user_id INT NOT NULL,
+    course_id INT NOT NULL,
+    completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    time_spent_minutes INT NOT NULL, -- Temps passé sur le cours en minutes
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
+    UNIQUE KEY unique_user_course (user_id, course_id) -- Empêche les doublons
 );
+
+CREATE TABLE user_exercise_completion (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    exercise_id INT NOT NULL,
+    completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    attempts INT DEFAULT 1, -- Nombre de tentatives
+    time_spent_minutes INT NOT NULL, -- Temps passé sur l'exercice en minutes
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (exercise_id) REFERENCES exercises(id) ON DELETE CASCADE,
+    UNIQUE KEY unique_user_exercise (user_id, exercise_id) -- Empêche les doublons
+);
+
+CREATE TABLE user_learning_stats (
+    user_id INT PRIMARY KEY,
+    total_courses_read INT DEFAULT 0,
+    total_exercises_completed INT DEFAULT 0,
+    total_time_spent_minutes INT DEFAULT 0, -- Temps total en minutes
+    overall_progress TINYINT DEFAULT 0, -- Progression en pourcentage (0-100)
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+
+
+
+
+
+
 
 CREATE TABLE student_stats (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -93,46 +125,10 @@ CREATE TABLE access_codes (
 
 
 
-
-
-
-
-
-
-
-
-
-
-CREATE TABLE schedule (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    student_id INT NOT NULL,
-    course_id INT NOT NULL,
-    date DATETIME NOT NULL,
-    FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
-);
-
-CREATE TABLE messages (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    sender_id INT NOT NULL,
-    receiver_id INT NOT NULL,
-    message TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (sender_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY (receiver_id) REFERENCES users(id) ON DELETE CASCADE
-);
-
 CREATE TABLE logs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     admin_id INT NOT NULL,
     action VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (admin_id) REFERENCES users(id) ON DELETE CASCADE
-);
-
-CREATE TABLE settings (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    key VARCHAR(255) NOT NULL UNIQUE,
-    value TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
