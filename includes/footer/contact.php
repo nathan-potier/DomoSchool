@@ -2,30 +2,6 @@
 require_once __DIR__ . '/../../includes/functions.php';
 startSession();
 
-// Traitement du formulaire
-$message_envoye = false;
-$erreur = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nom    = htmlspecialchars(trim($_POST['name']));
-    $email  = htmlspecialchars(trim($_POST['email']));
-    $message = htmlspecialchars(trim($_POST['message']));
-
-    if (!empty($nom) && filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($message)) {
-        $to      = 'contact@domoschool.com';
-        $subject = 'Message de contact depuis le site';
-        $headers = "From: $nom <$email>\r\nReply-To: $email\r\nContent-type: text/plain; charset=utf-8";
-        $body    = "Nom: $nom\nEmail: $email\n\nMessage:\n$message";
-
-        if (mail($to, $subject, $body, $headers)) {
-            $message_envoye = true;
-        } else {
-            $erreur = "Échec de l'envoi du message. Veuillez réessayer plus tard.";
-        }
-    } else {
-        $erreur = "Veuillez remplir tous les champs correctement.";
-    }
-}
 ?>
 
 <?php include('../../includes/header.php'); ?>
