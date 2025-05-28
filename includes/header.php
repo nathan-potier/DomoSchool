@@ -11,10 +11,60 @@ $userRole = $userSessionData['userRole'];
 <!DOCTYPE html>
 <html lang="fr" class="no-js">
 <head>
+
+
+    
+
+    <meta name="description" content="Domoschool est une plateforme éducative dédiée à la spécialité NSI, avec des cours clairs, des exercices corrigés et un suivi de progression.">
+    <meta name="keywords" content="domoschool, NSI, bac NSI, cours NSI, informatique lycée, python, html, php, exercices corrigés">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Domoschool">
+
+    <!-- Open Graph pour le partage sur réseaux sociaux -->
+    <meta property="og:title" content="Domoschool - Cours et exercices pour NSI">
+    <meta property="og:description" content="Cours, exercices et suivi en ligne pour réussir la spécialité NSI. Terminale et Première.">
+    <meta property="og:url" content="https://domoschool.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://domoschool.com/assets/images/logo.png"> <!-- Remplace par ton logo/image -->
+
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Domoschool",
+        "url": "https://domoschool.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://domoschool.com/recherche?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Domoschool",
+        "url": "https://domoschool.com",
+        "logo": "https://domoschool.com/assets/logo.png", 
+        "sameAs": [
+            "https://www.facebook.com/domoschool",
+            "https://www.instagram.com/domoschool",
+            "https://www.linkedin.com/company/domoschool"
+        ]
+        }
+    </script>
+
+    <!-- Favicon (facultatif mais conseillé) -->
+    <link rel="icon" href="<?php echo BASE_URL; ?>/assets/images" type="image/x-icon">
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DomoSchool</title>
-    <link rel="icon" href="<?php echo BASE_URL; ?>/assets/images/logo-sans-bg-blanc.png type="image/png">
+
     <script>
         (function () {
             const savedMode = localStorage.getItem('mode');
