@@ -142,13 +142,14 @@ $userRole = $userSessionData['userRole'];
             <ul>
             <li><a href="<?php echo BASE_URL; ?>/accueil">Accueil</a></li>
             <li><a href="<?php echo BASE_URL; ?>/accueil#about">À propos</a></li>
-            <li><a href="<?php echo BASE_URL; ?>/courses">Cours</a></li>
+            
 
             <?php if (!$isLoggedIn): ?>
+                <li><a href="<?php echo BASE_URL; ?>/courses">Cours</a></li>
                 <li><a href="<?php echo BASE_URL; ?>/login">Se connecter</a></li>
                 <li><a href="<?php echo BASE_URL; ?>/register">S'inscrire</a></li>
             <?php else: ?>
-                <li><a href="<?php echo BASE_URL; ?>/exercices">Exercices</a></li>
+                
                 <li><a href="<?php
                     if ($userRole === 'student') {
                         echo BASE_URL . '/eleve/dashboard';
@@ -160,6 +161,8 @@ $userRole = $userSessionData['userRole'];
                         echo BASE_URL . '/admin/dashboard';
                     }
                 ?>">Tableau de bord</a></li>
+                <li><a href="<?php echo BASE_URL; ?>/exercices">Exercices</a></li>
+                <li><a href="<?php echo BASE_URL; ?>/courses">Cours</a></li>
             <?php endif; ?>
             </ul>
         </nav>
