@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://domoschool.com/accueil</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/courses</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/login</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/register</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/eleve/courses</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/mentions-legales</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/politique-de-confidentialite</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/conditions-generales</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/politique-de-cookies</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/contact</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/faq</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/course/1</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/purchase</loc>
+  <lastmod>2025-05-28T15:34:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://domoschool.com/uploads/courses/course_68371d66ce501.html</loc>
+  <lastmod>2025-05-28T14:27:50+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
