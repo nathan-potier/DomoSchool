@@ -1,19 +1,20 @@
 <?php
-// Enable error reporting
+// Affichage des erreurs
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// Load private mail configuration
-$config = require 'C:\xampp\htdocs\DomoSchool\private_mail.php';
+// Chemin vers la config mail (hors public_html)
+$root = dirname(__DIR__, 2); // remonte à public_html/
+$config = require $root . '/../private_mail.php'; // ../private_mail.php
 
-// Initialize variables
+// Initialisation des variables
 $message_envoye = false;
 $erreur = '';
 $name = '';
 $email = '';
 $message = '';
 
-// Process form submission
+// Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name    = htmlspecialchars(trim($_POST['name'] ?? ''));
     $email   = htmlspecialchars(trim($_POST['email'] ?? ''));
@@ -41,8 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Include header
-include('C:\xampp\htdocs\DomoSchool\includes\header.php');
+// Inclure le header
+include $root . '/includes/header.php';
 ?>
 
 <div class="container">
@@ -53,7 +54,7 @@ include('C:\xampp\htdocs\DomoSchool\includes\header.php');
     <?php elseif (!empty($erreur)): ?>
         <p style="color: red;"><?= $erreur ?></p>
     <?php else: ?>
-        <p>Pour toute question ou demande d'information, vous pouvez nous contacter en utilisant le formulaire ci-dessous ou en nous envoyant un email à : <strong>contact@domoschool.com</strong></p>
+        <p>Pour toute question, utilisez ce formulaire ou écrivez à <strong>contact@domoschool.com</strong>.</p>
     <?php endif; ?>
 
     <?php if (!$message_envoye): ?>
@@ -72,4 +73,4 @@ include('C:\xampp\htdocs\DomoSchool\includes\header.php');
     <?php endif; ?>
 </div>
 
-<?php include('C:\xampp\htdocs\DomoSchool\includes\footer.php'); ?>
+<?php include $root . '/includes/footer.php'; ?>
