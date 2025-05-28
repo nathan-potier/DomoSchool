@@ -31,9 +31,15 @@
 }
 
 .nav {
-  transition: 0.3s ease;
-  display: none;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, max-height 0.5s ease;
   margin-top: 30px;
+}
+.nav.change {
+  opacity: 1;
+  max-height: 500px; /* assez grand pour contenir la liste */
 }
 
 .nav ul {
@@ -43,8 +49,15 @@
 .nav li {
   list-style: none;
   padding: 12px 0;
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.nav li.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 .nav li a {
   color: #fff4ed;
   font-size: 20px;
