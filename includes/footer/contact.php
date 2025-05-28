@@ -1,10 +1,10 @@
 <?php
+
 require_once __DIR__ . '/../../includes/functions.php';
 startSession();
 
+include('../../includes/header.php');
 ?>
-
-<?php include('../../includes/header.php'); ?>
 
 <div class="container">
     <h1>Contact</h1>
@@ -20,13 +20,13 @@ startSession();
     <?php if (!$message_envoye): ?>
         <form action="" method="post">
             <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required value="<?= htmlspecialchars($_POST['name'] ?? '') ?>">
 
             <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
 
             <label for="message">Message :</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" required><?= htmlspecialchars($_POST['message'] ?? '') ?></textarea>
 
             <button type="submit">Envoyer</button>
         </form>
