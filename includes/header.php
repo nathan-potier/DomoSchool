@@ -80,37 +80,42 @@ $userRole = $userSessionData['userRole'];
         </a>
     </div>
 
-    <!-- Menu Burger pour mobile -->
-    <div class="boutonBurger">
-        <span class="span1"></span>
-        <span class="span2"></span>
-        <span class="span3"></span>
+   <div id="menu">
+        <div id="menu-bar" onclick="menuOnClick()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+        </div>
+
+        <nav class="nav" id="nav">
+            <ul>
+            <li><a href="<?php echo BASE_URL; ?>/accueil">Accueil</a></li>
+            <li><a href="<?php echo BASE_URL; ?>/accueil#about">À propos</a></li>
+            <li><a href="<?php echo BASE_URL; ?>/courses">Cours</a></li>
+
+            <?php if (!$isLoggedIn): ?>
+                <li><a href="<?php echo BASE_URL; ?>/login">Se connecter</a></li>
+                <li><a href="<?php echo BASE_URL; ?>/register">S'inscrire</a></li>
+            <?php else: ?>
+                <li><a href="<?php echo BASE_URL; ?>/exercices">Exercices</a></li>
+                <li><a href="<?php
+                    if ($userRole === 'student') {
+                        echo BASE_URL . '/eleve/dashboard';
+                    } elseif ($userRole === 'teacher') {
+                        echo BASE_URL . '/professeur/dashboard';
+                    } elseif ($userRole === 'parent') {
+                        echo BASE_URL . '/parent/dashboard';
+                    } elseif ($userRole === 'admin') {
+                        echo BASE_URL . '/admin/dashboard';
+                    }
+                ?>">Tableau de bord</a></li>
+            <?php endif; ?>
+            </ul>
+        </nav>
     </div>
 
-    <!-- Menu pour mobile -->
-    <nav class="menuBurger">
-        <a href="<?php echo BASE_URL; ?>/accueil">Accueil</a>
-        <a href="<?php echo BASE_URL; ?>/accueil#about">À propos</a>
-        <a href="<?php echo BASE_URL; ?>/courses">Cours</a>
+<div class="menu-bg" id="menu-bg"></div>
 
-        <?php if (!$isLoggedIn): ?>
-            <a href="<?php echo BASE_URL; ?>/login">Se connecter</a>
-            <a href="<?php echo BASE_URL; ?>/register">S'inscrire</a>
-        <?php else: ?>
-            <a href="<?php echo BASE_URL; ?>/exercices">Exercices</a>
-            <a href="<?php
-                if ($userRole === 'student') {
-                    echo BASE_URL . '/eleve/dashboard';
-                } elseif ($userRole === 'teacher') {
-                    echo BASE_URL . '/professeur/dashboard';
-                } elseif ($userRole === 'parent') {
-                    echo BASE_URL . '/parent/dashboard';
-                } elseif ($userRole === 'admin') {
-                    echo BASE_URL . '/admin/dashboard';
-                }
-            ?>">Tableau de bord</a>
-        <?php endif; ?>
-    </nav>
 
 
     <!-- Menu pour ordinateur -->
