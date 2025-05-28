@@ -17,7 +17,7 @@ define('UPLOAD_DIR', ROOT_DIR . '/uploads');
 
 $config = require __DIR__ . '/../../private.php';
 
-define('BASE_URL', '/' .$config['DIR']);
+define('BASE_URL', $config['DIR']);
 
 define('ASSET_URL', BASE_URL . '/assets');
 
