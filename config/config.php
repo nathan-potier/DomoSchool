@@ -14,7 +14,9 @@ define('UPLOAD_DIR', ROOT_DIR . '/uploads');
 
 // URL (optimisée pour flexibilité)
 
-define('BASE_URL', '');
+$config = require __DIR__ . '/../../private.php';
+
+define('BASE_URL', '/' .$config['DIR']);
 define('ASSET_URL', BASE_URL . '/assets');
 
 // Base de données
@@ -22,7 +24,7 @@ define('ASSET_URL', BASE_URL . '/assets');
 
 
 
-$config = require __DIR__ . '/../../private.php';
+
 
 define('DB_HOST', $config['DB_HOST']);
 define('DB_NAME', $config['DB_NAME']);
