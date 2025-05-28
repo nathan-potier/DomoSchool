@@ -81,7 +81,6 @@
 }
 
 
-.no-scroll * {
-  overscroll-behavior: none;
-  touch-action: none;
+.no-scroll {
+  overflow: hidden;
 }
