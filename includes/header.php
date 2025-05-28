@@ -58,7 +58,8 @@ $userRole = $userSessionData['userRole'];
     </script>
 
     <!-- Favicon (facultatif mais conseillé) -->
-    <link rel="icon" href="<?php echo BASE_URL; ?>/assets/images" type="image/x-icon">
+    <link rel="icon" href="<?php echo BASE_URL; ?>/assets/images/icone.png" type="image/png" sizes="32x32">
+
 
 
 
