@@ -79,3 +79,9 @@
 .menuBurger a:hover {
   color: var(--highlight);
 }
+
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh; /* pour bloquer aussi le scroll mobile */
+}
