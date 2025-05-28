@@ -33,6 +33,7 @@
 .nav {
   transition: 0.3s ease;
   display: none;
+  margin-top: 30px;
 }
 
 .nav ul {
@@ -45,7 +46,7 @@
 }
 
 .nav li a {
-  color: white;
+  color: #fff4ed;
   font-size: 20px;
   text-decoration: none;
 }
