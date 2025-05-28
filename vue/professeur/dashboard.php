@@ -21,7 +21,9 @@ $fullName = $user['userName'];
 
     <div class="dashboard-info">
         <p><strong>Email :</strong> <?= htmlspecialchars($user['userEmail']) ?></p>
-        <p><strong>Dernière connexion :</strong> <?= date('d/m/Y H:i', strtotime($user['lastLogin'])) ?></p>
+        <p><strong>Dernière connexion :</strong> <?= 
+            $user['lastLogin'] ? date('d/m/Y H:i', strtotime($user['lastLogin'])) : '' 
+        ?></p>
     </div>
 
     <div class="dashboard-links">

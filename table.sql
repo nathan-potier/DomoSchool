@@ -30,18 +30,6 @@ CREATE TABLE chapters (
 );
 
 
-INSERT INTO chapters (name, description) VALUES
-('Algorithmique et programmation', 'Étudier les bases de l\'algorithmique, les structures de données, les algorithmes de tri et de recherche, et la programmation en Python.'),
-('Structures de données', 'Les listes, tableaux, dictionnaires, piles, files, arbres, graphes et leurs applications en algorithmique.'),
-('Programmation orientée objet', 'Les concepts de la programmation orientée objet, avec une mise en pratique en Python ou en Java.'),
-('Bases de données', 'Étudier les modèles de bases de données relationnelles et le langage SQL pour manipuler les données.'),
-('Architecture des ordinateurs', 'Comprendre l\'architecture d\'un ordinateur, les mémoires, les processeurs et les périphériques.'),
-('Réseaux', 'Les bases des réseaux informatiques : protocoles, topologies, TCP/IP, communication, Internet et sécurité des réseaux.'),
-('Sécurité informatique', 'Les principes de la sécurité des systèmes d\'information, cryptographie, sécurité des réseaux et gestion des risques.'),
-('Interfaces utilisateur', 'Les interfaces homme-machine : conception et interaction utilisateur, ergonomie des interfaces, développement d\'applications graphiques.'),
-('Machine Learning et Intelligence Artificielle', 'Introduction aux concepts de machine learning, réseaux neuronaux et applications de l\'IA dans les systèmes informatiques.');
-
-
 
 
 -- Table des exercices génériques créés par les profs
@@ -132,3 +120,47 @@ CREATE TABLE logs (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (admin_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+
+INSERT INTO access_codes (code, role, used) VALUES ('CODETEACHER456', 'teacher', FALSE);
+
+INSERT INTO access_codes (code, role, used) VALUES
+('CODESTUDENT123', 'student', FALSE),
+('CODETEACHER456', 'teacher', FALSE),
+('CODEADMIN789', 'admin', FALSE),
+('CODEPARENT321', 'parent', FALSE);
+
+
+
+INSERT INTO chapters (name, description) VALUES
+
+('Algorithmique et programmation en Python',
+ 'Notions principales : variables, types, structures conditionnelles, boucles, fonctions, récursivité. Apprentissage du langage Python pour résoudre des problèmes algorithmiques.'),
+
+('Structures de données',
+ 'Étude des structures fondamentales : listes, piles, files, dictionnaires, arbres (arbres binaires, parcours infixe, préfixe, postfixe), graphes (représentation, parcours DFS, BFS).'),
+
+('Programmation orientée objet (POO)',
+ 'Concepts clés : classes, objets, attributs, méthodes, encapsulation, héritage, polymorphisme. Mise en œuvre en Python pour créer des programmes modulaires et évolutifs.'),
+
+('Bases du web : HTML, CSS, JavaScript',
+ 'Création et structuration des pages web avec HTML, mise en forme avec CSS, programmation événementielle et manipulation du DOM avec JavaScript.'),
+
+('Bases de données et SQL',
+ 'Création et gestion de bases de données relationnelles. Requêtes SQL : SELECT, INSERT, UPDATE, DELETE, jointures, contraintes d\'intégrité.'),
+
+('Systèmes et réseaux',
+ 'Introduction aux systèmes d\'exploitation : gestion des processus, mémoire, fichiers. Notions de réseaux informatiques : modèles OSI et TCP/IP, protocoles, adressage IP, sécurité.'),
+
+('Intelligence artificielle et apprentissage automatique',
+ 'Principes de base de l\'intelligence artificielle : algorithmes de recherche, apprentissage supervisé, réseaux de neurones simples, classification.'),
+
+('Programmation fonctionnelle et récursion avancée',
+ 'Approfondissement des concepts fonctionnels : fonctions d\'ordre supérieur, immutabilité, récursion, structures récursives comme les arbres.'),
+
+('Algorithmique avancée',
+ 'Étude d\'algorithmes complexes : tris (tri par insertion, fusion, rapide), recherche, complexité algorithmique (notation Big O), algorithmes gloutons, programmation dynamique.'),
+
+('Projet tutoré',
+ 'Mise en œuvre pratique de toutes les compétences acquises à travers la conception et le développement d\'un projet complet, intégrant programmation, algorithmique et travail collaboratif.')
+;
