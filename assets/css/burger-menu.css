@@ -81,7 +81,7 @@
 }
 
 
-.no-scroll {
-  overflow: hidden;
-  height: 100vh; /* pour bloquer aussi le scroll mobile */
+.no-scroll * {
+  overscroll-behavior: none;
+  touch-action: none;
 }
