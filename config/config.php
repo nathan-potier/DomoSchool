@@ -13,10 +13,12 @@ define('LOG_DIR', ROOT_DIR . '/logs');
 define('UPLOAD_DIR', ROOT_DIR . '/uploads');
 
 // URL (optimisée pour flexibilité)
+
 define('BASE_URL', '');
 define('ASSET_URL', BASE_URL . '/assets');
 
 // Base de données
+
 
 
 

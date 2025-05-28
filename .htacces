@@ -1,0 +1,84 @@
+RewriteEngine On
+DirectoryIndex DomoSchool/vue/index.php
+Header always set Content-Security-Policy "frame-ancestors 'self';"
+Header always set X-Frame-Options "SAMEORIGIN"
+
+
+# Redirections pour les pages du footer
+RewriteRule ^mentions-legales$              includes/footer/mentions-legales.php [L]
+RewriteRule ^politique-de-confidentialite$  includes/footer/politique-de-confidentialite.php [L]
+RewriteRule ^conditions-generales$          includes/footer/cgu.php [L]
+RewriteRule ^politique-de-cookies$          includes/footer/cookies.php [L]
+RewriteRule ^contact$                       includes/footer/contact.php [L]
+RewriteRule ^faq$                           includes/footer/faq.php [L]
+
+# --- Redirections élèves ---
+RewriteRule ^eleve/dashboard$             vue/eleve/dashboard.php [L]
+RewriteRule ^eleve/profile$               vue/eleve/profile.php [L]
+RewriteRule ^eleve/courses$               vue/eleve/courses.php [L]
+RewriteRule ^exercices$                   vue/eleve/exercices.php [L]
+RewriteRule ^eleve/exercices$             vue/eleve/exercises.php [L]
+RewriteRule ^eleve/schedule$              vue/eleve/schedule.php [L]
+
+# --- Redirections parents ---
+RewriteRule ^parent/dashboard$            vue/parent/dashboard.php [L]
+RewriteRule ^parent/profile$              vue/parent/profile.php [L]
+RewriteRule ^parent/child$                vue/parent/child.php [L]
+RewriteRule ^parent/messages$             vue/parent/messages.php [L]
+
+# --- Redirections professeurs ---
+RewriteRule ^professeur/dashboard$        vue/professeur/dashboard.php [L]
+RewriteRule ^professeur/profile$          vue/professeur/profile.php [L]
+RewriteRule ^professeur/students$         vue/professeur/students.php [L]
+RewriteRule ^professeur/messages$         vue/professeur/messages.php [L]
+RewriteRule ^professeur/create-course$    vue/professeur/create-course.php [L]
+RewriteRule ^professeur/create-exercise$  vue/professeur/create-exercise.php [L]
+
+
+# --- Redirections administrateur ---
+RewriteRule ^admin/dashboard$             vue/admin/dashboard.php [L]
+RewriteRule ^admin/users$                 vue/admin/users.php [L]
+RewriteRule ^admin/courses$               vue/admin/courses.php [L]
+RewriteRule ^admin/logs$                  vue/admin/logs.php [L]
+RewriteRule ^admin/settings$              vue/admin/settings.php [L]
+RewriteRule ^admin/access-codes$          vue/admin/access_codes.php [L]
+
+# --- Authentification ---
+RewriteRule ^login$                       vue/auth/login.php [L]
+RewriteRule ^register$                    vue/auth/register.php [L]
+RewriteRule ^reset-password$              vue/auth/reset_password.php [L]
+RewriteRule ^authenticate$ models/authenticate.php [L]               
+
+# --- Achats / paiements ---
+RewriteRule ^purchase$                    vue/purchase/purchase_code.php [L]
+RewriteRule ^checkout$                    vue/purchase/checkout.php [L]
+RewriteRule ^purchase-success$            vue/purchase/purchase_success.php [L]
+
+# --- Page d'accueil et vue d’un cours ---
+RewriteRule ^index$                       vue/index.php [L]
+RewriteRule ^courses$                     vue/eleve/courses.php [L]
+
+
+
+RewriteRule ^course/([0-9]+)$             vue/view_course.php?course_id=$1 [L,QSA]
+RewriteRule ^exercice/([0-9]+)$            vue/view_exercice.php?exercice_id=$1 [L,QSA]
+
+
+
+
+# --- Déconnexion sans .php ---
+RewriteRule ^logout$ models/logout.php [L]
+RewriteRule ^register_user$ models/register_user.php [L]
+
+
+
+
+
+
+# --- Sécurité et fallback ---
+# Si le fichier ou dossier existe, ne pas réécrire
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Sinon, rediriger vers l'index ou une page 404 personnalisée
+RewriteRule ^.*$ vue/index.php [L]
