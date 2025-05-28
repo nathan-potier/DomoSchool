@@ -1,37 +1,57 @@
-function menuOnClick() {
-  document.getElementById("menu-bar").classList.toggle("change");
-  document.getElementById("nav").classList.toggle("change");
-  document.getElementById("menu-bg").classList.toggle("change-bg");
-}
+document.addEventListener('DOMContentLoaded', function() {
+  const menuBar = document.getElementById('menu-bar');
+  const nav = document.querySelector('.nav');
+  const menuBg = document.querySelector('.menu-bg');
+  const navItems = document.querySelectorAll('.nav li');
+
+  function menuOnClick(event) {
+    event.stopPropagation(); // Empêcher la propagation de l'événement de clic
+    menuBar.classList.toggle('change');
+    menuBg.classList.toggle('change-bg');
+    nav.classList.toggle('change');
+    if (nav.classList.contains('change')) {
+    navItems.forEach((item, index) => {
+        setTimeout(() => {
+        item.classList.add('visible');
+        }, index * 50); // 50ms entre chaque item
+    });
+    } else {
+    navItems.forEach((item) => {
+        item.classList.remove('visible');
+    });
+    }
 
 
-
-// Récupérer les éléments
-const menuBar = document.getElementById('menu-bar');
-const nav = document.querySelector('.nav');
-const menuBg = document.querySelector('.menu-bg');
-
-function closeMenu() {
-  // Retirer les classes qui affichent le menu
-  menuBar.classList.remove('change');
-  nav.style.display = 'none';
-  menuBg.classList.remove('change-bg');
-}
-
-window.addEventListener('scroll', () => {
-  // Si le menu est ouvert, on le ferme au scroll
-  if (menuBar.classList.contains('change')) {
-    closeMenu();
   }
+
+    function closeMenu() {
+    menuBar.classList.remove('change');
+    nav.classList.remove('change');
+    menuBg.classList.remove('change-bg');
+    navItems.forEach((item) => {
+        item.classList.remove('visible'); // ← ici tu réinitialises aussi les <li>
+    });
+    }
+
+    document.addEventListener('click', function(event) {
+    const isClickInsideMenu = menu.contains(event.target);
+    const isClickOnMenuBar = menuBar.contains(event.target);
+    const isClickOnMenuBg = menuBg.contains(event.target);
+
+    // Si on clique ni dans le menu, ni sur le bouton menu, ni sur le cercle rouge
+    if (!isClickInsideMenu && !isClickOnMenuBar && !isClickOnMenuBg) {
+        closeMenu();
+    }
+    });
+
+  // Ajouter un écouteur d'événement de clic spécifique au bouton de menu
+  menuBar.addEventListener('click', menuOnClick);
+
+  window.addEventListener('scroll', function() {
+    if (menuBar.classList.contains('change')) {
+      closeMenu();
+    }
+  });
+
+  
 });
-
-// Fonction pour ouvrir/fermer le menu au clic (exemple)
-function menuOnClick() {
-  if (menuBar.classList.contains('change')) {
-    closeMenu();
-  } else {
-    menuBar.classList.add('change');
-    nav.style.display = 'block';
-    menuBg.classList.add('change-bg');
-  }
-}
