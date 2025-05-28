@@ -5,7 +5,7 @@
     <?php include('../includes/notif.php'); ?>
     <section class="hero">
         <div class="hero-content">
-            <h1>Devenez un As de la NSI avec <span class="primary-color">DomoSchool</span></h1>
+            <h1>Devenez un As de la NSI avec <span class="primary-color">DomoSchooll</span></h1>
             <p class="hero-subtitle">Votre tremplin vers la maîtrise du Numérique et des Sciences Informatiques.</p>
             <p class="hero-description">
                 Plongez dans un univers d'apprentissage interactif conçu spécialement pour les élèves de NSI. Découvrez des cours vidéo captivants, des exercices pratiques et des projets stimulants pour exceller dans cette discipline essentielle.
