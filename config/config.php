@@ -22,7 +22,7 @@ define('ASSET_URL', BASE_URL . '/assets');
 
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'example_db');
+define('DB_NAME', 'DomoSchool');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
