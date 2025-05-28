@@ -1,6 +1,8 @@
 # --- Fichiers sensibles ---
 .htaccess
 /config/
+config/config.php
+
 
 # --- Logs ---
 logs/
