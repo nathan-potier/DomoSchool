@@ -114,7 +114,7 @@ $userRole = $userSessionData['userRole'];
         </nav>
     </div>
 
-<div class="menu-bg" id="menu-bg"></div>
+    <div class="menu-bg" id="menu-bg"></div>
 
 
 
