@@ -1,0 +1,43 @@
+# --- Fichiers sensibles ---
+.htaccess
+/config/
+config/config.php
+
+
+# --- Logs ---
+logs/
+*.log
+
+# --- Uploads utilisateur ---
+uploads/
+
+# --- Fichiers de base de données ou de sauvegarde ---
+*.sql
+*.bak
+
+# --- Fichiers système ---
+.DS_Store
+Thumbs.db
+
+# --- Dossiers de build ou distribs ---
+.dist/
+
+# --- IDE & éditeurs ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- Node/npm (si utilisé dans le projet) ---
+node_modules/
+package-lock.json
+npm-debug.log
+
+# --- Cache divers ---
+*.cache
+*.tmp
+*.swp
+
+# --- Autres fichiers potentiellement privés ---
+.env
+.env.*
