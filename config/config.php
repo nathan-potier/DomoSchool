@@ -13,8 +13,7 @@ define('LOG_DIR', ROOT_DIR . '/logs');
 define('UPLOAD_DIR', ROOT_DIR . '/uploads');
 
 // URL (optimisée pour flexibilité)
-
-define('BASE_URL', '');
+define('BASE_URL', '/DomoSchool');
 define('ASSET_URL', BASE_URL . '/assets');
 
 // Base de données
@@ -22,12 +21,10 @@ define('ASSET_URL', BASE_URL . '/assets');
 
 
 
-$config = require __DIR__ . '/../../private.php';
-
-define('DB_HOST', $config['DB_HOST']);
-define('DB_NAME', $config['DB_NAME']);
-define('DB_USER', $config['DB_USER']);
-define('DB_PASS', $config['DB_PASS']);
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'DomoSchool');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
 
 // Sécurité

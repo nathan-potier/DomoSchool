@@ -12,3 +12,6 @@
 [2025-05-27 22:01:16] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
 [2025-05-27 22:01:19] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
 [2025-05-27 22:01:21] DB Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[2025-05-28 12:02:49] DB Error: SQLSTATE[HY000] [1049] Unknown database 'example_db'
+[2025-05-28 12:02:50] DB Error: SQLSTATE[HY000] [1049] Unknown database 'example_db'
+[2025-05-28 12:02:55] DB Error: SQLSTATE[HY000] [1049] Unknown database 'example_db'
