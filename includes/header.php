@@ -11,7 +11,7 @@ $userRole = $userSessionData['userRole'];
 <!DOCTYPE html>
 <html lang="fr" class="no-js">
 <head>
-
+    <meta name="google-site-verification" content="8NK54lcvVpJfsodX4sYzRpmpx8o3-csF8YUDs9pOgGE" />
 
     
 
