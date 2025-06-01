@@ -91,5 +91,22 @@ function resizeIframe(iframe) {
 }
 </script>
 
+<script>
+  const iframe = document.getElementById('course-iframe');
+
+  iframe.addEventListener('load', () => {
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+    // Créer la balise <script>
+    const script = iframeDoc.createElement('script');
+    script.src = '<?php echo BASE_URL; ?>/includes/notion_fix_prism.js';
+    script.onload = () => {
+      console.log('Script notion_fix_prism chargé dans l\'iframe');
+    };
+
+    iframeDoc.head.appendChild(script);
+  });
+</script>
+
 
 <script src="<?php echo BASE_URL; ?>/assets/js/listener_time.js" defer></script>

@@ -64,7 +64,7 @@ html.mode-dark .sidebar li {
 }
 
 .chapter-card.open .courses-list {
-  max-height: 1000px;
+  max-height: none;
   opacity: 1;
   margin-top: 15px;
 }
@@ -97,6 +97,16 @@ html.mode-dark .sidebar li {
   font-size: 1.1em;
 }
 
+
+.chapter-card h4 {
+  color : var(--accent);
+  text-decoration: underline;
+}
+
+html.mode-dark .chapter-card h4{
+  color: #ff6f37;
+}
+
 .chapter-card .arrow {
   font-size: 1.2em;
   transform: rotate(0deg);
@@ -117,14 +127,14 @@ html.mode-dark .sidebar li {
 }
 
 .course-item:hover {
-  background-color: var(--primary-hover);
+  background-color: #6cd3ff;
   cursor: pointer;
-  border-color: #38bdf8;
+  border-color: #6cd3ff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 html.mode-dark .course-item:hover {
-  background-color: #38bdf8;
+  background-color: #1d2c4e;
   color: var(--white);
 }
 
@@ -140,13 +150,12 @@ html.mode-dark .course-item:hover {
 }
 
 .course-item .description {
-  color: var(--accent);
+  color: #7c7c7c;
   font-size: 0.9em;
   margin-top: 5px;
 }
-
-html.mode-dark .course-item .description {
-  color: #aaa;
+.course-item .description:hover{
+  color: #eee;
 }
 
 .course-item .teacher {
@@ -187,6 +196,26 @@ html.mode-dark .course-item .teacher {
 .course-complete-button.cancel {
     background-color: #f44336;
     color: white;
+}
+
+
+
+.chapter-read {
+    color: rgb(11, 87, 11); /* Couleur verte */
+    background-color: rgba(144, 238, 144, 0.5); /* Fond vert clair avec transparence */
+    margin-left: 10px;
+    padding: 1px 5px; /* Ajoute un peu d'espace autour du texte */
+    font-size: 1em; /* Légèrement plus grand */
+    font-weight: bold; /* Texte en gras */
+    display: inline-block;
+    vertical-align: middle;
+
+    border-radius: 3px; /* Coins légèrement arrondis */
+}
+
+
+html.mode-dark .chapter-read {
+  color: white;
 }
 
 

@@ -135,3 +135,16 @@ Stack trace:
 #2 {main}
   thrown in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 506
 [27-May-2025 22:16:50 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in /home/u778856315/domains/domoschool.com/public_html/models/register_user.php on line 4
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
+[01-Jun-2025 17:58:32 Europe/Berlin] PHP Warning:  Array to string conversion in C:\xampp\htdocs\DomoSchool\includes\functions.php on line 463
