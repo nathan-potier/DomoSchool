@@ -204,8 +204,8 @@ html.mode-dark .course-item .teacher {
     color: rgb(11, 87, 11); /* Couleur verte */
     background-color: rgba(144, 238, 144, 0.5); /* Fond vert clair avec transparence */
     margin-left: 10px;
-    padding: 2px 6px; /* Ajoute un peu d'espace autour du texte */
-    font-size: 1.1em; /* Légèrement plus grand */
+    padding: 1px 5px; /* Ajoute un peu d'espace autour du texte */
+    font-size: 1em; /* Légèrement plus grand */
     font-weight: bold; /* Texte en gras */
     display: inline-block;
     vertical-align: middle;
