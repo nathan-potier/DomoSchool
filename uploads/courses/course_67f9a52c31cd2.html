@@ -979,6 +979,82 @@
         .select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
         .select-value-color-pageGlass { background-color: rgba(255, 255, 255, 0.1); }
         .select-value-color-washGlass { background-color: rgba(255, 255, 255, 0.2); }
+
+
+        /* Ajuster la taille de la police et les marges pour les petits écrans */
+/* Assurez-vous que les conteneurs prennent toute la largeur disponible */
+.container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Style pour les blocs de code */
+.code-block pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: auto;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Assurez-vous que les tableaux soient aussi larges que l'écran */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Rendre les cellules du tableau plus adaptées */
+td, th {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Utiliser des media queries pour ajuster les styles sur mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 5px;
+    }
+
+    .code-block pre {
+        font-size: 12px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+
+/* Ajuster les blocs de code pour qu'ils soient plus lisibles */
+pre.code {
+    background: rgba(40, 40, 40, 1);
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Ajuster les tableaux pour qu'ils soient plus lisibles */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Ajuster les iframes pour qu'ils s'adaptent à la largeur de l'écran */
+iframe {
+    width: 100%;
+    height: auto;
+}
+
     </style>
 </head>
 <body>

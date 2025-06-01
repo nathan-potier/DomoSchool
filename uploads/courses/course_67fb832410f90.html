@@ -663,25 +663,34 @@ blockquote {
 .select-value-color-pageGlass { background-color: undefined; }
 .select-value-color-washGlass { background-color: undefined; }
 
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
+/* Code blocks responsive */
+pre, code {
+    white-space: pre;
+    overflow-x: auto;
+    word-break: normal;
+    max-width: 100%;
 }
 
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+/* Table responsive */
+table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
 }
 
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="8ce8b557-61a7-45ed-b081-3333cd47757e" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📘</span></div><h1 class="page-title">tableaux</h1><p class="page-description"></p></header><div class="page-body"><h3 id="5486a6a2-3068-41b7-ab32-265616d51bb0" class="">Introduction aux tableaux en Python :</h3><p id="92238399-3162-4be5-98f9-e0317b67b370" class="">Les tableaux, également appelés listes en Python, sont une structure de données permettant de stocker une collection ordonnée d&#x27;éléments. Les listes peuvent contenir des éléments de différents types, tels que des entiers, des flottants, des chaînes de caractères, voire même d&#x27;autres listes.</p><h3 id="2d8539e4-f827-4172-a078-c785040c905f" class="">Création d&#x27;une liste :</h3><p id="cffd4021-9c50-4124-881f-d9d250d7f7df" class="">En Python, une liste est définie en utilisant des crochets <code>[]</code>, et les éléments de la liste sont séparés par des virgules. Voici un exemple de création d&#x27;une liste :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="cf5ca451-ccc6-44e1-bff7-f65f3d7c234a" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">ma_liste = [1, 2, 3, 4, 5]
+</style>
+
+<!-- Thème VS Code dark -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-vsc-dark-plus.min.css" />
+
+<!-- PrismJS core + Python -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+
+
+</head><body><article id="8ce8b557-61a7-45ed-b081-3333cd47757e" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📘</span></div><h1 class="page-title">tableaux</h1><p class="page-description"></p></header><div class="page-body"><h3 id="5486a6a2-3068-41b7-ab32-265616d51bb0" class="">Introduction aux tableaux en Python :</h3><p id="92238399-3162-4be5-98f9-e0317b67b370" class="">Les tableaux, également appelés listes en Python, sont une structure de données permettant de stocker une collection ordonnée d&#x27;éléments. Les listes peuvent contenir des éléments de différents types, tels que des entiers, des flottants, des chaînes de caractères, voire même d&#x27;autres listes.</p><h3 id="2d8539e4-f827-4172-a078-c785040c905f" class="">Création d&#x27;une liste :</h3><p id="cffd4021-9c50-4124-881f-d9d250d7f7df" class="">En Python, une liste est définie en utilisant des crochets <code>[]</code>, et les éléments de la liste sont séparés par des virgules. Voici un exemple de création d&#x27;une liste :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="cf5ca451-ccc6-44e1-bff7-f65f3d7c234a" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">ma_liste = [1, 2, 3, 4, 5]
 </code></pre><h3 id="98120143-2181-4f46-bb93-6803ab7c9481" class="">Accès aux éléments d&#x27;une liste :</h3><p id="f51d9bc2-75f9-4e58-91db-2583e16bfbf3" class="">Les éléments d&#x27;une liste sont accessibles par leur indice, qui commence à 0 pour le premier élément. Vous pouvez accéder à un élément spécifique en utilisant son indice entre crochets. Voici comment accéder aux éléments d&#x27;une liste :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4a772faa-ad39-4424-bfd6-23161b7d4aad" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">ma_liste = [10, 20, 30, 40, 50]
 print(ma_liste[0])  # Affiche le premier élément de la liste (indice 0)
 print(ma_liste[2])  # Affiche le troisième élément de la liste (indice 2)
@@ -697,14 +706,18 @@ print(ma_liste)        # Affiche la liste : [1, 5, 2, 3, 4]
 ma_liste.remove(3)  # Supprime la valeur 3 de la liste
 del ma_liste[1]     # Supprime l&#x27;élément à l&#x27;indice 1 (2ème élément)
 print(ma_liste)     # Affiche la liste modifiée : [1, 4, 5]
-</code></pre><h3 id="7d4bb06b-e197-4870-b81f-2be87017f2d8" class="">Longueur d&#x27;une liste :</h3><p id="1fb24452-c10e-4560-8007-f9160cb433af" class="">La fonction <code>len()</code> permet de connaître la longueur d&#x27;une liste, c&#x27;est-à-dire le nombre d&#x27;éléments qu&#x27;elle contient. Voici un exemple :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4c0bc958-32fb-4596-a55f-f6102011c90c" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">ma_liste = [1, 2, 3, 4, 5]
+</code></pre><h3 id="7d4bb06b-e197-4870-b81f-2be87017f2d8" class="">Longueur d&#x27;une liste :</h3><p id="1fb24452-c10e-4560-8007-f9160cb433af" class="">La fonction <code>len()</code> permet de connaître la longueur d&#x27;une liste, c&#x27;est-à-dire le nombre d&#x27;éléments qu&#x27;elle contient. Voici un exemple :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4c0bc958-32fb-4596-a55f-f6102011c90c" class="code"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">ma_liste = [1, 2, 3, 4, 5]
 longueur = len(ma_liste)
 print(&quot;La longueur de la liste est :&quot;, longueur)  # Affiche : La longueur de la liste est : 5
-</code></pre><h3 id="3f05b521-740c-4e11-8e94-34839c25c160" class="">Parcours d&#x27;une liste avec une boucle <code>for</code> :</h3><p id="8b3c9c9a-e7c0-4114-a152-31c117783592" class="">Vous pouvez parcourir tous les éléments d&#x27;une liste en utilisant une boucle <code>for</code>. Voici un exemple :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4d9b4822-b584-4691-851f-0873fe097eb2" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">ma_liste = [10, 20, 30, 40, 50]
+</code></pre><h3 id="3f05b521-740c-4e11-8e94-34839c25c160" class="">Parcours d&#x27;une liste avec une boucle <code>for</code> :</h3><p id="8b3c9c9a-e7c0-4114-a152-31c117783592" class="">Vous pouvez parcourir tous les éléments d&#x27;une liste en utilisant une boucle <code>for</code>. Voici un exemple :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4d9b4822-b584-4691-851f-0873fe097eb2" class="code"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">ma_liste = [10, 20, 30, 40, 50]
 for element in ma_liste:
     print(element)
-</code></pre><h3 id="4cfb1f69-ae75-4467-b918-42f2a33745a9" class="">Slicing (extraction d&#x27;une sous-liste) :</h3><p id="ec85024c-086f-4997-b86e-57de7a7e009f" class="">Le slicing permet d&#x27;extraire une partie d&#x27;une liste en spécifiant une plage d&#x27;indices. Voici un exemple :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5c40afd1-a533-49e1-945f-a22b88cdb92c" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">ma_liste = [1, 2, 3, 4, 5]
+</code></pre><h3 id="4cfb1f69-ae75-4467-b918-42f2a33745a9" class="">Slicing (extraction d&#x27;une sous-liste) :</h3><p id="ec85024c-086f-4997-b86e-57de7a7e009f" class="">Le slicing permet d&#x27;extraire une partie d&#x27;une liste en spécifiant une plage d&#x27;indices. Voici un exemple :</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5c40afd1-a533-49e1-945f-a22b88cdb92c" class="code"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">ma_liste = [1, 2, 3, 4, 5]
 sous_liste = ma_liste[1:4]  # Extrait les éléments de l&#x27;indice 1 à l&#x27;indice 3 (4ème élément exclu)
 print(sous_liste)           # Affiche : [2, 3, 4]
 </code></pre><p id="f71b0e20-f457-467c-a00f-390623c86d4d" class="">Les listes en Python sont des structures de données polyvalentes et fondamentales. Elles sont largement utilisées dans le développement Python pour stocker et manipuler des collections d&#x27;éléments. Maîtriser les concepts de base des listes vous sera très utile dans votre apprentissage de Python.</p><p id="df17c187-564a-4136-a8a2-5d25c7345a48" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
+
+
+
+</body></html>

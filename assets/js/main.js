@@ -98,3 +98,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
+
+window.addEventListener('resize', function() {
+    if (window.innerWidth <= 768) {
+        // Appliquer des changements spécifiques pour les petits écrans
+        document.querySelectorAll('pre[class*="language-"]').forEach(function(block) {
+            block.style.fontSize = '12px';
+        });
+    } else {
+        document.querySelectorAll('pre[class*="language-"]').forEach(function(block) {
+            block.style.fontSize = '';
+        });
+    }
+});
