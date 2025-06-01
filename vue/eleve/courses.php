@@ -40,20 +40,30 @@ $isFirstCourse = true;
                         <?php foreach ($courses as $course): ?>
                             <a href="<?= BASE_URL . '/course/' . $course['id'] ?>">
                                 <div class="course-item">
-                                    <?= htmlspecialchars($course['title']) ?>
+                                    <h4>
+                                        <?= htmlspecialchars($course['title']) ?>
+                                        <?php if ($isLoggedIn && hasUserReadCourse($userSessionData['userId'], $course['id'])): ?>
+                                            <span class="chapter-read">✓ Lu</span>
+                                        <?php endif; ?>
+                                    </h4>
+
+                                
                                     <p class="description">📖 <?= htmlspecialchars($course['description']) ?></p>
                                     <p class="teacher">👨‍🏫 <?= htmlspecialchars($course['teacher_first_name'] . ' ' . $course['teacher_last_name']) ?></p>
 
                                     <?php if (!$isLoggedIn && !$isFirstCourse): ?>
                                         <p class="warning">Veuillez vous connecter pour accéder à ce cours.</p>
                                     <?php endif; ?>
+                                    
                                 </div>
+                                
                             </a>
+                            
                             <?php $isFirstCourse = false; ?>
                         <?php endforeach; ?>
-
                     </div>
                 </div>
+
             <?php endforeach; ?>
         </div>
 
