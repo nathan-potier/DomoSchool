@@ -64,7 +64,7 @@ html.mode-dark .sidebar li {
 }
 
 .chapter-card.open .courses-list {
-  max-height: 1000px;
+  max-height: none;
   opacity: 1;
   margin-top: 15px;
 }
